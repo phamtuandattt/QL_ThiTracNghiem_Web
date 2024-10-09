@@ -1,0 +1,14 @@
+﻿global using QL_ThiTracNghiem_WebAPI.DAL.Model.GiangVien;
+global using QL_ThiTracNghiem_WebAPI.DAL.Model.BaiThi;
+global using QL_ThiTracNghiem_WebAPI.DAL.Model.CaThi;
+global using QL_ThiTracNghiem_WebAPI.DAL.Model.CauHoi;
+global using QL_ThiTracNghiem_WebAPI.DAL.Model.DeThi;
+global using QL_ThiTracNghiem_WebAPI.DAL.Model.HocPhan;
+global using QL_ThiTracNghiem_WebAPI.DAL.Model.Khoa;
+global using QL_ThiTracNghiem_WebAPI.DAL.Model.NganHangCauHoi;
+global using QL_ThiTracNghiem_WebAPI.DAL.Model;
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
