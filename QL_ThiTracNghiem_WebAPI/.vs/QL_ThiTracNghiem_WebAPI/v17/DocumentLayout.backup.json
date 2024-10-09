@@ -3,80 +3,16 @@
   "WorkspaceRootPath": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Models\\QlHethongthitracnghiemContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:QL_ThiTracNghiem_WebAPI.DAL\\Models\\QlHethongthitracnghiemContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{41F1735B-DFFA-4E54-A996-071585502FD9}|QL_ThiTracNghiem_WebApi.BLL\\QL_ThiTracNghiem_WebApi.BLL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.bll\\ql_thitracnghiem_webapi.bll.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{41F1735B-DFFA-4E54-A996-071585502FD9}|QL_ThiTracNghiem_WebApi.BLL\\QL_ThiTracNghiem_WebApi.BLL.csproj|solutionrelative:ql_thitracnghiem_webapi.bll\\ql_thitracnghiem_webapi.bll.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\giangvien\\giangvienmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\giangvien\\giangvienmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\hocphan\\ct_hocphanmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\hocphan\\ct_hocphanmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\nganhangcauhoi\\ct_nganhangcauhoimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\nganhangcauhoi\\ct_nganhangcauhoimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\sinhvienmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\sinhvienmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\khoa\\ct_giangdaymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\khoa\\ct_giangdaymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\nganhangcauhoi\\nganhangcauhoi_daduyetmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\nganhangcauhoi\\nganhangcauhoi_daduyetmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\cathi\\ct_cathimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\cathi\\ct_cathimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\baithi\\ct_baithimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\baithi\\ct_baithimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\cathi\\cathimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\cathi\\cathimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\baithi\\baithimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\baithi\\baithimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\dethi\\ct_dethimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\dethi\\ct_dethimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\dethi\\dethimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\dethi\\dethimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\cauhoi\\cauhoimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\cauhoi\\cauhoimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\nganhangcauhoi\\nganhangcauhoimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\nganhangcauhoi\\nganhangcauhoimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\giangvien\\chucvumodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\giangvien\\chucvumodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\hocphan\\hocphanmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\hocphan\\hocphanmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\khoa\\lophocmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\khoa\\lophocmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.dal\\model\\khoa\\khoamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED50B2FE-CF0C-440A-B6A6-C7BA0291DD36}|QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj|solutionrelative:ql_thitracnghiem_webapi.dal\\model\\khoa\\khoamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41F1735B-DFFA-4E54-A996-071585502FD9}|QL_ThiTracNghiem_WebApi.BLL\\QL_ThiTracNghiem_WebApi.BLL.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi.bll\\services\\giangvienservices\\giangvienservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41F1735B-DFFA-4E54-A996-071585502FD9}|QL_ThiTracNghiem_WebApi.BLL\\QL_ThiTracNghiem_WebApi.BLL.csproj|solutionrelative:ql_thitracnghiem_webapi.bll\\services\\giangvienservices\\giangvienservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{202997A0-F585-4F16-969F-C670D45F3D7D}|QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.csproj|d:\\web\\ql_thitracnghiem_webapi\\ql_thitracnghiem_webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -99,6 +35,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "QlHethongthitracnghiemContext.cs",
+              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Models\\QlHethongthitracnghiemContext.cs",
+              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Models\\QlHethongthitracnghiemContext.cs",
+              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Models\\QlHethongthitracnghiemContext.cs",
+              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Models\\QlHethongthitracnghiemContext.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAiwC0AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T09:17:51.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GiangVienServices.cs",
+              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebApi.BLL\\Services\\GiangVienServices\\GiangVienServices.cs",
+              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebApi.BLL\\Services\\GiangVienServices\\GiangVienServices.cs",
+              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebApi.BLL\\Services\\GiangVienServices\\GiangVienServices.cs",
+              "RelativeToolTip": "QL_ThiTracNghiem_WebApi.BLL\\Services\\GiangVienServices\\GiangVienServices.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T07:06:11.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "QL_ThiTracNghiem_WebApi.BLL",
               "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebApi.BLL\\QL_ThiTracNghiem_WebApi.BLL.csproj",
               "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebApi.BLL\\QL_ThiTracNghiem_WebApi.BLL.csproj",
@@ -111,224 +73,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "NganHangCauHoi_DaDuyetModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\NganHangCauHoi_DaDuyetModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\NganHangCauHoi_DaDuyetModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\NganHangCauHoi_DaDuyetModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\NganHangCauHoi_DaDuyetModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T01:57:25.338Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CT_NganHangCauHoiModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\CT_NganHangCauHoiModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\CT_NganHangCauHoiModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\CT_NganHangCauHoiModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\CT_NganHangCauHoiModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T01:44:42.699Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CT_HocPhanModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\HocPhan\\CT_HocPhanModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\HocPhan\\CT_HocPhanModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\HocPhan\\CT_HocPhanModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\HocPhan\\CT_HocPhanModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T00:47:05.357Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GiangVienModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\GiangVien\\GiangVienModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\GiangVien\\GiangVienModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\GiangVien\\GiangVienModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\GiangVien\\GiangVienModel.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAwwBQAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T00:51:57.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CT_GiangDayModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\CT_GiangDayModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\CT_GiangDayModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\CT_GiangDayModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\CT_GiangDayModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T01:41:54.971Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SinhVienModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\SinhVienModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\SinhVienModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\SinhVienModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\SinhVienModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T00:44:43.795Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CT_CaThiModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\CaThi\\CT_CaThiModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\CaThi\\CT_CaThiModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\CaThi\\CT_CaThiModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\CaThi\\CT_CaThiModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T02:07:16.684Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CT_BaiThiModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\BaiThi\\CT_BaiThiModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\BaiThi\\CT_BaiThiModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\BaiThi\\CT_BaiThiModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\BaiThi\\CT_BaiThiModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T02:19:12.608Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CaThiModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\CaThi\\CaThiModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\CaThi\\CaThiModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\CaThi\\CaThiModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\CaThi\\CaThiModel.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T01:58:30.901Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BaiThiModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\BaiThi\\BaiThiModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\BaiThi\\BaiThiModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\BaiThi\\BaiThiModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\BaiThi\\BaiThiModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T02:09:08.138Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CT_DeThiModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\DeThi\\CT_DeThiModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\DeThi\\CT_DeThiModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\DeThi\\CT_DeThiModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\DeThi\\CT_DeThiModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T01:56:03.699Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "DeThiModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\DeThi\\DeThiModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\DeThi\\DeThiModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\DeThi\\DeThiModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\DeThi\\DeThiModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T01:52:50.775Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "CauHoiModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\CauHoi\\CauHoiModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\CauHoi\\CauHoiModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\CauHoi\\CauHoiModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\CauHoi\\CauHoiModel.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T01:45:40.361Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "NganHangCauHoiModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\NganHangCauHoiModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\NganHangCauHoiModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\NganHangCauHoiModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\NganHangCauHoi\\NganHangCauHoiModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T01:43:22.97Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ChucVuModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\GiangVien\\ChucVuModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\GiangVien\\ChucVuModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\GiangVien\\ChucVuModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\GiangVien\\ChucVuModel.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T00:49:04.918Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "HocPhanModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\HocPhan\\HocPhanModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\HocPhan\\HocPhanModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\HocPhan\\HocPhanModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\HocPhan\\HocPhanModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T00:38:34.123Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "LopHocModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\LopHocModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\LopHocModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\LopHocModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\LopHocModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T00:36:54.608Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "KhoaModel.cs",
-              "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\KhoaModel.cs",
-              "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\KhoaModel.cs",
-              "ToolTip": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\KhoaModel.cs",
-              "RelativeToolTip": "QL_ThiTracNghiem_WebAPI.DAL\\Model\\Khoa\\KhoaModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T00:06:32.396Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI\\appsettings.json",
@@ -336,11 +81,12 @@
               "RelativeToolTip": "QL_ThiTracNghiem_WebAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-07T09:15:17.822Z"
+              "WhenOpened": "2024-10-07T09:15:17.822Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "QL_ThiTracNghiem_WebAPI\\Program.cs",
@@ -348,7 +94,8 @@
               "RelativeToolTip": "QL_ThiTracNghiem_WebAPI\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T03:06:26.048Z"
+              "WhenOpened": "2024-10-07T03:06:26.048Z",
+              "EditorCaption": ""
             }
           ]
         }

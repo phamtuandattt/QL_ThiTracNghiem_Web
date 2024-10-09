@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QL_ThiTracNghiem_WebAPI.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8073811096922ad52e560d8da6e4f7fc766ddf0e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e432d3cc74012dc2d4c67ce065a678a0464c3af5")]
 [assembly: System.Reflection.AssemblyProductAttribute("QL_ThiTracNghiem_WebAPI.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QL_ThiTracNghiem_WebAPI.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
