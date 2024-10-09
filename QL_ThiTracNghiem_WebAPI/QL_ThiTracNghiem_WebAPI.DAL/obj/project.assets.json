@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\QL_ThiTracNghiem_Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj",
+      "projectUniqueName": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj",
       "projectName": "QL_ThiTracNghiem_WebAPI.DAL",
-      "projectPath": "D:\\QL_ThiTracNghiem_Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj",
+      "projectPath": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\QL_ThiTracNghiem_WebAPI.DAL.csproj",
       "packagesPath": "C:\\Users\\TUAN DAT\\.nuget\\packages\\",
-      "outputPath": "D:\\QL_ThiTracNghiem_Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\obj\\",
+      "outputPath": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TUAN DAT\\AppData\\Roaming\\NuGet\\NuGet.Config",

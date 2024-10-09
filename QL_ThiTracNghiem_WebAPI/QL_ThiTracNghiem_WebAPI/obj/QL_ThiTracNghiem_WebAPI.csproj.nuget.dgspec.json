@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\QL_ThiTracNghiem_Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.csproj": {}
+    "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\QL_ThiTracNghiem_Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.csproj": {
+    "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\QL_ThiTracNghiem_Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.csproj",
+        "projectUniqueName": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.csproj",
         "projectName": "QL_ThiTracNghiem_WebAPI",
-        "projectPath": "D:\\QL_ThiTracNghiem_Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.csproj",
+        "projectPath": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI.csproj",
         "packagesPath": "C:\\Users\\TUAN DAT\\.nuget\\packages\\",
-        "outputPath": "D:\\QL_ThiTracNghiem_Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\obj\\",
+        "outputPath": "D:\\Web\\QL_ThiTracNghiem_WebAPI\\QL_ThiTracNghiem_WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TUAN DAT\\AppData\\Roaming\\NuGet\\NuGet.Config",
