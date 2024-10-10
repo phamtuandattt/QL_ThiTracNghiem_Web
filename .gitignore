@@ -243,3 +243,17 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# Ignore .bin files
+*.bin
+
+# Ignore .v2 files
+*.v2
+
+# Ignore .backup.json files
+*.backup.json
+
+# Optionally, ignore all backup or temp files
+*.bak
+*.tmp
+*.backup
