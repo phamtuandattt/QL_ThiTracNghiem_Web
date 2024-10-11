@@ -1,27 +1,28 @@
-﻿
+﻿using Microsoft.AspNetCore.Mvc;
+using QL_ThiTracNghiem_WebApi.BLL.IServices.IKhoaServices;
+using QL_ThiTracNghiem_WebApi.BLL.Services.KhoaServices;
+using QL_ThiTracNghiem_WebAPI.DAL.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-using QL_ThiTracNghiem_WebAPI.DAL.Models;
 
 namespace QL_ThiTracNghiem_WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChucVuController : ControllerBase
+    public class KhoaController : ControllerBase
     {
-        private readonly IChucVuServices _chucVuServices;
+        private readonly IKhoaServices _khoaServices;
 
-        public ChucVuController(IChucVuServices chucVuServices)
+        public KhoaController(IKhoaServices khoaServices)
         {
-            _chucVuServices = chucVuServices;
+            _khoaServices = khoaServices;
         }
 
-        // GET: api/<ChucVuController>
+        // GET: api/<KhoaController>
         [HttpGet]
-        public ActionResult<IEnumerable<Chucvu>> Get()
+        public ActionResult<IEnumerable<Khoa>> Get()
         {
-            var lst = _chucVuServices.chucvus();
+            var lst = _khoaServices.GetAll();
             if (!lst.Any())
             {
                 return NotFound(new ApiResponse
@@ -39,11 +40,11 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             });
         }
 
-        // GET api/<ChucVuController>/5
-        [HttpGet("{id}")]
-        public ActionResult<Chucvu> Get(int id)
+        // GET api/<KhoaController>/5
+        [HttpGet("{makhoa}")]
+        public ActionResult Get(string makhoa)
         {
-            if (!_chucVuServices.ItemExists(id))
+            if (!_khoaServices.ItemExists(makhoa))
             {
                 var errorrResponse = new ApiResponse
                 {
@@ -58,57 +59,60 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             {
                 status = HttpStatusCode.OK + "",
                 message = "success",
-                data = JsonConvert.SerializeObject(_chucVuServices.chucvu(id))
+                data = JsonConvert.SerializeObject(_khoaServices.Get(makhoa))
             });
         }
 
-        // POST api/<ChucVuController>
+        // POST api/<KhoaController>
         [HttpPost]
-        public ActionResult<Chucvu> Post([FromBody] ChucVuRequestDto chucVu)
+        public ActionResult Post([FromBody] KhoaRequestDto khoa)
         {
-            if (chucVu.TenChucVu == null || chucVu.TenChucVu == "")
+            if (khoa.TenKhoa == null || khoa.TenKhoa == "")
             {
                 return BadRequest(new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "Invalid chuvu data",
+                    message = "Invalid TenKhoa data",
                     data = null
                 });
             }
-            var cV = new Chucvu() { Tenchucvu = chucVu.TenChucVu };
-            _chucVuServices.insert(cV);
+            _khoaServices.Insert(new Khoa { Tenkhoa = khoa.TenKhoa });
             try
             {
-                _chucVuServices.savechange();
+                _khoaServices.Savechange();
             }
             catch (DbUpdateException)
             {
 
             }
-
-            return NoContent();
+            return Ok(new ApiResponse
+            {
+                status = HttpStatusCode.NoContent + "",
+                message = "success",
+                data = ""
+            });
         }
 
-        // PUT api/<ChucVuController>/5
-        [HttpPut("{id}")]
-        public ActionResult<Chucvu> Put(int id, [FromBody] ChucVuRequestDto chucvu)
+        // PUT api/<KhoaController>/5
+        [HttpPut("{makhoa}")]
+        public ActionResult Put(string makhoa, [FromBody] KhoaRequestDto khoa)
         {
-            if (!_chucVuServices.ItemExists(id) || string.IsNullOrEmpty(chucvu.TenChucVu))
+            if (!_khoaServices.ItemExists(makhoa) || string.IsNullOrEmpty(khoa.TenKhoa))
             {
                 var errorrResponse = new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "ChucVu not found",
+                    message = "Khoa not found",
                     data = ""
                 };
                 return NotFound(errorrResponse);
             }
-            var item = _chucVuServices.chucvu(id);
-            item.Tenchucvu = chucvu.TenChucVu;
-            _chucVuServices.update(item);
+            var item = _khoaServices.Get(makhoa);
+            item.Tenkhoa = khoa.TenKhoa;
+            _khoaServices.Update(item);
             try
             {
-                _chucVuServices.savechange();
+                _khoaServices.Savechange();
             }
             catch (DbUpdateException)
             {
@@ -122,30 +126,34 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             });
         }
 
-        // DELETE api/<ChucVuController>/5
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        // DELETE api/<KhoaController>/5
+        [HttpDelete("{makhoa}")]
+        public ActionResult Delete(string makhoa)
         {
-            //var item = _chucVuServices.chucvu(id);
-            if (!_chucVuServices.ItemExists(id))
+            if (!_khoaServices.ItemExists(makhoa))
             {
                 return NotFound(new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "ChucVu not found",
+                    message = "Khoa not found",
                     data = ""
                 });
             }
-            _chucVuServices.delete(id);
+            _khoaServices.Delete(makhoa);
             try
             {
-                _chucVuServices.savechange();
+                _khoaServices.Savechange();
             }
             catch (DbUpdateException)
             {
 
             }
-            return NoContent();
+            return Ok(new ApiResponse
+            {
+                status = HttpStatusCode.NoContent + "",
+                message = "success",
+                data = ""
+            });
         }
     }
 }

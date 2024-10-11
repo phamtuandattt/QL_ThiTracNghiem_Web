@@ -9,11 +9,11 @@ public partial class Khoa
 
     public string Tenkhoa { get; set; } = null!;
 
-    public int? Soluonggiangvien { get; set; }
+    public int? Soluonggiangvien { get; set; } = 0;
 
-    public int? Soluongmonhoc { get; set; }
+    public int? Soluongmonhoc { get; set; } = 0;
 
-    public int? Songanhdaotao { get; set; }
+    public int? Songanhdaotao { get; set; } = 0;
 
     public virtual ICollection<Giangvien> Giangviens { get; set; } = new List<Giangvien>();
 

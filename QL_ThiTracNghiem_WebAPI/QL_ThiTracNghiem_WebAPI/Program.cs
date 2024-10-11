@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.IChucVuServices;
+using QL_ThiTracNghiem_WebApi.BLL.IServices.IKhoaServices;
 using QL_ThiTracNghiem_WebApi.BLL.Services.ChucVuServices;
+using QL_ThiTracNghiem_WebApi.BLL.Services.KhoaServices;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,7 @@ builder.Services.AddDbContext<QlHethongthitracnghiemContext>(options =>
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IChucVuServices, ChucVuServices>();
+builder.Services.AddScoped<IKhoaServices, KhoaServices>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
