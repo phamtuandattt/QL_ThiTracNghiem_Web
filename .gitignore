@@ -7,6 +7,17 @@
 *.userosscache
 *.sln.docstates
 
+# Ignore VS and build files
+*.suo
+*.user
+*.v2
+*.json
+bin/
+obj/
+.vs/
+*.backup.json
+*.nuget
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
