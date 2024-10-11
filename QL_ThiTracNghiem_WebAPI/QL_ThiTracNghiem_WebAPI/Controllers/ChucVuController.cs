@@ -66,7 +66,7 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
         [HttpPost]
         public ActionResult<Chucvu> Post([FromBody] ChucVuRequestDto chucVu)
         {
-            if (chucVu == null)
+            if (chucVu.TenChucVu == null)
             {
                 return BadRequest(new ApiResponse
                 {
