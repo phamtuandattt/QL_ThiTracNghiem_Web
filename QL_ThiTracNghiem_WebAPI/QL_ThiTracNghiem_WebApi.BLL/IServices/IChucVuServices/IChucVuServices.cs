@@ -14,5 +14,6 @@ namespace QL_ThiTracNghiem_WebApi.BLL.IServices.IChucVuServices
         void delete(int mavc);
         void update(Chucvu chucvu);
         void savechange();
+        bool ItemExists(int mavc);
     }
 }

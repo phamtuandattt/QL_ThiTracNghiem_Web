@@ -38,12 +38,17 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.ChucVuServices
 
         public void savechange()
         {
-            _context.SaveChanges();
+             _context.SaveChanges();
         }
 
         public void update(Chucvu chucvu)
         {
             _context.Entry(chucvu).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+        }
+
+        public bool ItemExists(int mavc)
+        {
+            return (_context.Chucvus?.Any(e => e.Machucvu == mavc)).GetValueOrDefault();
         }
     }
 }
