@@ -124,5 +124,26 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             });
         }
 
+        [HttpDelete("{malop}")]
+        public async Task<IActionResult> DeleteItem(string malop)
+        {
+            if (!await _services.ItemExists(malop))
+            {
+                return BadRequest(new ApiResponse()
+                {
+                    status = HttpStatusCode.NotFound + "",
+                    message = ApiResponseMessage.NOT_FOUND,
+                    data = ""
+
+                });
+            }
+            await _services.DeleteAsync(malop);
+            return Ok(new ApiResponse
+            {
+                status = HttpStatusCode.OK + "",
+                message = ApiResponseMessage.SUCCESS,
+                data = ""
+            });
+        }
     }
 }

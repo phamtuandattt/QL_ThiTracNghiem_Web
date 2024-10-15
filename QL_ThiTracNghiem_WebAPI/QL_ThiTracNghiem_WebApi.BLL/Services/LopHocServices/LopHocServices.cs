@@ -25,9 +25,9 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.LopHocServices
             await _repository.AddAsync(item);
         }
 
-        public Task DeleteAsync(string malop)
+        public async Task DeleteAsync(string malop)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(malop);
         }
 
         public async Task<List<LopHocDto>> GetAllAsync()
