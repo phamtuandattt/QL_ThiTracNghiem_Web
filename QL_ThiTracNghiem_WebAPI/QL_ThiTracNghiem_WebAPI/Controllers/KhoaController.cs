@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.IKhoaServices;
 using QL_ThiTracNghiem_WebApi.BLL.Services.KhoaServices;
+using QL_ThiTracNghiem_WebAPI.Common;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,44 +15,46 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
     public class KhoaController : ControllerBase
     {
         private readonly IKhoaServices _khoaServices;
+        private readonly IMapper mapper;
 
-        public KhoaController(IKhoaServices khoaServices)
+        public KhoaController(IKhoaServices khoaServices, IMapper mapper)
         {
             _khoaServices = khoaServices;
+            this.mapper = mapper;
         }
 
         // GET: api/<KhoaController>
         [HttpGet]
-        public ActionResult<IEnumerable<Khoa>> Get()
+        public async Task<IActionResult> Get()
         {
-            var lst = _khoaServices.GetAll();
+            var lst = await _khoaServices.GetAllAsync();
             if (!lst.Any())
             {
                 return NotFound(new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "no available !",
+                    message = ApiResponseMessage.NOT_FOUND,
                     data = ""
                 });
             }
             return Ok(new ApiResponse
             {
                 status = HttpStatusCode.OK + "",
-                message = "success",
+                message = ApiResponseMessage.SUCCESS,
                 data = JsonConvert.SerializeObject(lst)
             });
         }
 
         // GET api/<KhoaController>/5
         [HttpGet("{makhoa}")]
-        public ActionResult Get(string makhoa)
+        public async Task<IActionResult> Get(string makhoa)
         {
-            if (!_khoaServices.ItemExists(makhoa))
+            if (!await _khoaServices.ItemExists(makhoa))
             {
                 var errorrResponse = new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "not found",
+                    message = ApiResponseMessage.NOT_FOUND,
                     data = ""
                 };
                 return BadRequest(errorrResponse);
@@ -58,28 +63,29 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             return Ok(new ApiResponse
             {
                 status = HttpStatusCode.OK + "",
-                message = "success",
-                data = JsonConvert.SerializeObject(_khoaServices.Get(makhoa))
+                message = ApiResponseMessage.SUCCESS,
+                data = JsonConvert.SerializeObject(await _khoaServices.GetByIdAsync(makhoa))
             });
         }
 
         // POST api/<KhoaController>
         [HttpPost]
-        public ActionResult Post([FromBody] KhoaRequestDto khoa)
+        public async Task<IActionResult> Post([FromBody] KhoaRequestDto khoa)
         {
             if (khoa.TenKhoa == null || khoa.TenKhoa == "")
             {
                 return BadRequest(new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "Invalid TenKhoa data",
+                    message = ApiResponseMessage.INVALID_OBJECT,
                     data = null
                 });
             }
-            _khoaServices.Insert(new Khoa { Tenkhoa = khoa.TenKhoa });
+            
             try
             {
-                _khoaServices.Savechange();
+                var item = mapper.Map<KhoaDto>(khoa);
+                await _khoaServices.AddAsync(item);
             }
             catch (DbUpdateException)
             {
@@ -88,31 +94,30 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             return Ok(new ApiResponse
             {
                 status = HttpStatusCode.NoContent + "",
-                message = "success",
+                message = ApiResponseMessage.SUCCESS,
                 data = ""
             });
         }
 
         // PUT api/<KhoaController>/5
         [HttpPut("{makhoa}")]
-        public ActionResult Put(string makhoa, [FromBody] KhoaRequestDto khoa)
+        public async Task<IActionResult> Put(string makhoa, [FromBody] KhoaRequestDto khoa)
         {
-            if (!_khoaServices.ItemExists(makhoa) || string.IsNullOrEmpty(khoa.TenKhoa))
+            if (!await _khoaServices.ItemExists(makhoa) || string.IsNullOrEmpty(khoa.TenKhoa))
             {
                 var errorrResponse = new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "Khoa not found",
+                    message = ApiResponseMessage.NOT_FOUND,
                     data = ""
                 };
                 return NotFound(errorrResponse);
             }
-            var item = _khoaServices.Get(makhoa);
-            item.Tenkhoa = khoa.TenKhoa;
-            _khoaServices.Update(item);
+
             try
             {
-                _khoaServices.Savechange();
+                var itemDto = mapper.Map<KhoaDto>(khoa);
+                await _khoaServices.UpdateAsync(makhoa, itemDto);
             }
             catch (DbUpdateException)
             {
@@ -122,27 +127,27 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             {
                 status = HttpStatusCode.OK + "",
                 message = "success",
-                data = JsonConvert.SerializeObject(item)
+                data = ""
             });
         }
 
         // DELETE api/<KhoaController>/5
         [HttpDelete("{makhoa}")]
-        public ActionResult Delete(string makhoa)
+        public async Task<IActionResult> Delete(string makhoa)
         {
-            if (!_khoaServices.ItemExists(makhoa))
+            if (!await _khoaServices.ItemExists(makhoa))
             {
                 return NotFound(new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "Khoa not found",
+                    message = ApiResponseMessage.NOT_FOUND,
                     data = ""
                 });
             }
-            _khoaServices.Delete(makhoa);
+            
             try
             {
-                _khoaServices.Savechange();
+                await _khoaServices.DeleteAsync(makhoa);
             }
             catch (DbUpdateException)
             {

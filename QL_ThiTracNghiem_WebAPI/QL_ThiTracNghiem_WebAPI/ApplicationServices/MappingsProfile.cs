@@ -35,13 +35,16 @@ namespace QL_ThiTracNghiem_WebApi.ApplicationServices
         {
             CreateMap<Lophoc, LopHocRequestDto>();
             CreateMap<LopHocRequestDto, Lophoc>();
-
             CreateMap<Lophoc, LopHocDto>().ReverseMap()
                 .ForMember(dest => dest.Malop, opt => opt.Ignore())
                 .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
-
             CreateMap<LopHocRequestDto, LopHocDto>().ReverseMap();
 
+            CreateMap<Khoa, KhoaRequestDto>().ReverseMap();
+            CreateMap<Khoa, KhoaDto>().ReverseMap()
+                .ForMember(dest => dest.Makhoa, opt => opt.Ignore())
+                .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
+            CreateMap<KhoaRequestDto, KhoaDto>().ReverseMap();
         }
     }
 }

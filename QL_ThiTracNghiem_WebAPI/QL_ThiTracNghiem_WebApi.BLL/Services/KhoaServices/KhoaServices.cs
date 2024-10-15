@@ -1,4 +1,7 @@
-﻿using QL_ThiTracNghiem_WebApi.BLL.IServices.IKhoaServices;
+﻿using AutoMapper;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+using QL_ThiTracNghiem_WebApi.BLL.IServices.IKhoaServices;
+using QL_ThiTracNghiem_WebAPI.DAL.IRepository.IKhoaRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -10,46 +13,58 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.KhoaServices
 {
     public class KhoaServices : IKhoaServices
     {
-        private readonly QlHethongthitracnghiemContext _context;
+        private readonly IKhoaRepository _repository;
+        private readonly IMapper _mappers;
 
-        public KhoaServices(QlHethongthitracnghiemContext context)
+        public KhoaServices(IKhoaRepository repository, IMapper mapper)
         {
-            _context = context;
+            _repository = repository;
+            _mappers = mapper;
         }
 
-        public void Delete(string makhoa)
+        public async Task AddAsync(KhoaDto khoa)
         {
-            _context.Remove(Get(makhoa));
+            var item = _mappers.Map<Khoa>(khoa);
+            await _repository.AddAsync(item);
         }
 
-        public Khoa Get(string makhoa)
+        public async Task DeleteAsync(string makhoa)
         {
-            return _context.Khoas.Find(makhoa) ?? new Khoa();
+            await _repository.DeleteAsync(makhoa);
         }
 
-        public IEnumerable<Khoa> GetAll()
+        public async Task<List<KhoaDto>> GetAllAsync()
         {
-            return _context.Khoas.ToList() ?? new List<Khoa>();
+            var items = await _repository.GetAllAsync();
+            return _mappers.Map<List<KhoaDto>>(items);
         }
 
-        public void Insert(Khoa khoa)
+        public async Task<KhoaDto> GetByIdAsync(string makhoa)
         {
-            _context.Khoas.Add(khoa);
+            var item = await _repository.GetByIdAsync(makhoa);
+            if (item == null)
+            {
+                return null;
+            }
+            return _mappers.Map<KhoaDto>(item);
         }
 
-        public bool ItemExists(string makhoa)
+        public async Task<bool> ItemExists(string makhoa)
         {
-            return (_context.Khoas?.Any(e => e.Makhoa == makhoa)).GetValueOrDefault();
+            return await _repository.ExistsAsync(makhoa);
         }
 
-        public void Savechange()
+        public async Task UpdateAsync(string makhoa, KhoaDto khoa)
         {
-            _context.SaveChanges();
-        }
+            var existingItem = await _repository.GetByIdAsync(makhoa);
+            if (existingItem == null)
+            {
+                throw new KeyNotFoundException("Item not found");
+            }
 
-        public void Update(Khoa khoa)
-        {
-            _context.Entry(khoa).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var a = _mappers.Map(khoa, existingItem);
+
+            await _repository.UpdateAsync(existingItem);
         }
     }
 }
