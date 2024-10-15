@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,11 @@ namespace QL_ThiTracNghiem_WebApi.BLL.IServices.IChucVuServices
 {
     public interface IChucVuServices
     {
-        IEnumerable<Chucvu> chucvus();
-        Chucvu chucvu(int macv);
-        void insert(Chucvu chucvu);
-        void delete(int mavc);
-        void update(Chucvu chucvu);
-        void savechange();
-        bool ItemExists(int mavc);
+        Task<ChucVuDto> GetByIdAsync(int macv);
+        Task<List<ChucVuDto>> GetAllAsync();
+        Task AddAsync(ChucVuDto chucVu);
+        Task UpdateAsync(int macv, ChucVuDto chucVu);
+        Task DeleteAsync(int macv);
+        Task<bool> ItemExists(int macv);
     }
 }

@@ -1,4 +1,8 @@
-﻿using QL_ThiTracNghiem_WebApi.BLL.IServices.IChucVuServices;
+﻿using AutoMapper;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+using QL_ThiTracNghiem_WebApi.BLL.IServices.IChucVuServices;
+using QL_ThiTracNghiem_WebAPI.DAL.IRepository.IChucVuRepository;
+using QL_ThiTracNghiem_WebAPI.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,46 +13,58 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.ChucVuServices
 {
     public class ChucVuServices : IChucVuServices
     {
-        private readonly QlHethongthitracnghiemContext _context;
+        private readonly IChucVuRepository _repository;
+        private readonly IMapper _mappers;
 
-        public ChucVuServices(QlHethongthitracnghiemContext context)
+        public ChucVuServices(IChucVuRepository chucVuRepository, IMapper mapper)
         {
-            _context = context;
+            _repository = chucVuRepository;
+            _mappers = mapper;
         }
 
-        public Chucvu chucvu(int macv)
+        public async Task AddAsync(ChucVuDto chucVu)
         {
-            return _context.Chucvus.Find(macv) ?? new Chucvu();    
+            var item = _mappers.Map<Chucvu>(chucVu);
+            await _repository.AddAsync(item);
         }
 
-        public IEnumerable<Chucvu> chucvus()
+        public async Task DeleteAsync(int macv)
         {
-            return _context.Chucvus.ToList() ?? new List<Chucvu>();
+            await _repository.DeleteAsync(macv);
         }
 
-        public void delete(int mavc)
+        public async Task<List<ChucVuDto>> GetAllAsync()
         {
-            _context.Chucvus.Remove(chucvu(mavc));
+            var items = await _repository.GetAllAsync();
+            return _mappers.Map<List<ChucVuDto>>(items);
         }
 
-        public void insert(Chucvu chucvu)
+        public async Task<ChucVuDto> GetByIdAsync(int macv)
         {
-            _context.Chucvus.Add(chucvu);
+            var item = await _repository.GetByIdAsync(macv);
+            if (item == null)
+            {
+                return null;
+            }
+            return _mappers.Map<ChucVuDto>(item);
         }
 
-        public void savechange()
+        public async Task<bool> ItemExists(int macv)
         {
-             _context.SaveChanges();
+            return await _repository.ExistsAsync(macv);
         }
 
-        public void update(Chucvu chucvu)
+        public async Task UpdateAsync(int macv, ChucVuDto chucVu)
         {
-            _context.Entry(chucvu).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-        }
+            var existingItem = await _repository.GetByIdAsync(macv);
+            if (existingItem == null)
+            {
+                throw new KeyNotFoundException("Item not found");
+            }
 
-        public bool ItemExists(int mavc)
-        {
-            return (_context.Chucvus?.Any(e => e.Machucvu == mavc)).GetValueOrDefault();
+            var a = _mappers.Map(chucVu, existingItem);
+
+            await _repository.UpdateAsync(existingItem);
         }
     }
 }

@@ -156,7 +156,7 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             return Ok(new ApiResponse
             {
                 status = HttpStatusCode.NoContent + "",
-                message = "success",
+                message = ApiResponseMessage.SUCCESS,
                 data = ""
             });
         }

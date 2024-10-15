@@ -45,6 +45,14 @@ namespace QL_ThiTracNghiem_WebApi.ApplicationServices
                 .ForMember(dest => dest.Makhoa, opt => opt.Ignore())
                 .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
             CreateMap<KhoaRequestDto, KhoaDto>().ReverseMap();
+
+
+            CreateMap<Chucvu, ChucVuRequestDto>().ReverseMap();
+            CreateMap<Chucvu, ChucVuDto>().ReverseMap()
+                .ForMember(dest => dest.Machucvu, opt => opt.Ignore())
+                .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
+            CreateMap<ChucVuDto, ChucVuRequestDto>().ReverseMap();
+
         }
     }
 }

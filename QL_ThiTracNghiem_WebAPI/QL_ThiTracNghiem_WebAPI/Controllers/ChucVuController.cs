@@ -2,6 +2,9 @@
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
+using AutoMapper;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+using QL_ThiTracNghiem_WebAPI.Common;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
 
 namespace QL_ThiTracNghiem_WebAPI.Controllers
@@ -11,44 +14,46 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
     public class ChucVuController : ControllerBase
     {
         private readonly IChucVuServices _chucVuServices;
+        private readonly IMapper mapper;
 
-        public ChucVuController(IChucVuServices chucVuServices)
+        public ChucVuController(IChucVuServices chucVuServices, IMapper mapper)
         {
             _chucVuServices = chucVuServices;
+            this.mapper = mapper;
         }
 
         // GET: api/<ChucVuController>
         [HttpGet]
-        public ActionResult<IEnumerable<Chucvu>> Get()
+        public async Task<IActionResult> Get()
         {
-            var lst = _chucVuServices.chucvus();
+            var lst = await _chucVuServices.GetAllAsync();
             if (!lst.Any())
             {
                 return NotFound(new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "no available !",
+                    message = ApiResponseMessage.NOT_FOUND,
                     data = ""
                 });
             }
             return Ok(new ApiResponse
             {
                 status = HttpStatusCode.OK + "",
-                message = "success",
+                message = ApiResponseMessage.SUCCESS,
                 data = JsonConvert.SerializeObject(lst)
             });
         }
 
         // GET api/<ChucVuController>/5
         [HttpGet("{id}")]
-        public ActionResult<Chucvu> Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            if (!_chucVuServices.ItemExists(id))
+            if (!await _chucVuServices.ItemExists(id))
             {
                 var errorrResponse = new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "not found",
+                    message = ApiResponseMessage.NOT_FOUND,
                     data = ""
                 };
                 return BadRequest(errorrResponse);
@@ -57,8 +62,8 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             return Ok(new ApiResponse
             {
                 status = HttpStatusCode.OK + "",
-                message = "success",
-                data = JsonConvert.SerializeObject(_chucVuServices.chucvu(id))
+                message = ApiResponseMessage.SUCCESS,
+                data = JsonConvert.SerializeObject(await _chucVuServices.GetByIdAsync(id))
             });
         }
 
@@ -71,44 +76,47 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
                 return BadRequest(new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "Invalid chuvu data",
+                    message = ApiResponseMessage.INVALID_OBJECT,
                     data = null
                 });
             }
-            var cV = new Chucvu() { Tenchucvu = chucVu.TenChucVu };
-            _chucVuServices.insert(cV);
             try
             {
-                _chucVuServices.savechange();
+                var item = mapper.Map<ChucVuDto>(chucVu);
+                _chucVuServices.AddAsync(item);
             }
             catch (DbUpdateException)
             {
 
             }
 
-            return NoContent();
+            return Ok(new ApiResponse
+            {
+                status = HttpStatusCode.OK + "",
+                message = ApiResponseMessage.SUCCESS,
+                data = ""
+            });
         }
 
         // PUT api/<ChucVuController>/5
         [HttpPut("{id}")]
-        public ActionResult<Chucvu> Put(int id, [FromBody] ChucVuRequestDto chucvu)
+        public async Task<IActionResult>Put(int id, [FromBody] ChucVuRequestDto chucvu)
         {
-            if (!_chucVuServices.ItemExists(id) || string.IsNullOrEmpty(chucvu.TenChucVu))
+            if (!await _chucVuServices.ItemExists(id) || string.IsNullOrEmpty(chucvu.TenChucVu))
             {
                 var errorrResponse = new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "ChucVu not found",
+                    message = ApiResponseMessage.NOT_FOUND,
                     data = ""
                 };
                 return NotFound(errorrResponse);
             }
-            var item = _chucVuServices.chucvu(id);
-            item.Tenchucvu = chucvu.TenChucVu;
-            _chucVuServices.update(item);
+
             try
             {
-                _chucVuServices.savechange();
+                var item = mapper.Map<ChucVuDto> (chucvu);
+                await _chucVuServices.UpdateAsync(id, item);
             }
             catch (DbUpdateException)
             {
@@ -117,35 +125,40 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             return Ok(new ApiResponse
             {
                 status = HttpStatusCode.OK + "",
-                message = "success",
-                data = JsonConvert.SerializeObject(item)
+                message = ApiResponseMessage.SUCCESS,
+                data = ""
             });
         }
 
         // DELETE api/<ChucVuController>/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             //var item = _chucVuServices.chucvu(id);
-            if (!_chucVuServices.ItemExists(id))
+            if (!await _chucVuServices.ItemExists(id))
             {
                 return NotFound(new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
-                    message = "ChucVu not found",
+                    message = ApiResponseMessage.NOT_FOUND,
                     data = ""
                 });
             }
-            _chucVuServices.delete(id);
+            
             try
             {
-                _chucVuServices.savechange();
+                await _chucVuServices.DeleteAsync(id);
             }
             catch (DbUpdateException)
             {
 
             }
-            return NoContent();
+            return Ok(new ApiResponse
+            {
+                status = HttpStatusCode.NoContent + "",
+                message = ApiResponseMessage.SUCCESS,
+                data = ""
+            });
         }
     }
 }

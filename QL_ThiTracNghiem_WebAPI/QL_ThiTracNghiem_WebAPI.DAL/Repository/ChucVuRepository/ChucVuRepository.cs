@@ -25,10 +25,10 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository.ChucVuRepository
 
         public async Task DeleteAsync(int macv)
         {
-            var item = await _context.Khoas.FindAsync(macv);
+            var item = await _context.Chucvus.FindAsync(macv);
             if (item != null)
             {
-                _context.Khoas.Remove(item);
+                _context.Chucvus.Remove(item);
                 await _context.SaveChangesAsync();
             }
         }
