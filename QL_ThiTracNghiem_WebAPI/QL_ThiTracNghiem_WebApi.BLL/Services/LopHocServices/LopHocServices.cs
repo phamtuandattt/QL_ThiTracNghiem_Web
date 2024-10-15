@@ -1,52 +1,68 @@
 ﻿
 
+using AutoMapper;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.ILopHocServices;
+using QL_ThiTracNghiem_WebAPI.DAL.IRepository.ILopHocRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
 
 namespace QL_ThiTracNghiem_WebApi.BLL.Services.LopHocServices
 {
     public class LopHocServices : ILopHocServices
     {
-        private readonly QlHethongthitracnghiemContext _context;
-        public LopHocServices(QlHethongthitracnghiemContext context)
+        private readonly ILopHocRepository _repository;
+        private readonly IMapper _mappers;
+        public LopHocServices(ILopHocRepository lopHocRepository, IMapper mapper)
         {
-            _context = context;
+            _repository = lopHocRepository;
+            _mappers = mapper;
         }
 
-        public void Delete(string malh)
+        public async Task AddAsync(LopHocDto lophoc)
+        {
+            var item = _mappers.Map<Lophoc>(lophoc);
+            await _repository.AddAsync(item);
+        }
+
+        public Task DeleteAsync(string malop)
         {
             throw new NotImplementedException();
         }
 
-        public Lophoc Get(string malh)
+        public async Task<List<LopHocDto>> GetAllAsync()
         {
-            return _context.Lophocs.Find(malh) ?? new Lophoc();
+            var items = await _repository.GetAllAsync();
+            return _mappers.Map<List<LopHocDto>>(items);
         }
 
-        public IEnumerable<Lophoc> GetAll()
+        public async Task<LopHocDto> GetByIdAsync(string malop)
         {
-            return _context.Lophocs.ToList() ?? new List<Lophoc>();
+            var item = await _repository.GetByIdAsync(malop);
+            if (item == null)
+            {
+                return null; 
+            }
+            //return _mapper.Map<ItemDto>(item);
+            return _mappers.Map<LopHocDto>(item);
         }
 
-        public void Insert(Lophoc lophoc)
+        public async Task<bool> ItemExists(string malh)
         {
-            _context.Lophocs.Add(lophoc);
+            return await _repository.ExistsAsync(malh);
         }
 
-        public bool ItemExists(string malh)
+        public async Task UpdateAsync(string malop, LopHocDto lophoc)
         {
-            return (_context.Lophocs?.Any(e => e.Malop == malh)).GetValueOrDefault();
-        }
+            var existingItem = await _repository.GetByIdAsync(malop);
+            if (existingItem == null)
+            {
+                throw new KeyNotFoundException("Item not found");
+            }
 
-        public void SaveChanges()
-        {
-            _context.SaveChanges();
-        }
-
-        public void Update(Lophoc lophoc)
-        {
-            _context.Entry(lophoc).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var a = _mappers.Map(lophoc, existingItem);
+            
+            await _repository.UpdateAsync(existingItem);
         }
     }
 }
