@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\QL_ThiTracNghiem_WebAPI.DAL\QL_ThiTracNghiem_WebAPI.DAL.csproj" />
   </ItemGroup>
 
