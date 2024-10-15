@@ -19,7 +19,7 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository.KhoaRepository
 
         public async Task AddAsync(Khoa khoa)
         {
-            await _context.AddAsync(khoa);
+            await _context.Khoas.AddAsync(khoa);
             await _context.SaveChangesAsync();
         }
 
