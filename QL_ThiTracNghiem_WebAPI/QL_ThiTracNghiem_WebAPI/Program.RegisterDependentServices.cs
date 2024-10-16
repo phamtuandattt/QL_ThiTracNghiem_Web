@@ -1,14 +1,18 @@
 ﻿
 using AutoMapper;
 using QL_ThiTracNghiem_WebApi.ApplicationServices;
+using QL_ThiTracNghiem_WebApi.BLL.IServices.IGiangVienServices;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.IKhoaServices;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.ILopHocServices;
 using QL_ThiTracNghiem_WebApi.BLL.Services.ChucVuServices;
+using QL_ThiTracNghiem_WebApi.BLL.Services.GiangVienServices;
 using QL_ThiTracNghiem_WebApi.BLL.Services.KhoaServices;
 using QL_ThiTracNghiem_WebApi.BLL.Services.LopHocServices;
+using QL_ThiTracNghiem_WebAPI.DAL.IRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository.IChucVuRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository.IKhoaRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository.ILopHocRepository;
+using QL_ThiTracNghiem_WebAPI.DAL.Repository;
 using QL_ThiTracNghiem_WebAPI.DAL.Repository.ChucVuRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Repository.KhoaRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Repository.LopHocRepository;
@@ -27,6 +31,7 @@ public static class RegisterDependentServices
 
         builder.Services.AddAutoMapper(typeof(MappingsProfile));
 
+        builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         builder.Services.AddScoped<ILopHocRepository, LopHocRepository>();
         builder.Services.AddScoped<IKhoaRepository, KhoaRepository>();
         builder.Services.AddScoped<IChucVuRepository, ChucVuRepository>();
@@ -34,6 +39,7 @@ public static class RegisterDependentServices
         builder.Services.AddScoped<IChucVuServices, ChucVuServices>();
         builder.Services.AddScoped<IKhoaServices, KhoaServices>();
         builder.Services.AddScoped<ILopHocServices, LopHocServices>();
+        builder.Services.AddScoped<IGiangVienServices, GiangVienServices>();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();

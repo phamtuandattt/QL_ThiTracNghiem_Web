@@ -1,48 +1,68 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Logging;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.IGiangVienServices;
+using QL_ThiTracNghiem_WebAPI.DAL.IRepository;
+using QL_ThiTracNghiem_WebAPI.DAL.Models;
+using QL_ThiTracNghiem_WebAPI.DAL.Repository;
 
 namespace QL_ThiTracNghiem_WebApi.BLL.Services.GiangVienServices
 {
     public class GiangVienServices : IGiangVienServices
     {
-        private readonly QlHethongthitracnghiemContext _context;
+        private readonly IRepository<Giangvien> _giangVienRepository;
+        private readonly IMapper _mapper;
 
-        public GiangVienServices(QlHethongthitracnghiemContext _context)
+        public GiangVienServices(IRepository<Giangvien> repository, IMapper mapper)
         {
-            this._context = _context;
+            _giangVienRepository = repository;
+            _mapper = mapper;
         }
 
-        public void delete(string magv)
+        public async Task AddAsync(GiangVienDto giangvien)
         {
-            var gv = _context.Giangviens.Find(magv);
-            _context.Giangviens.Remove(gv);
+            var item = _mapper.Map<Giangvien>(giangvien);
+            await _giangVienRepository.AddAsync(item);
         }
 
-        public Giangvien giangvien(string magv)
+        public async Task DeleteAsync(string magv)
         {
-            return _context.Giangviens.Find(magv) ?? new Giangvien();
+            await _giangVienRepository.DeleteAsync(magv);
         }
 
-        public IEnumerable<Giangvien> giangviens()
+        public async Task<List<GiangVienDto>> GetAllAsync()
         {
-            return _context.Giangviens.ToList();
+            var items = await _giangVienRepository.GetAllAsync();
+            return _mapper.Map<List<GiangVienDto>>(items);
         }
 
-        public void insert(Giangvien giangvien)
+        public async Task<GiangVienDto> GetByIdAsync(string magv)
         {
-            _context.Add(giangvien);
+            var item = await _giangVienRepository.GetByIdAsync(magv);
+            if (item != null)
+            {
+                return _mapper.Map<GiangVienDto>(item);
+            }
+            return null;
         }
 
-        public void savechange()
+        public async Task<bool> ItemExists(string magv)
         {
-            _context.SaveChanges();
+            return await _giangVienRepository.ExistsAsync(magv);
         }
 
-        public void update(Giangvien giangvien)
+        public async Task UpdateAsync(string magv, GiangVienDto giangvien)
         {
-            _context.Entry(giangvien).State = EntityState.Modified;
+            var existingItem = await _giangVienRepository.GetByIdAsync(magv);
+            if (existingItem == null)
+            {
+                throw new KeyNotFoundException("Item not found");
+            }
+
+            var a = _mapper.Map(giangvien, existingItem);
+            await _giangVienRepository.UpdateAsync(existingItem);
         }
 
         //private void UploadImage(IFormFile img, string webAlias, ref string fileNameInDb)

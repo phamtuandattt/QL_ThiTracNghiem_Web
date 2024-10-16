@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+
 
 namespace QL_ThiTracNghiem_WebApi.BLL.IServices.IGiangVienServices
 {
     public interface IGiangVienServices
     {
-        IEnumerable<Giangvien> giangviens();
-        Giangvien giangvien(string magv);
-        void insert (Giangvien giangvien);
-        void delete (string magv);
-        void update(Giangvien giangvien);
-        void savechange();
+        Task<GiangVienDto> GetByIdAsync(string magv);
+        Task<List<GiangVienDto>> GetAllAsync();
+        Task AddAsync(GiangVienDto giangvien);
+        Task UpdateAsync(string magv, GiangVienDto giangvien);
+        Task DeleteAsync(string magv);
+        Task<bool> ItemExists(string magv);
     }
 }

@@ -11,7 +11,7 @@ public partial class Giangvien
 
     public string? Tengv { get; set; }
 
-    public DateOnly? Ngaysinh { get; set; }
+    public DateTime? Ngaysinh { get; set; }
 
     public string? Gioitinh { get; set; }
 

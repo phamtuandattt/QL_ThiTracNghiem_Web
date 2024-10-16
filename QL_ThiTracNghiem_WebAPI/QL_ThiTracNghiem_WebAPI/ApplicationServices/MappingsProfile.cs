@@ -53,6 +53,12 @@ namespace QL_ThiTracNghiem_WebApi.ApplicationServices
                 .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
             CreateMap<ChucVuDto, ChucVuRequestDto>().ReverseMap();
 
+
+            CreateMap<Giangvien, GiangVienRequestDto>().ReverseMap();
+            CreateMap<Giangvien, GiangVienDto>().ReverseMap()
+                .ForMember(dest => dest.Magv, opt => opt.Ignore())
+                .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
+            CreateMap<GiangVienDto, GiangVienRequestDto>().ReverseMap();
         }
     }
 }
