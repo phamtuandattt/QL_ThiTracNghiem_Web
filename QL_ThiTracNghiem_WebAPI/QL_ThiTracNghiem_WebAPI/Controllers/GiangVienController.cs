@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.IGiangVienServices;
-using QL_ThiTracNghiem_WebAPI.Common;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.GiangVienRequestDto;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

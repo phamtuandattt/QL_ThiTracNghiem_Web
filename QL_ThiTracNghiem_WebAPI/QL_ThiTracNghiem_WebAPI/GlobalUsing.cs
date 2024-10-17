@@ -1,0 +1,1 @@
+﻿global using QL_ThiTracNghiem_WebAPI.Infrastructure.Common;

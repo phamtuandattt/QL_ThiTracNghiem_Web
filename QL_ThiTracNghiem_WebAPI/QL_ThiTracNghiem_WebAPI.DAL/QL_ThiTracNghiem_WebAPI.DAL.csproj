@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QL_ThiTracNghiem_WebAPI.Infrastructure\QL_ThiTracNghiem_WebAPI.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

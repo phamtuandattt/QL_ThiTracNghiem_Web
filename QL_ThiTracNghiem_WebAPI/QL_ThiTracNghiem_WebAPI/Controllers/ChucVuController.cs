@@ -1,10 +1,5 @@
-﻿
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-using AutoMapper;
+﻿using AutoMapper;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos;
-using QL_ThiTracNghiem_WebAPI.Common;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.ChucVuRequestDto;
 

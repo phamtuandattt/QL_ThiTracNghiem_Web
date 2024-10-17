@@ -1,4 +1,10 @@
-﻿namespace QL_ThiTracNghiem_WebAPI.Common
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QL_ThiTracNghiem_WebAPI.Infrastructure.Common
 {
     public static class ApiResponseMessage
     {

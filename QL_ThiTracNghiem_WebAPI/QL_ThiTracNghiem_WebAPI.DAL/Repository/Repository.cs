@@ -1,12 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
 {
@@ -23,26 +17,49 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
 
         public async Task AddAsync(T item)
         {
-            await _dbSet.AddAsync(item);
             try
             {
-
+                await _dbSet.AddAsync(item);
                 await _context.SaveChangesAsync();
             }
-            catch (Exception)
+            catch (DbUpdateException dbEx)
             {
-
-                throw;
+                //_logger.LogError(dbEx, "Database update failed while adding entity.");
+                throw new RepositoryException($"An error occurred while adding the entity to the database. {typeof(T).Name}", dbEx);
+            }
+            catch (Exception ex)
+            {
+                //_logger.LogError(ex, "An unexpected error occurred while adding entity.");
+                throw new RepositoryException($"An unexpected error occurred while adding the entity.  {typeof(T).Name}", ex);
             }
         }
 
         public async Task DeleteAsync(object id)
         {
             var item = await _dbSet.FindAsync(id);
-            if (item != null) 
+
+            if (item == null)
             {
+                throw new KeyNotFoundException($"Entity of type {typeof(T).Name} with the specified key not found.");
+            }
+
+            try
+            {
+                // Remove entity
                 _dbSet.Remove(item);
+
+                // Save changes to the database
                 await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException dbConcurrencyEx)
+            {
+                // Handle concurrency-related exceptions
+                throw new RepositoryException($"Concurrency error occurred while deleting the entity. {typeof(T).Name}", dbConcurrencyEx);
+            }
+            catch (DbUpdateException dbEx)
+            {
+                // Handle other database update exceptions
+                throw new RepositoryException($"An error occurred while trying to delete the entity. {typeof(T).Name}", dbEx);
             }
         }
 
@@ -75,7 +92,7 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
         private object GetPrimaryKeyValue(T entity)
         {
             var keyName = _context.Model?.FindEntityType(typeof(T))?.FindPrimaryKey()?.Properties.Select(x => x.Name).Single();
-            
+
             return entity.GetType().GetProperty(keyName)?.GetValue(entity, null);
         }
 
@@ -88,11 +105,21 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
                 throw new KeyNotFoundException($"Entity of type {typeof(T).Name} with the specified key not found.");
             }
 
-            // Update the existing item with new values
-            _context.Entry(existingItem).CurrentValues.SetValues(item);
-
-            // Save changes to the database
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Entry(existingItem).CurrentValues.SetValues(item);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException dbConcurrencyEx)
+            {
+                // Handle concurrency-related exceptions
+                throw new RepositoryException($"Concurrency error occurred while updating the entity. {typeof(T).Name}", dbConcurrencyEx);
+            }
+            catch (DbUpdateException dbEx)
+            {
+                // Handle other database update exceptions
+                throw new RepositoryException($"An error occurred while trying to update the entity. {typeof(T).Name}", dbEx);
+            }
         }
     }
 }

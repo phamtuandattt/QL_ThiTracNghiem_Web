@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QL_ThiTracNghiem_WebApi.BLL\QL_ThiTracNghiem_WebApi.BLL.csproj" />
+    <ProjectReference Include="..\QL_ThiTracNghiem_WebAPI.Infrastructure\QL_ThiTracNghiem_WebAPI.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
