@@ -6,6 +6,7 @@ using AutoMapper;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos;
 using QL_ThiTracNghiem_WebAPI.Common;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.ChucVuRequestDto;
 
 namespace QL_ThiTracNghiem_WebAPI.Controllers
 {

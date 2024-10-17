@@ -3,6 +3,7 @@ using AutoMapper;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.ILopHocServices;
 using QL_ThiTracNghiem_WebAPI.Common;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.LopHocRequestDto;
 
 namespace QL_ThiTracNghiem_WebAPI.Controllers
 {

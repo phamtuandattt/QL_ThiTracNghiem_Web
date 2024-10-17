@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Logging;
-using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.IGiangVienServices;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
@@ -21,7 +21,7 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.GiangVienServices
             _mapper = mapper;
         }
 
-        public async Task AddAsync(GiangVienDto giangvien)
+        public async Task AddAsync(GiangVienAddDto giangvien)
         {
             var item = _mapper.Map<Giangvien>(giangvien);
             await _giangVienRepository.AddAsync(item);

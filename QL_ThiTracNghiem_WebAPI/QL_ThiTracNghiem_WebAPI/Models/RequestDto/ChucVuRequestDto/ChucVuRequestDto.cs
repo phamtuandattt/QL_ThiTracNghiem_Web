@@ -1,4 +1,4 @@
-﻿namespace QL_ThiTracNghiem_WebAPI.Models.RequestDto
+﻿namespace QL_ThiTracNghiem_WebAPI.Models.RequestDto.ChucVuRequestDto
 {
     public class ChucVuRequestDto
     {

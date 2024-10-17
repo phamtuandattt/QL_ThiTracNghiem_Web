@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.IGiangVienServices;
 using QL_ThiTracNghiem_WebAPI.Common;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.GiangVienRequestDto;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -68,6 +70,8 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GiangVienRequestDto giangvien)
         {
+            // Create ModelDto to Add
+            // Add mapping profile
             if (giangvien.Magv == null)
             {
                 return BadRequest(new ApiResponse
@@ -80,7 +84,7 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
 
             try
             {
-                var item = _mapper.Map<GiangVienDto>(giangvien);
+                var item = _mapper.Map<GiangVienAddDto>(giangvien);
                 await _services.AddAsync(item);
             }
             catch (DbUpdateException)

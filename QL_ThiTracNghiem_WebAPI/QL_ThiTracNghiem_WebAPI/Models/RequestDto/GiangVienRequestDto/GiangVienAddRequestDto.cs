@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QL_ThiTracNghiem_WebApi.BLL.Dtos
+﻿namespace QL_ThiTracNghiem_WebAPI.Models.RequestDto.GiangVienRequestDto
 {
-    public class GiangVienDto
+    public class GiangVienAddRequestDto
     {
         public string Magv { get; set; } = null!;
 

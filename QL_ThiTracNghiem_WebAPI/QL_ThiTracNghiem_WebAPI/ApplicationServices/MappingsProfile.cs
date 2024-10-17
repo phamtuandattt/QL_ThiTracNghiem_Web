@@ -1,5 +1,10 @@
 ﻿using AutoMapper;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.ChucVuRequestDto;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.GiangVienRequestDto;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.KhoaRequestDto;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.LopHocRequestDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +15,7 @@ namespace QL_ThiTracNghiem_WebApi.ApplicationServices
 {
     public class MappingsProfile : Profile
     {
-        public MappingsProfile() 
+        public MappingsProfile()
         {
             CreateMap();
         }
@@ -58,7 +63,9 @@ namespace QL_ThiTracNghiem_WebApi.ApplicationServices
             CreateMap<Giangvien, GiangVienDto>().ReverseMap()
                 .ForMember(dest => dest.Magv, opt => opt.Ignore())
                 .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
+            CreateMap<GiangVienRequestDto, GiangVienAddDto>().ReverseMap();
             CreateMap<GiangVienDto, GiangVienRequestDto>().ReverseMap();
+            CreateMap<Giangvien, GiangVienAddDto>().ReverseMap();
         }
     }
 }

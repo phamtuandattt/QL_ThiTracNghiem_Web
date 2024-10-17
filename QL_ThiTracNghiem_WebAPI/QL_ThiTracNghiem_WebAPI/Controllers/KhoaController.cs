@@ -5,6 +5,7 @@ using QL_ThiTracNghiem_WebApi.BLL.IServices.IKhoaServices;
 using QL_ThiTracNghiem_WebApi.BLL.Services.KhoaServices;
 using QL_ThiTracNghiem_WebAPI.Common;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.KhoaRequestDto;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
