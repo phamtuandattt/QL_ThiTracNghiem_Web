@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using log4net;
+using log4net.Core;
+using Microsoft.EntityFrameworkCore;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
 
@@ -8,6 +10,7 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
     {
         private readonly QlHethongthitracnghiemContext _context;
         private DbSet<T> _dbSet;
+
 
         public Repository(QlHethongthitracnghiemContext context)
         {
@@ -24,12 +27,12 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
             }
             catch (DbUpdateException dbEx)
             {
-                //_logger.LogError(dbEx, "Database update failed while adding entity.");
+                Logger.Error("Database update failed while adding entity.", dbEx);
                 throw new RepositoryException($"An error occurred while adding the entity to the database. {typeof(T).Name}", dbEx);
             }
             catch (Exception ex)
             {
-                //_logger.LogError(ex, "An unexpected error occurred while adding entity.");
+                Logger.Error("An unexpected error occurred while adding entity.", ex);
                 throw new RepositoryException($"An unexpected error occurred while adding the entity.  {typeof(T).Name}", ex);
             }
         }
@@ -40,6 +43,7 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
 
             if (item == null)
             {
+                Logger.Error($"Entity of type {typeof(T).Name} with the specified key not found.");
                 throw new KeyNotFoundException($"Entity of type {typeof(T).Name} with the specified key not found.");
             }
 
@@ -53,12 +57,12 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
             }
             catch (DbUpdateConcurrencyException dbConcurrencyEx)
             {
-                // Handle concurrency-related exceptions
+                Logger.Error("Database update failed while deleting entity.", dbConcurrencyEx);
                 throw new RepositoryException($"Concurrency error occurred while deleting the entity. {typeof(T).Name}", dbConcurrencyEx);
             }
             catch (DbUpdateException dbEx)
             {
-                // Handle other database update exceptions
+                Logger.Error("Database update failed while deleting entity.", dbEx);
                 throw new RepositoryException($"An error occurred while trying to delete the entity. {typeof(T).Name}", dbEx);
             }
         }
@@ -74,6 +78,7 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
             var items = await _dbSet.ToListAsync();
             if (items == null || !items.Any())
             {
+                Logger.Error($"The {typeof(T).Name} no data available !");
                 return new List<T>();  // Return an empty list if no items are found
             }
             return items;
@@ -84,6 +89,7 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
             var item = await _dbSet.FindAsync(id);
             if (item == null)
             {
+                Logger.Error($"Entity of type {typeof(T).Name} with id {id} not found.");
                 throw new KeyNotFoundException($"Entity of type {typeof(T).Name} with id {id} not found.");
             }
             return item;
@@ -102,6 +108,7 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
 
             if (existingItem == null)
             {
+                Logger.Error($"Entity of type {typeof(T).Name} with the specified key not found.");
                 throw new KeyNotFoundException($"Entity of type {typeof(T).Name} with the specified key not found.");
             }
 
@@ -112,12 +119,12 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
             }
             catch (DbUpdateConcurrencyException dbConcurrencyEx)
             {
-                // Handle concurrency-related exceptions
+                Logger.Error($"Concurrency error occurred while updating the entity. {typeof(T).Name}", dbConcurrencyEx);
                 throw new RepositoryException($"Concurrency error occurred while updating the entity. {typeof(T).Name}", dbConcurrencyEx);
             }
             catch (DbUpdateException dbEx)
             {
-                // Handle other database update exceptions
+                Logger.Error($"An error occurred while trying to update the entity. {typeof(T).Name}", dbEx);
                 throw new RepositoryException($"An error occurred while trying to update the entity. {typeof(T).Name}", dbEx);
             }
         }
