@@ -1,22 +1,22 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using QL_ThiTracNghiem_WebApi.BLL.Dtos;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
-using QL_ThiTracNghiem_WebApi.BLL.IServices.IGiangVienServices;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos.HocPhanDto;
+using QL_ThiTracNghiem_WebApi.BLL.IServices.IHocPhanServices;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.GiangVienRequestDto;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.HocPhanRequestDto;
 
 namespace QL_ThiTracNghiem_WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GiangVienController : ControllerBase
+    public class HocPhanController : ControllerBase
     {
-        private readonly IGiangVienServices _services;
+        private readonly IHocPhanServices _services;
         private readonly IMapper _mapper;
-        
-        public GiangVienController(IGiangVienServices services, IMapper mapper)
+
+        public HocPhanController(IHocPhanServices services, IMapper mapper)
         {
             _services = services;
             _mapper = mapper;
@@ -43,10 +43,10 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             });
         }
 
-        [HttpGet("{magiangvien}")]
-        public async Task<IActionResult> Get(string magiangvien)
+        [HttpGet("{mahp}")]
+        public async Task<IActionResult> Get(string mahp)
         {
-            if (!await _services.ItemExists(magiangvien))
+            if (!await _services.ItemExists(mahp))
             {
                 var errorrResponse = new ApiResponse
                 {
@@ -61,17 +61,16 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             {
                 status = HttpStatusCode.OK + "",
                 message = ApiResponseMessage.SUCCESS,
-                data = JsonConvert.SerializeObject(await _services.GetByIdAsync(magiangvien))
+                data = JsonConvert.SerializeObject(await _services.GetByIdAsync(mahp))
             });
         }
 
-
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] GiangVienRequestDto giangvien)
+        public async Task<IActionResult> Post([FromBody] HocPhanRequestDto hp)
         {
             // Create ModelDto to Add
             // Add mapping profile
-            if (giangvien.Magv == null)
+            if (hp.Mahocphan == null)
             {
                 return BadRequest(new ApiResponse
                 {
@@ -83,7 +82,7 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
 
             try
             {
-                var item = _mapper.Map<GiangVienAddDto>(giangvien);
+                var item = _mapper.Map<HocPhanAddDto>(hp);
                 await _services.AddAsync(item);
             }
             catch (DbUpdateException)
@@ -98,10 +97,10 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             });
         }
 
-        [HttpPut("{magiangvien}")]
-        public async Task<IActionResult> Put(string magiangvien, [FromBody] GiangVienRequestDto giangvien)
+        [HttpPut("{mahp}")]
+        public async Task<IActionResult> Put(string mahp, [FromBody] HocPhanRequestDto hocPhan)
         {
-            if (!await _services.ItemExists(magiangvien) || string.IsNullOrEmpty(giangvien.Magv))
+            if (!await _services.ItemExists(mahp))
             {
                 var errorrResponse = new ApiResponse
                 {
@@ -114,8 +113,8 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
 
             try
             {
-                var itemDto = _mapper.Map<GiangVienDto>(giangvien);
-                await _services.UpdateAsync(magiangvien, itemDto);
+                var itemDto = _mapper.Map<HocPhanDto>(hocPhan);
+                await _services.UpdateAsync(mahp, itemDto);
             }
             catch (DbUpdateException)
             {
@@ -129,10 +128,10 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             });
         }
 
-        [HttpDelete("{magiangvien}")]
-        public async Task<IActionResult> Delete(string magiangvien)
+        [HttpDelete("{mahp}")]
+        public async Task<IActionResult> Delete(string mahp)
         {
-            if (!await _services.ItemExists(magiangvien))
+            if (!await _services.ItemExists(mahp))
             {
                 return NotFound(new ApiResponse
                 {
@@ -144,7 +143,7 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
 
             try
             {
-                await _services.DeleteAsync(magiangvien);
+                await _services.DeleteAsync(mahp);
             }
             catch (DbUpdateException)
             {

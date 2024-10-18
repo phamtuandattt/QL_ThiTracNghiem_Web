@@ -22,6 +22,8 @@ using System.Reflection;
 using System.Configuration;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.ISinhVienServices;
 using QL_ThiTracNghiem_WebApi.BLL.Services.SinhVienServices;
+using QL_ThiTracNghiem_WebApi.BLL.IServices.IHocPhanServices;
+using QL_ThiTracNghiem_WebApi.BLL.Services.HocPhanServices;
 
 public static class RegisterDependentServices
 {
@@ -53,6 +55,7 @@ public static class RegisterDependentServices
         builder.Services.AddScoped<ILopHocServices, LopHocServices>();
         builder.Services.AddScoped<IGiangVienServices, GiangVienServices>();
         builder.Services.AddScoped<ISinhVienServices, SinhVienServices>();
+        builder.Services.AddScoped<IHocPhanServices, HocPhanServices>();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();

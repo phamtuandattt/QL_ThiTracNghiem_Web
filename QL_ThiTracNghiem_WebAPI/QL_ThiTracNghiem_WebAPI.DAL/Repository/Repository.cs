@@ -27,13 +27,13 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
             }
             catch (DbUpdateException dbEx)
             { 
-                Logger.Error($"Database update failed while adding {typeof(T).Name} entity. - {dbEx?.InnerException?.Message.ToString()}");
-                throw new RepositoryException($"An error occurred while adding the entity to the database. {typeof(T).Name}", dbEx);
+                Logger.Error($"Database update failed while adding {typeof(T).Name} entity - {dbEx?.InnerException?.Message.ToString()}");
+                throw new RepositoryException($"An error occurred while adding the entity to the database, {typeof(T).Name}", dbEx);
             }
             catch (Exception ex)
             {
-                Logger.Error($"An unexpected error occurred while adding entity. {typeof(T).Name}");
-                throw new RepositoryException($"An unexpected error occurred while adding the entity.  {typeof(T).Name}", ex);
+                Logger.Error($"An unexpected error occurred while adding entity - {typeof(T).Name}");
+                throw new RepositoryException($"An unexpected error occurred while adding the entity - {typeof(T).Name}", ex);
             }
         }
 
@@ -58,12 +58,12 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
             catch (DbUpdateConcurrencyException dbConcurrencyEx)
             {
                 Logger.Error($"Database update failed while deleting  {typeof(T).Name} entity - ID: {id} - { dbConcurrencyEx?.InnerException?.Message.ToString()}");
-                throw new RepositoryException($"Concurrency error occurred while deleting the entity. {typeof(T).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+                throw new RepositoryException($"Concurrency error occurred while deleting the entity - {typeof(T).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
             }
             catch (DbUpdateException dbEx)
             {
                 Logger.Error("Database update failed while deleting entity.");
-                throw new RepositoryException($"An error occurred while trying to delete the entity. {typeof(T).Name}", dbEx);
+                throw new RepositoryException($"An error occurred while trying to delete the entity - {typeof(T).Name}", dbEx);
             }
         }
 
@@ -124,13 +124,13 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
             }
             catch (DbUpdateConcurrencyException dbConcurrencyEx)
             {
-                Logger.Error($"Concurrency error occurred while updating the entity. {typeof(T).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
-                throw new RepositoryException($"Concurrency error occurred while updating the entity. {typeof(T).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+                Logger.Error($"Concurrency error occurred while updating the entity - {typeof(T).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+                throw new RepositoryException($"Concurrency error occurred while updating the entity - {typeof(T).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
             }
             catch (DbUpdateException dbEx)
             {
-                Logger.Error($"An error occurred while trying to update the entity. {typeof(T).Name}", dbEx);
-                throw new RepositoryException($"An error occurred while trying to update the entity. {typeof(T).Name}", dbEx);
+                Logger.Error($"An error occurred while trying to update the entity - {typeof(T).Name}", dbEx);
+                throw new RepositoryException($"An error occurred while trying to update the entity - {typeof(T).Name}", dbEx);
             }
         }
     }
