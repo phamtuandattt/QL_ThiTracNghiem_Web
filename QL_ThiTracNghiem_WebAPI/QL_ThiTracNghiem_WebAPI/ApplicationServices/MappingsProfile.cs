@@ -2,10 +2,12 @@
 using QL_ThiTracNghiem_WebApi.BLL.Dtos;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.LopHocDto;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos.SinhVienDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.ChucVuRequestDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.GiangVienRequestDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.KhoaRequestDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.LopHocRequestDto;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.SinhVienRequestDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +71,15 @@ namespace QL_ThiTracNghiem_WebApi.ApplicationServices
             CreateMap<GiangVienRequestDto, GiangVienAddDto>().ReverseMap();
             CreateMap<GiangVienDto, GiangVienRequestDto>().ReverseMap();
             CreateMap<Giangvien, GiangVienAddDto>().ReverseMap();
+
+            CreateMap<Sinhvien, SinhVienAddDto>().ReverseMap();
+            CreateMap<SinhVienRequestDto, SinhVienAddDto>().ReverseMap();
+            CreateMap<SinhVienDto, SinhVienRequestDto>().ReverseMap();
+            CreateMap<Sinhvien, SinhVienDto>().ReverseMap()
+                .ForMember(dest => dest.Masv, opt => opt.Ignore())
+                .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
+
+
         }
     }
 }

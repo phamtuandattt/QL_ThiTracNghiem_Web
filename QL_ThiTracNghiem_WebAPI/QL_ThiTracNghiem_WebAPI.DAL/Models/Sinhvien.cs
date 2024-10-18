@@ -13,7 +13,7 @@ public partial class Sinhvien
 
     public string? Gioitinh { get; set; }
 
-    public DateOnly? Ngaysinh { get; set; }
+    public DateTime? Ngaysinh { get; set; }
 
     public string? Email { get; set; }
 
