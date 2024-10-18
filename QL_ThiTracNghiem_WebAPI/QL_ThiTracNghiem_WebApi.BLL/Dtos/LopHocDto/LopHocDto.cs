@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QL_ThiTracNghiem_WebApi.BLL.Dtos
+namespace QL_ThiTracNghiem_WebApi.BLL.Dtos.LopHocDto
 {
     public class LopHocDto
     {

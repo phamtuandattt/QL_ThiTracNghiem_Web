@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos.LopHocDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.ChucVuRequestDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.GiangVienRequestDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.KhoaRequestDto;
@@ -44,6 +45,8 @@ namespace QL_ThiTracNghiem_WebApi.ApplicationServices
                 .ForMember(dest => dest.Malop, opt => opt.Ignore())
                 .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
             CreateMap<LopHocRequestDto, LopHocDto>().ReverseMap();
+            CreateMap<Lophoc, LopHocAddDto>().ReverseMap();
+            CreateMap<LopHocAddDto, LopHocRequestDto>().ReverseMap();
 
             CreateMap<Khoa, KhoaRequestDto>().ReverseMap();
             CreateMap<Khoa, KhoaDto>().ReverseMap()

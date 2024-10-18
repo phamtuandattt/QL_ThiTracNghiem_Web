@@ -2,7 +2,7 @@
 
 using AutoMapper;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos.LopHocDto;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.ILopHocServices;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository.ILopHocRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
@@ -19,7 +19,7 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.LopHocServices
             _mappers = mapper;
         }
 
-        public async Task AddAsync(LopHocDto lophoc)
+        public async Task AddAsync(LopHocAddDto lophoc)
         {
             var item = _mappers.Map<Lophoc>(lophoc);
             await _repository.AddAsync(item);
