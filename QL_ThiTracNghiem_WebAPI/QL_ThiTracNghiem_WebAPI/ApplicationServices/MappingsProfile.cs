@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos;
+using QL_ThiTracNghiem_WebApi.BLL.Dtos.CT_HocPhanDto;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.HocPhanDto;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.LopHocDto;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.SinhVienDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.ChucVuRequestDto;
+using QL_ThiTracNghiem_WebAPI.Models.RequestDto.CT_HocPhanRequestDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.GiangVienRequestDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.HocPhanRequestDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.KhoaRequestDto;
@@ -88,6 +90,14 @@ namespace QL_ThiTracNghiem_WebApi.ApplicationServices
                 .ForMember(dest => dest.Mahocphan, opt => opt.Ignore())
                 .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
 
+            CreateMap<CtHocphan, CT_HocPhanAddDto>().ReverseMap();
+            CreateMap<CT_HocPhanRequestDto, CT_HocPhanAddDto>().ReverseMap();
+            CreateMap<CT_HocPhanDto, CT_HocPhanRequestDto>().ReverseMap();
+            CreateMap<CtHocphan, CT_HocPhanDto>().ReverseMap()
+                .ForMember(dest => dest.Mahocphan, opt => opt.Ignore())
+                .ForMember(dest => dest.Malophocphan, opt => opt.Ignore())
+                .ForMember(dest => dest.Masv, opt => opt.Ignore())
+                .ForAllMembers(opts => opts.Condition((src, dest, srcRemmeber) => srcRemmeber != null));
         }
     }
 }

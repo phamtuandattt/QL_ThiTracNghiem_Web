@@ -133,5 +133,40 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
                 throw new RepositoryException($"An error occurred while trying to update the entity - {typeof(T).Name}", dbEx);
             }
         }
+
+        public Task DeleteCT_HPAsync(string malophocphan, string masv, string mahp)
+        {
+            throw new NotImplementedException();
+        }
+
+        //public async Task DeleteCT_HPAsync(string malophocphan, string masv, string mahp)
+        //{
+        //    var item = await _dbSet.FindAsync(malophocphan);
+
+        //    if (item == null)
+        //    {
+        //        Logger.Error($"Entity of type {typeof(T).Name} with the specified key not found.");
+        //        throw new KeyNotFoundException($"Entity of type {typeof(T).Name} with the specified key not found.");
+        //    }
+
+        //    try
+        //    {
+        //        // Remove entity
+        //        _dbSet.Remove(item);
+
+        //        // Save changes to the database
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException dbConcurrencyEx)
+        //    {
+        //        Logger.Error($"Database update failed while deleting  {typeof(T).Name} entity - ID: {id} - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+        //        throw new RepositoryException($"Concurrency error occurred while deleting the entity - {typeof(T).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+        //    }
+        //    catch (DbUpdateException dbEx)
+        //    {
+        //        Logger.Error("Database update failed while deleting entity.");
+        //        throw new RepositoryException($"An error occurred while trying to delete the entity - {typeof(T).Name}", dbEx);
+        //    }
+        //}
     }
 }

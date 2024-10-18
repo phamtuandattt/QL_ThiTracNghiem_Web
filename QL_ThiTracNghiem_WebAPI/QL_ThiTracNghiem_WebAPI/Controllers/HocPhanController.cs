@@ -65,96 +65,96 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] HocPhanRequestDto hp)
-        {
-            // Create ModelDto to Add
-            // Add mapping profile
-            if (hp.Mahocphan == null)
-            {
-                return BadRequest(new ApiResponse
-                {
-                    status = HttpStatusCode.NotFound + "",
-                    message = ApiResponseMessage.INVALID_OBJECT,
-                    data = null
-                });
-            }
+        //[HttpPost]
+        //public async Task<IActionResult> Post([FromBody] HocPhanRequestDto hp)
+        //{
+        //    // Create ModelDto to Add
+        //    // Add mapping profile
+        //    if (hp.Mahocphan == null)
+        //    {
+        //        return BadRequest(new ApiResponse
+        //        {
+        //            status = HttpStatusCode.NotFound + "",
+        //            message = ApiResponseMessage.INVALID_OBJECT,
+        //            data = null
+        //        });
+        //    }
 
-            try
-            {
-                var item = _mapper.Map<HocPhanAddDto>(hp);
-                await _services.AddAsync(item);
-            }
-            catch (DbUpdateException)
-            {
+        //    try
+        //    {
+        //        var item = _mapper.Map<HocPhanAddDto>(hp);
+        //        await _services.AddAsync(item);
+        //    }
+        //    catch (DbUpdateException)
+        //    {
 
-            }
-            return Ok(new ApiResponse
-            {
-                status = HttpStatusCode.NoContent + "",
-                message = ApiResponseMessage.SUCCESS,
-                data = ""
-            });
-        }
+        //    }
+        //    return Ok(new ApiResponse
+        //    {
+        //        status = HttpStatusCode.NoContent + "",
+        //        message = ApiResponseMessage.SUCCESS,
+        //        data = ""
+        //    });
+        //}
 
-        [HttpPut("{mahp}")]
-        public async Task<IActionResult> Put(string mahp, [FromBody] HocPhanRequestDto hocPhan)
-        {
-            if (!await _services.ItemExists(mahp))
-            {
-                var errorrResponse = new ApiResponse
-                {
-                    status = HttpStatusCode.NotFound + "",
-                    message = ApiResponseMessage.NOT_FOUND,
-                    data = ""
-                };
-                return NotFound(errorrResponse);
-            }
+        //[HttpPut("{mahp}")]
+        //public async Task<IActionResult> Put(string mahp, [FromBody] HocPhanRequestDto hocPhan)
+        //{
+        //    if (!await _services.ItemExists(mahp))
+        //    {
+        //        var errorrResponse = new ApiResponse
+        //        {
+        //            status = HttpStatusCode.NotFound + "",
+        //            message = ApiResponseMessage.NOT_FOUND,
+        //            data = ""
+        //        };
+        //        return NotFound(errorrResponse);
+        //    }
 
-            try
-            {
-                var itemDto = _mapper.Map<HocPhanDto>(hocPhan);
-                await _services.UpdateAsync(mahp, itemDto);
-            }
-            catch (DbUpdateException)
-            {
+        //    try
+        //    {
+        //        var itemDto = _mapper.Map<HocPhanDto>(hocPhan);
+        //        await _services.UpdateAsync(mahp, itemDto);
+        //    }
+        //    catch (DbUpdateException)
+        //    {
 
-            }
-            return Ok(new ApiResponse
-            {
-                status = HttpStatusCode.OK + "",
-                message = ApiResponseMessage.SUCCESS,
-                data = ""
-            });
-        }
+        //    }
+        //    return Ok(new ApiResponse
+        //    {
+        //        status = HttpStatusCode.OK + "",
+        //        message = ApiResponseMessage.SUCCESS,
+        //        data = ""
+        //    });
+        //}
 
-        [HttpDelete("{mahp}")]
-        public async Task<IActionResult> Delete(string mahp)
-        {
-            if (!await _services.ItemExists(mahp))
-            {
-                return NotFound(new ApiResponse
-                {
-                    status = HttpStatusCode.NotFound + "",
-                    message = ApiResponseMessage.NOT_FOUND,
-                    data = ""
-                });
-            }
+        //[HttpDelete("{mahp}")]
+        //public async Task<IActionResult> Delete(string mahp)
+        //{
+        //    if (!await _services.ItemExists(mahp))
+        //    {
+        //        return NotFound(new ApiResponse
+        //        {
+        //            status = HttpStatusCode.NotFound + "",
+        //            message = ApiResponseMessage.NOT_FOUND,
+        //            data = ""
+        //        });
+        //    }
 
-            try
-            {
-                await _services.DeleteAsync(mahp);
-            }
-            catch (DbUpdateException)
-            {
+        //    try
+        //    {
+        //        await _services.DeleteAsync(mahp);
+        //    }
+        //    catch (DbUpdateException)
+        //    {
 
-            }
-            return Ok(new ApiResponse
-            {
-                status = HttpStatusCode.NoContent + "",
-                message = ApiResponseMessage.SUCCESS,
-                data = ""
-            });
-        }
+        //    }
+        //    return Ok(new ApiResponse
+        //    {
+        //        status = HttpStatusCode.NoContent + "",
+        //        message = ApiResponseMessage.SUCCESS,
+        //        data = ""
+        //    });
+        //}
     }
 }

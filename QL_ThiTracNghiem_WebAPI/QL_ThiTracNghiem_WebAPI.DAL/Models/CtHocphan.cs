@@ -19,9 +19,9 @@ public partial class CtHocphan
 
     public string? Phong { get; set; }
 
-    public DateOnly? Ngaybd { get; set; }
+    public DateTime? Ngaybd { get; set; }
 
-    public DateOnly? Ngaykt { get; set; }
+    public DateTime? Ngaykt { get; set; }
 
     public virtual Hocphan MahocphanNavigation { get; set; } = null!;
 
