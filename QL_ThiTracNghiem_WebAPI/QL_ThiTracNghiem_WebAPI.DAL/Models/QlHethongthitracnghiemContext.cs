@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using QL_ThiTracNghiem_WebAPI.DAL.ModelResults.GiangVienResult;
+using QL_ThiTracNghiem_WebAPI.DAL.ModelResults.HocPhanResult;
 
 namespace QL_ThiTracNghiem_WebAPI.DAL.Models;
 
@@ -18,6 +19,8 @@ public partial class QlHethongthitracnghiemContext : DbContext
 
     // A model for result
     public DbSet<GiangVienResult> GetMaGv {  get; set; }
+    public DbSet<HocPhanResult> GetMaHocPhan {  get; set; }
+
 
 
     // --------------------------------------------------------

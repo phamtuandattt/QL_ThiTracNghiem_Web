@@ -2,7 +2,7 @@
 {
     public class HocPhanRequestDto
     {
-        public string Mahocphan { get; set; } = null!;
+        public string? Mahocphan { get; set; }
 
         public string? Tenhocphan { get; set; }
 

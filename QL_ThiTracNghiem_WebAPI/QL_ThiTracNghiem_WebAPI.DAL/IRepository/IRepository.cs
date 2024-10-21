@@ -14,7 +14,5 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.IRepository
         Task UpdateAsync(T item);
         Task DeleteAsync(object id);
         Task<bool> ExistsAsync(object id);
-        //object GetPrimaryKeyValue(T entity);
-        Task DeleteCT_HPAsync(string malophocphan, string masv, string mahp);
     }
 }

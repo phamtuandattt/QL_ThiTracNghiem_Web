@@ -9,5 +9,6 @@ namespace QL_ThiTracNghiem_WebAPI.Infrastructure.SqlCommand
     public class SqlCommand
     {
         public const string GET_MAGV = "SELECT DBO.AUTO_MAGV('{0}', '{1}') AS MAGV";
+        public const string GET_MAHOCPHAN = "SELECT DBO.AUTO_MAHOCPHAN() AS MAHOCPHAN";
     }
 }

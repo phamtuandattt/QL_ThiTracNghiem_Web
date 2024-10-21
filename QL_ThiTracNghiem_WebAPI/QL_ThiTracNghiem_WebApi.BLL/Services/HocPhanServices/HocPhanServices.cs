@@ -3,6 +3,7 @@ using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.HocPhanDto;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.IHocPhanServices;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository;
+using QL_ThiTracNghiem_WebAPI.DAL.IRepository.IHocPhanRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -15,16 +16,20 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.HocPhanServices
     public class HocPhanServices : IHocPhanServices
     {
         private readonly IRepository<Hocphan> _repository;
+        private readonly IHocPhanRepository _hocphanRepository;
         private readonly IMapper _mapper;
         
-        public HocPhanServices(IRepository<Hocphan> repository, IMapper mapper)
+        public HocPhanServices(IRepository<Hocphan> repository, IHocPhanRepository hocPhanRepository, IMapper mapper)
         {
             _repository = repository;
+            _hocphanRepository = hocPhanRepository;
             _mapper = mapper;
         }
 
         public async Task AddAsync(HocPhanAddDto hocphanDto)
         {
+            var mhp = await _hocphanRepository.GetMaHocPhan();
+            hocphanDto.Mahocphan = mhp;
             var item = _mapper.Map<Hocphan>(hocphanDto);
             await _repository.AddAsync(item);
         }
