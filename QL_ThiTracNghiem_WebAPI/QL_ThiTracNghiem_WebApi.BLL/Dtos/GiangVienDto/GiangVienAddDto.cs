@@ -33,5 +33,7 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto
         public string? Makhoa { get; set; }
 
         public int? Machucvu { get; set; }
+
+        public string dau { get; set; } = "010";
     }
 }

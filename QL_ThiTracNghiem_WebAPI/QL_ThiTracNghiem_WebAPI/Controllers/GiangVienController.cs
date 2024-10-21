@@ -71,7 +71,7 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
         {
             // Create ModelDto to Add
             // Add mapping profile
-            if (giangvien.Magv == null)
+            if (giangvien.Dau == null)
             {
                 return BadRequest(new ApiResponse
                 {
@@ -101,7 +101,7 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
         [HttpPut("{magiangvien}")]
         public async Task<IActionResult> Put(string magiangvien, [FromBody] GiangVienRequestDto giangvien)
         {
-            if (!await _services.ItemExists(magiangvien) || string.IsNullOrEmpty(giangvien.Magv))
+            if (!await _services.ItemExists(magiangvien) || string.IsNullOrEmpty(giangvien.Dau))
             {
                 var errorrResponse = new ApiResponse
                 {

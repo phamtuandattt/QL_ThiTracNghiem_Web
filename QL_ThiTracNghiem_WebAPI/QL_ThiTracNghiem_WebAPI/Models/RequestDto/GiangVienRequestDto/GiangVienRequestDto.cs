@@ -2,8 +2,9 @@
 {
     public class GiangVienRequestDto
     {
-        public string Magv { get; set; } = null!;
-
+        //public string Magv { get; set; } = null!;
+        public string Dau { get; set; } = "010";
+        
         public string? Matkhau { get; set; }
 
         public string? Tengv { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using QL_ThiTracNghiem_WebAPI.DAL.ModelResults.GiangVienResult;
 
 namespace QL_ThiTracNghiem_WebAPI.DAL.Models;
 
@@ -15,6 +16,11 @@ public partial class QlHethongthitracnghiemContext : DbContext
     {
     }
 
+    // A model for result
+    public DbSet<GiangVienResult> GetMaGv {  get; set; }
+
+
+    // --------------------------------------------------------
     public virtual DbSet<Baithi> Baithis { get; set; }
 
     public virtual DbSet<Cathi> Cathis { get; set; }
