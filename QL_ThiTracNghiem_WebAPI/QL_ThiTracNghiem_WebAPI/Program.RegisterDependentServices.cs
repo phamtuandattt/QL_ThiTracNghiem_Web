@@ -30,6 +30,8 @@ using QL_ThiTracNghiem_WebAPI.DAL.IRepository.IGiangVienRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Repository.GiangVienRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository.IHocPhanRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Repository.HocPhanRepository;
+using QL_ThiTracNghiem_WebAPI.DAL.Repository.SinhVienRepository;
+using QL_ThiTracNghiem_WebAPI.DAL.IRepository.ISinhVienRepository;
 
 public static class RegisterDependentServices
 {
@@ -57,6 +59,7 @@ public static class RegisterDependentServices
         builder.Services.AddScoped<IChucVuRepository, ChucVuRepository>();
         builder.Services.AddScoped<IGiangVienRepository, GiangVienRepository>();
         builder.Services.AddScoped<IHocPhanRepository, HocPhanRepository>();
+        builder.Services.AddScoped<ISinhVienRepository, SinhVienRepository>();
 
         builder.Services.AddScoped<IChucVuServices, ChucVuServices>();
         builder.Services.AddScoped<IKhoaServices, KhoaServices>();

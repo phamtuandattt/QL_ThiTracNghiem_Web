@@ -9,6 +9,9 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Dtos.SinhVienDto
     public class SinhVienAddDto
     {
         public string Masv { get; set; } = null!;
+        public string? NganhDaoTao { get; set; } = "20";
+        public string? MaKhoa { get; set; }
+        public string? NamNhapHoc { get; set; }
 
         public string? Makhau { get; set; }
 

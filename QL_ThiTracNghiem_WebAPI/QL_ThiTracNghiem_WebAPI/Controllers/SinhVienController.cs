@@ -68,16 +68,6 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] SinhVienRequestDto sinhvien)
         {
-            if (sinhvien.Masv == null)
-            {
-                return BadRequest(new ApiResponse
-                {
-                    status = HttpStatusCode.NotFound + "",
-                    message = ApiResponseMessage.INVALID_OBJECT,
-                    data = null
-                });
-            }
-
             try
             {
                 var item = _mapper.Map<SinhVienAddDto>(sinhvien);

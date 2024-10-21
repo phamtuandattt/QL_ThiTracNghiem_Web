@@ -2,7 +2,7 @@
 {
     public class SinhVienRequestDto
     {
-        public string Masv { get; set; } = null!;
+        public string? Masv { get; set; }
 
         public string? Makhau { get; set; }
 
@@ -23,5 +23,9 @@
         public string? Malop { get; set; }
 
         public string? Hocphi { get; set; }
+
+        public string? NganhDaoTao { get; set; } = "20";
+        public string? MaKhoa { get; set; }
+        public string? NamNhapHoc { get; set; }
     }
 }
