@@ -22,8 +22,8 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Dtos.CT_HocPhanDto
 
         public string? Phong { get; set; }
 
-        public DateOnly? Ngaybd { get; set; }
+        public DateTime? Ngaybd { get; set; }
 
-        public DateOnly? Ngaykt { get; set; }
+        public DateTime? Ngaykt { get; set; }
     }
 }

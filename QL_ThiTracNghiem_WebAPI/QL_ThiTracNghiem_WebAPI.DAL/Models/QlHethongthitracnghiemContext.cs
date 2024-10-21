@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using QL_ThiTracNghiem_WebAPI.DAL.ModelResults.CT_HocPhanResult;
 using QL_ThiTracNghiem_WebAPI.DAL.ModelResults.GiangVienResult;
 using QL_ThiTracNghiem_WebAPI.DAL.ModelResults.HocPhanResult;
 using QL_ThiTracNghiem_WebAPI.DAL.ModelResults.SinhVienResult;
+using QL_ThiTracNghiem_WebAPI.DAL.ResponseDtos.CT_HocPhanResponseDto;
 
 namespace QL_ThiTracNghiem_WebAPI.DAL.Models;
 
@@ -22,6 +24,10 @@ public partial class QlHethongthitracnghiemContext : DbContext
     public DbSet<GiangVienResult> GetMaGv {  get; set; }
     public DbSet<HocPhanResult> GetMaHocPhan {  get; set; }
     public DbSet<SinhVienResult> GetMaSV { get; set; }
+    public DbSet<CT_HocPhanResult>  GetMaLopHocPhan { get; set; }
+    public DbSet<CT_HocPhanResponseDto>  GetCT_HocPhan { get; set; }
+    public DbSet<DS_SVHocPhanResponseDto>  GetDS_SVHocPhan { get; set; }
+    
 
 
 

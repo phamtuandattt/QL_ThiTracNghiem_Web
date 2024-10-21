@@ -22,80 +22,113 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpGet("cthp/dssv/{malhp}")]
+        public async Task<IActionResult> GetDSSVHP(string malhp)
         {
-            var lst = await _services.GetAllAsync();
-            if (!lst.Any())
+            // not
+            if (!await _services.ItemExists(malhp, "", ""))
             {
-                return NotFound(new ApiResponse
+                var errorrResponse = new ApiResponse
                 {
                     status = HttpStatusCode.NotFound + "",
                     message = ApiResponseMessage.NOT_FOUND,
                     data = ""
+                };
+                return BadRequest(errorrResponse);
+            }
+
+            return Ok(new ApiResponse
+            {
+                status = HttpStatusCode.OK + "",
+                message = ApiResponseMessage.SUCCESS,
+                data = JsonConvert.SerializeObject(await _services.GetDS_SVHocPhanAsync(malhp))
+            });
+        }
+
+        [HttpGet("{malophocphan}")]
+        public async Task<IActionResult> Get(string malophocphan)
+        {
+            // not
+            if (!await _services.ItemExists(malophocphan, "", ""))
+            {
+                var errorrResponse = new ApiResponse
+                {
+                    status = HttpStatusCode.NotFound + "",
+                    message = ApiResponseMessage.NOT_FOUND,
+                    data = ""
+                };
+                return BadRequest(errorrResponse);
+            }
+
+            return Ok(new ApiResponse
+            {
+                status = HttpStatusCode.OK + "",
+                message = ApiResponseMessage.SUCCESS,
+                data = JsonConvert.SerializeObject(await _services.GetAllAsync(malophocphan))
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] CT_HocPhanRequestDto ct_hp)
+        {
+            if (string.IsNullOrEmpty(ct_hp.Malophocphan) ||
+                string.IsNullOrEmpty(ct_hp.Masv) ||
+                string.IsNullOrEmpty(ct_hp.Mahocphan))
+            {
+                return BadRequest(new ApiResponse
+                {
+                    status = HttpStatusCode.NotFound + "",
+                    message = ApiResponseMessage.INVALID_OBJECT,
+                    data = null
                 });
+            }
+
+            try
+            {
+                var item = _mapper.Map<CT_HocPhanAddDto>(ct_hp);
+                await _services.AddAsync(item);
+            }
+            catch (DbUpdateException)
+            {
+
+            }
+            return Ok(new ApiResponse
+            {
+                status = HttpStatusCode.NoContent + "",
+                message = ApiResponseMessage.SUCCESS,
+                data = ""
+            });
+        }
+
+        [HttpPut("{malophocphan}")]
+        public async Task<IActionResult> Put(string malophocphan, [FromBody] CT_HocPhanRequestDto ct_hp)
+        {
+            if (!await _services.ItemExists(malophocphan, "", ""))
+            {
+                var errorrResponse = new ApiResponse
+                {
+                    status = HttpStatusCode.NotFound + "",
+                    message = ApiResponseMessage.NOT_FOUND,
+                    data = ""
+                };
+                return BadRequest(errorrResponse);
+            }
+
+            try
+            {
+                var itemDto = _mapper.Map<CT_HocPhanDto>(ct_hp);
+                await _services.UpdateAsync(malophocphan, itemDto);
+            }
+            catch (DbUpdateException)
+            {
+
             }
             return Ok(new ApiResponse
             {
                 status = HttpStatusCode.OK + "",
                 message = ApiResponseMessage.SUCCESS,
-                data = JsonConvert.SerializeObject(lst)
+                data = ""
             });
         }
-
-        //[HttpGet("{malophocphan}")]
-        //public async Task<IActionResult> Get(string malophocphan)
-        //{
-        //    // not
-        //    if (!await _services.ItemExists(malophocphan, "", ""))
-        //    {
-        //        var errorrResponse = new ApiResponse
-        //        {
-        //            status = HttpStatusCode.NotFound + "",
-        //            message = ApiResponseMessage.NOT_FOUND,
-        //            data = ""
-        //        };
-        //        return BadRequest(errorrResponse);
-        //    }
-
-        //    return Ok(new ApiResponse
-        //    {
-        //        status = HttpStatusCode.OK + "",
-        //        message = ApiResponseMessage.SUCCESS,
-        //        data = JsonConvert.SerializeObject(await _services.GetByIdAsync(malophocphan, "", ""))
-        //    });
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> Post([FromBody] CT_HocPhanRequestDto ct_hp)
-        //{
-        //    if (!string.IsNullOrEmpty(ct_hp.Malophocphan) || 
-        //        !string.IsNullOrEmpty(ct_hp.Masv) ||
-        //        !string.IsNullOrEmpty(ct_hp.Mahocphan))
-        //    {
-        //        return BadRequest(new ApiResponse
-        //        {
-        //            status = HttpStatusCode.NotFound + "",
-        //            message = ApiResponseMessage.INVALID_OBJECT,
-        //            data = null
-        //        });
-        //    }
-
-        //    try
-        //    {
-        //        var item = _mapper.Map<CT_HocPhanAddDto>(ct_hp);
-        //        await _services.AddAsync(item);
-        //    }
-        //    catch (DbUpdateException)
-        //    {
-
-        //    }
-        //    return Ok(new ApiResponse
-        //    {
-        //        status = HttpStatusCode.NoContent + "",
-        //        message = ApiResponseMessage.SUCCESS,
-        //        data = ""
-        //    });
-        //}
     }
 }

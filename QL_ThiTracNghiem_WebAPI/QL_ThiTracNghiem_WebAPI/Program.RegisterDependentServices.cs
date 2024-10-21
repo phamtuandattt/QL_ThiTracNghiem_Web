@@ -59,6 +59,7 @@ public static class RegisterDependentServices
         builder.Services.AddScoped<IChucVuRepository, ChucVuRepository>();
         builder.Services.AddScoped<IGiangVienRepository, GiangVienRepository>();
         builder.Services.AddScoped<IHocPhanRepository, HocPhanRepository>();
+        builder.Services.AddScoped<ICT_HocPhanRepository, CT_HocPhanRepository>();
         builder.Services.AddScoped<ISinhVienRepository, SinhVienRepository>();
 
         builder.Services.AddScoped<IChucVuServices, ChucVuServices>();
