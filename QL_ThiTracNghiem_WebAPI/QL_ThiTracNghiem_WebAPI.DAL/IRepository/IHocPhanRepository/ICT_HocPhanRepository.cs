@@ -14,6 +14,9 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.IRepository.IHocPhanRepository
         Task<List<CT_HocPhanResponseDto>> GetCT_LopHocPhan(string MaLopHocPhan);
         Task<List<DS_SVHocPhanResponseDto>> GetDS_SVHocPhanAsync(string MaLopHocPhan);
         Task<CtHocphan> GetLopHocPhan(string MaLopHocPhan);
+        Task AddRangeAsync(List<CtHocphan> items);
+        Task UpdateRangeAsync(CtHocphan item);
+        Task DeleteAsync(string malophocphan);
         Task<bool> ExistsAsync(string malophocphan, string masv, string mahocphan);
     }
 }

@@ -28,17 +28,20 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.CT_HocPhanServices
             _mapper = mapper;
         }
 
-        public async Task AddAsync(CT_HocPhanAddDto cthp)
+        public async Task AddRangeAsync(string mahocphan, List<CT_HocPhanAddDto> cthps)
         {
-            var malophocphan = await _CT_HocPhanRepository.GetMaLopHocPhan(cthp.Mahocphan);
-            cthp.Malophocphan = malophocphan;
-            var item = _mapper.Map<CtHocphan>(cthp);
-            await repository.AddAsync(item);
+            var malophocphan = await _CT_HocPhanRepository.GetMaLopHocPhan(mahocphan);
+            foreach (var entity in cthps)
+            {
+                entity.Malophocphan = malophocphan;
+            }
+            var items = _mapper.Map<List<CtHocphan>>(cthps);
+            await _CT_HocPhanRepository.AddRangeAsync(items);
         }
 
         public async Task DeleteAsync(string malophocphan)
         {
-            await repository.DeleteAsync(malophocphan);
+            await _CT_HocPhanRepository.DeleteAsync(malophocphan);
         }
 
         public async Task<List<CT_HocPhanResponseDto>> GetAllAsync(string MaLopHocPhan)
@@ -67,7 +70,7 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.CT_HocPhanServices
             }
 
             var a = _mapper.Map(ct_hp, existingItem);
-            await repository.UpdateAsync(existingItem);
+            await _CT_HocPhanRepository.UpdateRangeAsync(existingItem);
         }
     }
 }

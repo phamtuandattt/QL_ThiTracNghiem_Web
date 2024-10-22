@@ -17,7 +17,8 @@ namespace QL_ThiTracNghiem_WebAPI.Infrastructure.SqlCommand
         // --------------------PROCEDURE
         public const string GET_CT_LOPHOCPHAN = "EXEC GET_CT_LOPHOCPHAN '{0}'";
         public const string GET_DSSV_HOCPHAN = "EXEC GET_DSSV_HOCPHAN '{0}'";
-
+        public const string UPDATE_LOPHOCPHAN = "SET DATEFORMAT DMY UPDATE CT_HOCPHAN SET MAGV = '{0}', THU = {1}, TIET = '{2}', PHONG = '{3}', NGAYBD = '{4}', NGAYKT = '{5}' WHERE MALOPHOCPHAN = '{6}'";
+        public const string DELETE_LOPHOCPHAN = "DELETE FROM CT_HOCPHAN WHERE MALOPHOCPHAN = '{0}'";
 
     }
 }

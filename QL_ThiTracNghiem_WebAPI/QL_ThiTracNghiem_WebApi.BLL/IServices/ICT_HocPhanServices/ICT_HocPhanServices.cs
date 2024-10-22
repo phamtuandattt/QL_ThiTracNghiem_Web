@@ -14,8 +14,7 @@ namespace QL_ThiTracNghiem_WebApi.BLL.IServices.ICT_HocPhanServices
         Task<List<CT_HocPhanResponseDto>> GetAllAsync(string MaLopHocPhan);
         Task<List<DS_SVHocPhanResponseDto>> GetDS_SVHocPhanAsync(string MaLopHocPhan);
         Task<bool> ItemExists(string malophocphan, string masv, string mahp);
-
-        Task AddAsync(CT_HocPhanAddDto cthp);
+        Task AddRangeAsync(string mahocphan, List<CT_HocPhanAddDto> cthps);
         Task UpdateAsync(string malophp, CT_HocPhanDto ct_hp);
         Task DeleteAsync(string malophocphan);
     }

@@ -68,12 +68,10 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CT_HocPhanRequestDto ct_hp)
+        [HttpPost("{mahocphan}")]
+        public async Task<IActionResult> Post(string mahocphan, [FromBody] List<CT_HocPhanRequestDto> ct_hp)
         {
-            if (string.IsNullOrEmpty(ct_hp.Malophocphan) ||
-                string.IsNullOrEmpty(ct_hp.Masv) ||
-                string.IsNullOrEmpty(ct_hp.Mahocphan))
+            if (ct_hp.Count <= 0 || string.IsNullOrEmpty(mahocphan))
             {
                 return BadRequest(new ApiResponse
                 {
@@ -85,8 +83,8 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
 
             try
             {
-                var item = _mapper.Map<CT_HocPhanAddDto>(ct_hp);
-                await _services.AddAsync(item);
+                var items = _mapper.Map<List<CT_HocPhanAddDto>>(ct_hp);
+                await _services.AddRangeAsync(mahocphan, items);
             }
             catch (DbUpdateException)
             {
@@ -126,6 +124,35 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
             return Ok(new ApiResponse
             {
                 status = HttpStatusCode.OK + "",
+                message = ApiResponseMessage.SUCCESS,
+                data = ""
+            });
+        }
+
+        [HttpDelete("{malophocphan}")]
+        public async Task<IActionResult> Delete(string malophocphan)
+        {
+            if (!await _services.ItemExists(malophocphan, "", ""))
+            {
+                return NotFound(new ApiResponse
+                {
+                    status = HttpStatusCode.NotFound + "",
+                    message = ApiResponseMessage.NOT_FOUND,
+                    data = ""
+                });
+            }
+
+            try
+            {
+                await _services.DeleteAsync(malophocphan);
+            }
+            catch (DbUpdateException)
+            {
+
+            }
+            return Ok(new ApiResponse
+            {
+                status = HttpStatusCode.NoContent + "",
                 message = ApiResponseMessage.SUCCESS,
                 data = ""
             });

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using QL_ThiTracNghiem_WebAPI.DAL.IRepository.IHocPhanRepository;
 using QL_ThiTracNghiem_WebAPI.DAL.Models;
 using QL_ThiTracNghiem_WebAPI.DAL.ResponseDtos.CT_HocPhanResponseDto;
@@ -14,9 +15,11 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository.HocPhanRepository
     public class CT_HocPhanRepository : ICT_HocPhanRepository
     {
         private readonly QlHethongthitracnghiemContext _context;
-        public CT_HocPhanRepository(QlHethongthitracnghiemContext context)
+        private readonly IMapper _mapper;
+        public CT_HocPhanRepository(QlHethongthitracnghiemContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<bool> ExistsAsync(string malophocphan, string masv, string mahocphan)
@@ -57,6 +60,80 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository.HocPhanRepository
             return result?.MaLopHocPhan ?? "";
         }
 
-        
+        public  async Task AddRangeAsync(List<CtHocphan> items)
+        {
+            if (items.Count <= 0)
+            {
+                Logger.Error($"Entity of type {typeof(CtHocphan).Name} with the specified key not found.");
+                throw new KeyNotFoundException($"Entity of type {typeof(CtHocphan).Name} with the specified key not found.");
+            }
+            try
+            {
+                _context.CtHocphans?.AddRangeAsync(items);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException dbConcurrencyEx)
+            {
+                Logger.Error($"Concurrency error occurred while updating the entity - {typeof(CtHocphan).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+                throw new RepositoryException($"Concurrency error occurred while updating the entity - {typeof(CtHocphan).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+            }
+            catch (DbUpdateException dbEx)
+            {
+                Logger.Error($"An error occurred while trying to update the entity - {typeof(CtHocphan).Name}", dbEx);
+                throw new RepositoryException($"An error occurred while trying to update the entity - {typeof(CtHocphan).Name}", dbEx);
+            }
+        }
+
+        public async Task UpdateRangeAsync(CtHocphan item)
+        {
+            if (string.IsNullOrEmpty(item.Malophocphan))
+            {
+                Logger.Error($"Entity of type {typeof(CtHocphan).Name} with the specified key not found.");
+                throw new KeyNotFoundException($"Entity of type {typeof(CtHocphan).Name} with the specified key not found.");
+            }
+            try
+            {
+                var sqlQuery = string.Format(SqlCommand.UPDATE_LOPHOCPHAN, item.Magv, item.Thu, item.Tiet, item.Phong, item.Ngaybd, item.Ngaykt, item.Malophocphan);
+                var result = await _context.Database.ExecuteSqlRawAsync(sqlQuery);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException dbConcurrencyEx)
+            {
+                Logger.Error($"Concurrency error occurred while updating the entity - {typeof(CtHocphan).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+                throw new RepositoryException($"Concurrency error occurred while updating the entity - {typeof(CtHocphan).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+            }
+            catch (DbUpdateException dbEx)
+            {
+                Logger.Error($"An error occurred while trying to update the entity - {typeof(CtHocphan).Name}", dbEx);
+                throw new RepositoryException($"An error occurred while trying to update the entity - {typeof(CtHocphan).Name}", dbEx);
+            }
+        }
+
+        public async Task DeleteAsync(string malophocphan)
+        {
+            if (string.IsNullOrEmpty(malophocphan))
+            {
+                Logger.Error($"Entity of type {typeof(CtHocphan).Name} with the specified key not found.");
+                throw new KeyNotFoundException($"Entity of type {typeof(CtHocphan).Name} with the specified key not found.");
+            }
+            try
+            {
+                // Remove entity
+                var sqlQuery = string.Format(SqlCommand.DELETE_LOPHOCPHAN, malophocphan);
+                var result = await _context.Database.ExecuteSqlRawAsync(sqlQuery);
+                // Save changes to the database
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException dbConcurrencyEx)
+            {
+                Logger.Error($"Database update failed while deleting  {typeof(CtHocphan).Name} entity - ID: {malophocphan} - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+                throw new RepositoryException($"Concurrency error occurred while deleting the entity - {typeof(CtHocphan).Name}  - {dbConcurrencyEx?.InnerException?.Message.ToString()}");
+            }
+            catch (DbUpdateException dbEx)
+            {
+                Logger.Error("Database update failed while deleting entity.");
+                throw new RepositoryException($"An error occurred while trying to delete the entity - {typeof(CtHocphan).Name}", dbEx);
+            }
+        }
     }
 }
