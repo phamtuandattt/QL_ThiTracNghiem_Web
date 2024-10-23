@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Sidebar with Content</title>
+    <link rel="icon" type="favicon" href="https://cdn-icons-png.freepik.com/256/3145/3145765.png?semt=ais_hybrid">
+    <link rel="stylesheet" href="../css/layout.css">
+    <script src="../js/jquery.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="https://cdn-icons-png.freepik.com/256/3145/3145765.png?semt=ais_hybrid" alt="Logo">
+                </div>
+                <div class="sidebar-title">Management</div>
+                <div class="toggle-btn" id="toggle-btn" onclick="toggleSidebar()">
+                    <span>&#10095;</span>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item active">
+                    <img class="icon" src="https://cdn-icons-png.freepik.com/256/3145/3145765.png?semt=ais_hybrid" alt="logo">
+                    <a href="#" class="sidebar-item-content">Ngân hàng câu hỏi</a>
+                </li>
+                <li class="sidebar-item">
+                    <img class="icon" src="https://cdn-icons-png.freepik.com/256/3145/3145765.png?semt=ais_hybrid" alt="logo">
+                    <a href="#" class="sidebar-item-content">Duyệt ngân hàng câu hỏi</a>
+                </li>
+                <li class="sidebar-item">
+                    <img class="icon" src="https://cdn-icons-png.freepik.com/256/3145/3145765.png?semt=ais_hybrid" alt="logo">
+                    <a href="#" class="sidebar-item-content">Đề thi</a>
+                </li>
+                <li class="sidebar-item">
+                    <img class="icon" src="https://cdn-icons-png.freepik.com/256/3145/3145765.png?semt=ais_hybrid" alt="logo">
+                    <a href="#" class="sidebar-item-content">Ca thi - chọn để thi</a>
+                </li>
+                <li class="sidebar-item">
+                    <img class="icon" src="https://cdn-icons-png.freepik.com/256/3145/3145765.png?semt=ais_hybrid" alt="logo">
+                    <a href="#" class="sidebar-item-content">Quản lý bài thi</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <div class="sidebar-header-infomation">
+                <div class="user-name">Lê Thị Thanh Thúy</div>
+                <div class="user-icon">
+                    <img src="../assets/Screenshot_3.png" alt="Logo">
+                </div>
+            </div>
+            <div class="content-body">
+                <h1>Main Content</h1>
+                <p>This is where the main content of the page will go. The sidebar can be collapsed or expanded, and the content section will adjust accordingly.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a mauris nec nunc dictum facilisis. Donec aliquam urna et diam varius, vel faucibus mauris ultricies.</p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/sidebar.js"></script>
+
+</body>
+</html>
