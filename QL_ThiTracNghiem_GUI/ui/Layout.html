@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý thi trắc nghiệm</title>
     <link rel="icon" type="favicon" href="https://cdn-icons-png.freepik.com/256/3145/3145765.png?semt=ais_hybrid">
     <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/nganhangcauhoi.css">
     <script src="../js/jquery.js"></script>
 
 </head>
+
 <body>
     <div class="container">
         <!-- Sidebar -->
@@ -61,13 +64,69 @@
                 </div>
             </div>
             <div class="content-body">
-                <h1>Main Content</h1>
-                <p>This is where the main content of the page will go. The sidebar can be collapsed or expanded, and the content section will adjust accordingly.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a mauris nec nunc dictum facilisis. Donec aliquam urna et diam varius, vel faucibus mauris ultricies.</p>
+                <div class="hocphan">
+                    <label for="options">Học phần:</label>
+                    <select id="options" class="hocphan-dropdown">
+                        <option value="option1">Cấu trúc dữ liệu & giải thuật</option>
+                        <option value="option2">Cơ sở dữ liệu</option>
+                        <option value="option3">Đại số tuyến tính</option>
+                        <option value="option4">Công nghệ .NET</option>
+                        <option value="option5">NoSQL</option>
+                    </select>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nội dung câu hỏi</th>
+                            <th>Đáp án</th>
+                            <th>Ngày tạo</th>
+                            <th>Ngày cập nhật</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><p class="an">Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì?</p></td>
+                            <td>Người em út tên Nam</td>
+                            <td>30/12/2022</td>
+                            <td>30/12/2022</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><p class="an">Đố bạn khi Beckham thực hiện quả đá phạt đền, anh ta sẽ sút vào đâu?</p></td>
+                            <td>Anh ta sẽ sút vào bóng</td>
+                            <td>30/12/2022</td>
+                            <td>30/12/2022</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><p class="an">Một ly thuỷ tinh đựng đầy nước, làm thế nào để lấy nước dưới đáy ly mà không đổ nước ra ngoài ?</p></td>
+                            <td>Ống hút</td>
+                            <td>30/12/2022</td>
+                            <td>30/12/2022</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><p class="an">Cầm trên tay một cây thước và một cây bút , làm thế nào để bạn vẽ được một vòng tròn thật chính xác?</p></td>
+                            <td>Bỏ cây thước đi và cầm compa lên để vẽ.</td>
+                            <td>30/12/2022</td>
+                            <td>30/12/2022</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td> <p class="an">Bạn đang ở trong một cuộc đua và bạn vừa vượt qua người thứ nhì . Vậy bây giờ bạn đang ở vị trí nào trong đoàn đua ấy?Bạn đang ở trong một cuộc đua và bạn vừa vượt qua người thứ nhì . Vậy bây giờ bạn đang ở vị trí nào trong đoàn đua ấy?Bạn đang ở trong một cuộc đua và bạn vừa vượt qua người thứ nhì . Vậy bây giờ bạn đang ở vị trí nào trong đoàn đua ấy?Bạn đang ở trong một cuộc đua và bạn vừa vượt qua người thứ nhì . Vậy bây giờ bạn đang ở vị trí nào trong đoàn đua ấy?</p> </td>
+                            <td>Thứ nhì.</td>
+                            <td>30/12/2022</td>
+                            <td>30/12/2022</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
     <script src="../js/sidebar.js"></script>
 
 </body>
+
 </html>

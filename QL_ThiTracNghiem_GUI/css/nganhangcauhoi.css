@@ -1,0 +1,53 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: rgb(231, 231, 231);
+}
+tr:hover {
+    background-color: rgb(240, 239, 239);
+}
+.hocphan {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
+  /*.hocphan-dropdown {
+    padding: 5px 5px;
+    margin: 0 0 0 20px;
+  } */
+  select {
+    /* width: 100%; */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  
+  select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(251, 253, 255, 0.5);
+  }
+  select>option:hover {
+    background-color: rgb(240, 239, 239);
+  }
+
+ .an {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    height: 75px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
