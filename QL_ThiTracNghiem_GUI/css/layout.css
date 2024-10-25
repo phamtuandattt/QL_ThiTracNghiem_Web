@@ -11,12 +11,14 @@ body {
 
 .sidebar {
   width: 80px; /* Collapsed width */
-  position: relative;
+  position: fixed;
+  float: left;
   top: 0;
   left: 0;
   height: 100vh;
   background-color: #111;
   transition: width 0.3s ease;
+  overflow: hidden;
 }
 
 .sidebar.expanded {
@@ -31,6 +33,7 @@ body {
   padding: 10px 20px;
   background-color: #192a41;
   color: white;
+  cursor: pointer;
 }
 
 .sidebar-header .logo img {
@@ -55,7 +58,7 @@ body {
 /*-------------------- Toggle button -------------------- */
 .toggle-btn {
   position: absolute;
-  left: 95%; /* This keeps it at the edge of the sidebar */
+  left: 85%; /* This keeps it at the edge of the sidebar */
   cursor: pointer;
   background-color: #0c2f3b;
   border-radius: 50%;
@@ -144,9 +147,9 @@ body {
 /*------------------------------------------------------- */
 
 .content {
-  flex: 1;
-  /* padding: 0 20px; */
   background-color: #f0f4f8;
+  margin-left: 80px;
+  overflow-y: scroll;
 }
 .sidebar-header-infomation {
   display: flex;
@@ -155,6 +158,8 @@ body {
   padding: 7px 20px;
   background-color: #192a41;
   color: white;
+  position: fixed;
+  width: -webkit-fill-available;
 }
 .user-name {
   position: relative;
@@ -265,8 +270,7 @@ body {
 
 /* --------------------------------------Body---------------------------- */
 .content-body {
-  flex: 1;
-  padding: 0 20px;
+  padding: 60px 20px 0px 20px;
   background-color: #f0f4f8;
 }
 
