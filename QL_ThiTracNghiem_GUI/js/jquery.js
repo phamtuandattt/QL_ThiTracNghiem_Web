@@ -18,3 +18,16 @@ function toggleSidebar() {
         element.style.transition = 'margin 0.3s ease'     
     }
 }
+
+function showPopup(name, age) {
+    const popup = document.getElementById('popup');
+    document.getElementById('popup-title').innerText = name;
+    document.getElementById('popup-info').innerText = 'Age: ' + age;
+    
+    popup.classList.add('show'); // Add the 'show' class to display the popup
+}
+// Function to close the popup with a fade-out effect
+function closePopup() {
+    const popup = document.getElementById('popup');
+    popup.classList.remove('show'); // Start the fade-out transition
+}
