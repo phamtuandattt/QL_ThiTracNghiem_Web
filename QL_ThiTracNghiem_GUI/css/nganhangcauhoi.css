@@ -40,8 +40,8 @@ tr:hover {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 25px;
-    -webkit-line-clamp: 3;
-    height: 75px;
+    -webkit-line-clamp: 2;
+    height: 50px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
