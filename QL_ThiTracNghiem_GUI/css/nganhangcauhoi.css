@@ -45,3 +45,11 @@ tr:hover {
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
+
+.no-records {
+  padding: 20px;
+  text-align: center;
+  color: #757575;
+  font-size: 16px;
+  display: none; /* Initially hidden */
+}

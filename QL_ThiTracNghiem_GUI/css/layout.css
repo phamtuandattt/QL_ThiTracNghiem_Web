@@ -165,6 +165,7 @@ body {
   background-color: #f0f4f8;
   margin-left: 80px;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .sidebar-header-infomation {
