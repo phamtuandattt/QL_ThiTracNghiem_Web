@@ -161,7 +161,50 @@
         <div class="popup-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <h3 id="popup-title"></h3>
-            <p id="popup-info"></p>
+            <div class="button-container">
+                <button onclick="enableEditing()" class="edit-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" fill="currentColor">
+                        <path d="M3 17.25V21h3.75l11-11.03-3.74-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                </button>
+                <button onclick="disableEditing()" class="edit-button">
+                    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+            <div class="popup-content popup-scroll">
+                <div class="popup-question">
+                    <div class="text-section">
+                        <p>Cherry Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì? Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì?Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì?</p>
+                    </div>
+                    <div id="image-section" class="image-section">
+                        <img id="img-question" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagWEUxD8M4bHzNPudjU5MdJhlm5aj1A7t4g&s" alt=""> <!--string.IsEmpty(url) ?? "/"-->
+                    </div>
+                </div>
+                <div id="popup-answer">
+                    <label class="popup-radio-container">
+                        <input type="radio" name="fruit" value="Apple" disabled id="1">
+                        <span class="popup-radio-label">Apple Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì? Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì?</span>
+                    </label>
+                    <label class="popup-radio-container">
+                        <input type="radio" name="fruit" value="Banana" disabled id="2">
+                        <span class="popup-radio-label">Banana Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì?</span>
+                    </label>
+                    <label class="popup-radio-container">
+                        <input type="radio" name="fruit" value="Cherry" disabled id="3">
+                        <span class="popup-radio-label">Cherry Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì? Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì?Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì?</span>
+                    </label>
+                    <label class="popup-radio-container">
+                        <input type="radio" name="fruit" value="Grapes" disabled id="4">
+                        <span class="popup-radio-label">Grapes</span>
+                    </label>
+                    <label class="popup-radio-container">
+                        <input type="radio" name="fruit" value="Orange" disabled id="5"> 
+                        <span class="popup-radio-label">Orange Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người em út tên gì?</span>
+                    </label>
+                </div>
+            </div>
         </div>
     </div>
 
