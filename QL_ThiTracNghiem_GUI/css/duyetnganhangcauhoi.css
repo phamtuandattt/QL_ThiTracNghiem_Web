@@ -65,19 +65,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
-
-
-
-
-
-
 .container-popup-question {
     display: flex;
     width: 100%;
-    height: 85vh;
-    margin: 20px auto;
+    height: 80vh;
+    /* margin: 20px auto; */
     border: 1px solid #ccc;
+    position: relative;
+    top: -25px;
 }
 
 .left-panel, .right-panel {
@@ -101,20 +96,20 @@ h3 {
 
 .question-table {
     display: block;
-    width: 100%;
-    height: 75vh;
+    /* width: 100%;
+    height: 75vh; */
     border-collapse: collapse;
 }
 
 .question-table thead th {
     position: sticky;
-    top: 0;
-    background: #f9f9f9;
+    top: -1px;
+    background-color: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
 .question-table th, .question-table td {
-    padding: 8px;
+    padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
 }
@@ -149,10 +144,10 @@ h3 {
     /* overflow-y: auto; */
   }
   
-  /* .popup-scroll {
-    max-height: 80vh;
+  .popup-scroll-duyetNHCH {
+    max-height: 70vh;
     overflow-y: auto;
-  } */
+  }
 
   .popup-duyetNHCH {
     position: fixed;
@@ -185,5 +180,25 @@ h3 {
     animation: slide-down 0.3s ease;
     /* max-height: 80vh;
     overflow-y: auto; */
-    height: 74vh;
+    height: 67vh;
+  }
+
+  .image-section-duyetnganhangcauhoi {
+    position: relative;
+    top: -15px;
+    text-align: center;
+    /* Adjust this value to control the overlap */
+  }
+  
+  .image-section-duyetnganhangcauhoi img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .button-container-duyetnganhangcauhoi {
+    float: right;
+    position: relative;
+    gap: 10px;
+    top: -25px;
+    /* right: 50px; */
+    display: flex;
   }

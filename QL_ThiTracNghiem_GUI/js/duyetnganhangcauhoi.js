@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.querySelector("#recordsTable tbody");
     const noRecordsMessage = document.getElementById("noRecordsMessage");
 
@@ -17,7 +17,7 @@ function sortTable(columnIndex) {
     const table = document.getElementById("recordsTable");
     const rows = Array.from(table.rows).slice(1); // Get all rows except the header
     const isAscending = table.querySelectorAll("th")[columnIndex].classList.toggle("sorted-asc");
-    
+
     // Clear other sorted column classes
     table.querySelectorAll("th").forEach((th, index) => {
         if (index !== columnIndex) {
@@ -48,25 +48,19 @@ function sortTable(columnIndex) {
 
 function showDetails(questionId) {
     const questionDetail = document.getElementById("questionDetail");
+    const table = document.getElementById("table-duyetNHCH");
+    const row = document.getElementById(questionId);
 
-    if (questionId === 1) {
-        questionDetail.innerHTML = `
-            <p>Khi kiểm định cầu đường sắt, công tác tổ chức đoàn hoạt tải dành riêng để thử tải mô
-               phỏng sơ đồ hoạt tải đứng yên ở trên cầu được thực hiện ít nhất bao nhiêu lần?
-               Khi kiểm định cầu đường sắt, công tác tổ chức đoàn hoạt tải dành riêng để thử tải mô
-               phỏng sơ đồ hoạt tải đứng yên ở trên cầu được thực hiện ít nhất bao nhiêu lần?</p>`;
-        document.getElementById("answerOptions").innerHTML = `
-            <label><input type="radio" name="answer" value="1"> 2 lần</label><br>
-            <label><input type="radio" name="answer" value="2"> 3 lần</label><br>
-            <label><input type="radio" name="answer" value="3"> 4 lần</label><br>
-            <label><input type="radio" name="answer" value="4"> 5 lần</label><br>`;
-    } else if (questionId === 2) {
-        questionDetail.innerHTML = `
-            <p>Công tác kiểm định cầu đường bộ, kiểm tra tải trọng phải được thực hiện tối thiểu bao nhiêu lần?</p>`;
-        document.getElementById("answerOptions").innerHTML = `
-            <label><input type="radio" name="answer" value="1"> 1 lần</label><br>
-            <label><input type="radio" name="answer" value="2"> 2 lần</label><br>
-            <label><input type="radio" name="answer" value="3"> 3 lần</label><br>
-            <label><input type="radio" name="answer" value="4"> 4 lần</label><br>`;
+    let rowContent = [];
+    if (row) {
+        for (let cell of row.cells) {
+            rowContent.push(cell.textContent.trim());
+        }
     }
+    questionDetail.innerHTML = '<p>' + rowContent[0] + '</p>';
+    document.getElementById("answerOptions").innerHTML = 
+        '<label><input type=\"radio\" name=\"answer\" value=\"1\">' + rowContent[1] + '</label><br>' +
+        '<label><input type=\"radio\" name=\"answer\" value=\"2\">' + rowContent[2] + '</label><br>' +
+        '<label><input type=\"radio\" name=\"answer\" value=\"3\">' + rowContent[3] + '</label><br>' +
+        '<label><input type=\"radio\" name=\"answer\" value=\"4\">' + rowContent[4] + '</label><br>';
 }
