@@ -19,36 +19,33 @@ function toggleSidebar() {
     }
 }
 
-function showPopup(name, age) {
-    const popup = document.getElementById('popup');
+function showPopup(popup_id) {
+    const popup = document.getElementById(popup_id);
     document.getElementById('popup-title').innerText = 'Nội dung câu hỏi';
 
     popup.classList.add('show'); // Add the 'show' class to display the popup
 }
 
 // Function to close the popup with a fade-out effect
-function closePopup() {
-    const popup = document.getElementById('popup');
-
-    const radioButtons = document.querySelectorAll('#popup-answer input[type="radio"]');
-    radioButtons.forEach(radio => {
-        radio.disabled = true;
-    });
+function closePopup(popup_id) {
+    const popup = document.getElementById(popup_id);
+    var popup_enable_path = 'popup-answer';
+    disableEditing(popup_enable_path);
     
     popup.classList.remove('show'); // Start the fade-out transition  
 }
 
-function enableEditing() {
-    // Get all radio buttons in the form
-    const radioButtons = document.querySelectorAll('#popup-answer input[type="radio"]');
-    // Enable each radio button
+function enableEditing(popup_id_path) {
+    var path = '#' + popup_id_path + ' input[type=\"radio\"]';
+    const radioButtons = document.querySelectorAll(path);
     radioButtons.forEach(radio => {
         radio.disabled = false;
     });
 }
 
-function disableEditing() {
-    const radioButtons = document.querySelectorAll('#popup-answer input[type="radio"]');
+function disableEditing(popup_id_path) {
+    var path = '#' + popup_id_path + ' input[type=\"radio\"]';
+    const radioButtons = document.querySelectorAll(path);
     radioButtons.forEach(radio => {
         radio.disabled = true;
     });
