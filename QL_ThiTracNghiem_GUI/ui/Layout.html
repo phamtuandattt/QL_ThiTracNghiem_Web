@@ -149,6 +149,13 @@
                 <!-- Left Panel: List with Checkboxes -->
                 <div class="left-panel">
                     <h3>Danh sách câu hỏi</h3>
+                    <div class="top-title">
+                        <p id="quantity-selected" class="quantity-selected">Đã chọn (0) câu hỏi</p>
+                        <div class="button-selected-container">
+                            <button id="unselected-all" class="btn-selected" onclick="unselectedAll()">Bỏ chọn tất cả</button>
+                            <button id="selected-all" class="btn-selected" onclick="selectedAll()">Chọn tất cả</button>
+                        </div>
+                    </div>
                     <div class="popup-scroll-duyetNHCH">
                         <table id="table-duyetNHCH" class="question-table">
                             <thead>
@@ -171,7 +178,7 @@
                                     <td style="display: none;">3 lần</td>
                                     <td style="display: none;">4 lần</td>
                                     <td>B</td>
-                                    <td><input type="checkbox" /></td>
+                                    <td><input type="checkbox" onclick="countChecked()"/></td>
                                 </tr>
                                 <tr onclick="showDetails(2)" id="2">
                                     <td><p class="an">Công tác kiểm định...</p></td>
@@ -180,7 +187,43 @@
                                     <td style="display: none;">3 lần</td>
                                     <td style="display: none;">4 lần</td>
                                     <td>A</td>
-                                    <td><input type="checkbox" /></td>
+                                    <td><input type="checkbox" onclick="countChecked()"/></td>
+                                </tr>
+                                <tr onclick="showDetails(3)" id="3">
+                                    <td><p class="an">Công tác kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>C</td>
+                                    <td><input type="checkbox" onclick="countChecked()"/></td>
+                                </tr>
+                                <tr onclick="showDetails(4)" id="4">
+                                    <td><p class="an">Công tác kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>D</td>
+                                    <td><input type="checkbox" onclick="countChecked()"/></td>
+                                </tr>
+                                <tr onclick="showDetails(5)" id="5">
+                                    <td><p class="an">Công tác kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>C</td>
+                                    <td><input type="checkbox" onclick="countChecked()"/></td>
+                                </tr>
+                                <tr onclick="showDetails(6)" id="6">
+                                    <td><p class="an">Công tác kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>A</td>
+                                    <td><input type="checkbox" onclick="countChecked()"/></td>
                                 </tr>
                                 <!-- Add more rows as needed -->
                             </tbody>
@@ -191,7 +234,7 @@
             
                 <!-- Right Panel: Details of Selected Item -->
                 <div class="right-panel">
-                    <h3>Chi tiết câu hỏi</h3>
+                    <h3>Danh sách câu hỏi</h3>
                     <div class="popup-content-duyetNHCH popup-scroll">
                         <div class="popup-question">
                             <div id="questionDetail" class="text-section">
@@ -204,10 +247,10 @@
                             </div>
                         </div>
                         <div id="answerOptions">
-                            <label><input type="radio" name="answer" value="1"> 2 lần</label><br>
-                            <label><input type="radio" name="answer" value="2"> 3 lần</label><br>
-                            <label><input type="radio" name="answer" value="3"> 4 lần</label><br>
-                            <label><input type="radio" name="answer" value="4"> 5 lần</label><br>
+                            <label><input type="radio" name="answer" value="1" disabled> 2 lần</label><br>
+                            <label><input type="radio" name="answer" value="2" disabled> 3 lần</label><br>
+                            <label><input type="radio" name="answer" value="3" disabled> 4 lần</label><br>
+                            <label><input type="radio" name="answer" value="4" disabled> 5 lần</label><br>
                         </div>
                     </div>
                 </div>

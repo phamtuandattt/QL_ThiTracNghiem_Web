@@ -48,7 +48,6 @@ function sortTable(columnIndex) {
 
 function showDetails(questionId) {
     const questionDetail = document.getElementById("questionDetail");
-    const table = document.getElementById("table-duyetNHCH");
     const row = document.getElementById(questionId);
 
     let rowContent = [];
@@ -58,9 +57,56 @@ function showDetails(questionId) {
         }
     }
     questionDetail.innerHTML = '<p>' + rowContent[0] + '</p>';
-    document.getElementById("answerOptions").innerHTML = 
-        '<label><input type=\"radio\" name=\"answer\" value=\"1\">' + rowContent[1] + '</label><br>' +
-        '<label><input type=\"radio\" name=\"answer\" value=\"2\">' + rowContent[2] + '</label><br>' +
-        '<label><input type=\"radio\" name=\"answer\" value=\"3\">' + rowContent[3] + '</label><br>' +
-        '<label><input type=\"radio\" name=\"answer\" value=\"4\">' + rowContent[4] + '</label><br>';
+    document.getElementById("answerOptions").innerHTML =
+        '<label><input type=\"radio\" name=\"answer\" value=\"1\" disabled ' + ((rowContent[5].trim() === "A") ? "checked" : "") + '>' + rowContent[1] + '</label><br>' +
+        '<label><input type=\"radio\" name=\"answer\" value=\"2\" disabled ' + ((rowContent[5].trim() === "B") ? "checked" : "") + '>' + rowContent[2] + '</label><br>' +
+        '<label><input type=\"radio\" name=\"answer\" value=\"3\" disabled ' + ((rowContent[5].trim() === "C") ? "checked" : "") + '>' + rowContent[3] + '</label><br>' +
+        '<label><input type=\"radio\" name=\"answer\" value=\"4\" disabled ' + ((rowContent[5].trim() === "D") ? "checked" : "") + '>' + rowContent[4] + '</label><br>';
+
+    // Remove highlight class from all rows
+    const rows = document.querySelectorAll("tbody tr");
+    rows.forEach(r => r.classList.remove("highlight"));
+
+    // Add highlight class to the clicked row
+    row.classList.add("highlight");
+}
+
+function countChecked() {
+    // Get all checkboxes in the table
+    const checkboxes = document.querySelectorAll('#table-duyetNHCH tbody input[type="checkbox"]');
+
+    // Count how many checkboxes are checked
+    let checkedCount = 0;
+    checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+            checkedCount++;
+        }
+    });
+
+    // Update the count display
+    document.getElementById("quantity-selected").textContent = 'Đã chọn (' + checkedCount + ') câu hỏi.';
+}
+
+function selectedAll() {
+    // Get all checkboxes in the table
+    const checkboxes = document.querySelectorAll('#table-duyetNHCH tbody input[type="checkbox"]');
+    checkboxes.forEach(checkbox => checkbox.checked = true);
+
+    // Update the count display
+    countChecked();
+
+    // Update button text based on action
+    document.getElementById("selected-all").textContent = allChecked ? "Chọn tất cả" : "Bỏ chọn tất cả";
+}
+
+function unselectedAll() {
+    // Get all checkboxes in the table
+    const checkboxes = document.querySelectorAll('#table-duyetNHCH tbody input[type="checkbox"]');
+    checkboxes.forEach(checkbox => checkbox.checked = false);
+
+    // Update the count display
+    countChecked();
+
+    // Update button text based on action
+    document.getElementById("selected-all").textContent = allChecked ? "Chọn tất cả" : "Bỏ chọn tất cả";
 }
