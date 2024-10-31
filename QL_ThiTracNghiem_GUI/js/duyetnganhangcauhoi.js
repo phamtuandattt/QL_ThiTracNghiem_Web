@@ -45,6 +45,12 @@ function sortTable(columnIndex) {
     rows.forEach(row => table.tBodies[0].appendChild(row));
 }
 
+function showPopupDuyetNHCH(popup_id) {
+    const popup = document.getElementById(popup_id);
+    document.getElementById('popup-title').innerText = 'Nội dung câu hỏi';
+
+    popup.classList.add('show'); // Add the 'show' class to display the popup
+}
 
 function showDetails(questionId) {
     const questionDetail = document.getElementById("questionDetail");
@@ -78,8 +84,14 @@ function countChecked() {
     // Count how many checkboxes are checked
     let checkedCount = 0;
     checkboxes.forEach((checkbox) => {
+        const row = checkbox.closest("tr");
         if (checkbox.checked) {
+            if (!listChecked.some(item => item.id === row.id)) {
+                listChecked.push(row);
+            }
             checkedCount++;
+        } else {
+            listChecked = listChecked.filter(item => item.id !== row.id);
         }
     });
 
@@ -96,7 +108,7 @@ function selectedAll() {
     countChecked();
 
     // Update button text based on action
-    document.getElementById("selected-all").textContent = allChecked ? "Chọn tất cả" : "Bỏ chọn tất cả";
+    // document.getElementById("selected-all").textContent = allChecked ? "Chọn tất cả" : "Bỏ chọn tất cả";
 }
 
 function unselectedAll() {
@@ -108,5 +120,11 @@ function unselectedAll() {
     countChecked();
 
     // Update button text based on action
-    document.getElementById("selected-all").textContent = allChecked ? "Chọn tất cả" : "Bỏ chọn tất cả";
+    // document.getElementById("selected-all").textContent = allChecked ? "Chọn tất cả" : "Bỏ chọn tất cả";
+}
+
+function saveAll(popup_id_path) {
+    var path = '#' + popup_id_path + ' input[type=\"radio\"]';
+    console.log(listChecked);
+    listChecked = [];
 }

@@ -80,7 +80,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr onclick="showPopup('popup_duyetnganhangcauhoi')">
+                        <tr onclick="showPopupDuyetNHCH('popup_duyetnganhangcauhoi')">
                             <td>1</td>
                             <td>0101000001</td>
                             <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
@@ -131,14 +131,7 @@
             <span class="close-btn" onclick="closePopup('popup_duyetnganhangcauhoi')">&times;</span>
             <h3 id="popup-title"></h3>
             <div class="button-container-duyetnganhangcauhoi">
-                <button onclick="enableEditing('popup-answer')" class="edit-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25"
-                        fill="currentColor">
-                        <path
-                            d="M3 17.25V21h3.75l11-11.03-3.74-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                    </svg>
-                </button>
-                <button onclick="disableEditing('popup-answer')" class="edit-button">
+                <button onclick="saveAll('popup-answer')" class="edit-button">
                     <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
                             stroke-linejoin="round" />
@@ -257,6 +250,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        var listChecked = [];
+    </script>
 
     <script src="../js/sidebar.js"></script>
     <script src="../js/jquery.js"></script>
