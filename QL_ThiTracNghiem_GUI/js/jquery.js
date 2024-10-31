@@ -103,3 +103,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+function showLoading() {
+    const overlay = document.getElementById("loadingOverlay");
+    // Show the overlay
+    overlay.style.display = "flex";
+    // Hide the overlay after 2 seconds
+    setTimeout(() => {
+        overlay.style.display = "none";
+    }, 5000); // 2000 milliseconds = 2 seconds
+}

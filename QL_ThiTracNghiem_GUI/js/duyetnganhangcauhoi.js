@@ -143,4 +143,5 @@ function saveAll(popup_id_path) {
     var path = '#' + popup_id_path + ' input[type=\"radio\"]';
     console.log(listChecked);
     listChecked = [];
+    showLoading();
 }
