@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const tableBody = document.querySelector("#recordsTable tbody");
+    const tableBody = document.querySelector("#tblDuyetNganHangCauHoi tbody");
     const noRecordsMessage = document.getElementById("noRecordsMessage");
 
     function checkTableRows() {
@@ -11,10 +11,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     checkTableRows();
+
+    const selectElement = document.getElementById("options-giangvien");
+
+    selectElement.addEventListener("change", function() {
+        const selectedValue = selectElement.value;
+        
+        if (selectedValue == "option2") {
+            const tableBody = document.querySelector("#tblDuyetNganHangCauHoi tbody");
+            tableBody.innerHTML = "";
+            checkTableRows();
+        } else {
+            const tableBody = document.querySelector("#tblDuyetNganHangCauHoi tbody");
+            tableBody.innerHTML += "<tr onclick=\"showPopup('ABC','abcc')\"> <td>1</td> <td><p class=\"an\">Nhà Nam có 4 anh chị em, 3 người lớn tên là Xuân, Hạ, Thu. Đố bạn người emút tên gì?</p></td><td>Người em út tên Nam</td><td>30/12/2022</td><td>30/12/2022</td></tr><tr><td>2</td><td><p class=\"an\">Đố bạn khi Beckham thực hiện quả đá phạt đền, anh ta sẽ sút vào đâu?</p></td><td>Anh ta sẽ sút vào bóng</td><td>30/12/2022</td><td>30/12/2022</td></tr><tr><td>3</td><td><p class=\"an\">Một ly thuỷ tinh đựng đầy nước, làm thế nào để lấy nước dưới đáy ly mà không đổ nước ra ngoài ?</p></td><td>Ống hút</td><td>30/12/2022</td><td>30/12/2022</td></tr><tr><td>4</td><td><p class=\"an\">Cầm trên tay một cây thước và một cây bút , làm thế nào để bạn vẽ được mộtvòng tròn thật chính xác?</p></td><td>Bỏ cây thước đi và cầm compa lên để vẽ.</td><td>30/12/2022</td><td>30/12/2022</td></tr><tr><td>5</td><td><p class=\"an\">Bạn đang ở trong một cuộc đua và bạn vừa vượt qua người thứ nhì . Vậy bâygiờ bạn đang ở vị trí nào trong đoàn đua ấy?Bạn đang ở trong một cuộc đua và bạn vừavượt qua người thứ nhì . Vậy bây giờ bạn đang ở vị trí nào trong đoàn đua ấy?Bạnđang ở trong một cuộc đua và bạn vừa vượt qua người thứ nhì . Vậy bây giờ bạn đang ởvị trí nào trong đoàn đua ấy?Bạn đang ở trong một cuộc đua và bạn vừa vượt qua ngườithứ nhì . Vậy bây giờ bạn đang ở vị trí nào trong đoàn đua ấy?</p></td><td>Thứ nhì.</td><td>30/12/2022</td><td>30/12/2022</td></tr><tr><td>6</td><td><p class=\"an\">Bạn đang ở trong một cuộc đua và bạn vừa vượt qua người thứ nhì . Vậy bâygiờ bạn đang ở vị trí nào trong đoàn đua ấy?Bạn đang ở trong một cuộc đua và bạn vừavượt qua người thứ nhì . Vậy bây giờ bạn đang ở vị trí nào trong đoàn đua ấy?Bạnđang ở trong một cuộc đua và bạn vừa vượt qua người thứ nhì . Vậy bây giờ bạn đang ởvị trí nào trong đoàn đua ấy?Bạn đang ở trong một cuộc đua và bạn vừa vượt qua ngườithứ nhì . Vậy bây giờ bạn đang ở vị trí nào trong đoàn đua ấy?</p></td><td>Thứ nhì.</td><td>30/12/2022</td>                            <td>30/12/2022</td>                        </tr>";
+            checkTableRows();
+        }
+    });
 });
 
 function sortTable(columnIndex) {
-    const table = document.getElementById("recordsTable");
+    const table = document.getElementById("tblDuyetNganHangCauHoi");
     const rows = Array.from(table.rows).slice(1); // Get all rows except the header
     const isAscending = table.querySelectorAll("th")[columnIndex].classList.toggle("sorted-asc");
 
