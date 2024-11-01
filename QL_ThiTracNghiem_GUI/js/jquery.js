@@ -8,14 +8,19 @@ function toggleSidebar() {
 
     const element = document.querySelector("body > div > div.content")
     var toggleBtn = document.querySelector('.toggle-btn span');
+
+    const submenu = document.getElementById('dethi-menu');
+    
     if (sidebar.classList.contains('expanded')) {
         // toggleBtn.innerHTML = '&#10094;'; // Collapse icon
         element.style.margin = '0 0 0 270px';
         element.style.transition = 'margin 0.3s ease'
+        submenu.classList.add('expanded');
     } else {
         // toggleBtn.innerHTML = '&#10095;'; // Expand icon
         element.style.margin = '0 0 0 80px';
         element.style.transition = 'margin 0.3s ease'
+        submenu.classList.remove('expanded');
     }
 }
 
@@ -112,4 +117,17 @@ function showLoading() {
     setTimeout(() => {
         overlay.style.display = "none";
     }, 5000); // 2000 milliseconds = 2 seconds
+}
+
+function toggleMenu(menuId, element) {
+    const submenu = document.getElementById(menuId);
+    const arrow = element.querySelector('.arrow');
+
+    if (submenu.classList.contains('expanded')) {
+        submenu.classList.remove('expanded');
+        arrow.classList.remove('rotate');
+    } else {
+        submenu.classList.add('expanded');
+        arrow.classList.add('rotate');
+    }
 }

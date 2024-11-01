@@ -32,10 +32,15 @@
                     <img class="icon" src="../assets/acceptance.png" alt="logo">
                     <a href="#" class="sidebar-item-content">Duyệt ngân hàng câu hỏi</a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item" onclick="toggleMenu('dethi-menu', this)">
                     <img class="icon" src="../assets/exam-time.png" alt="logo">
                     <a href="#" class="sidebar-item-content">Đề thi</a>
+                    <!-- <span class="arrow">&#9650;</span> -->
                 </li>
+                <div class="submenu" id="dethi-menu">
+                    <div class="sidebar-item submenu-item">&emsp;&emsp;&emsp;Tạo đề thi</div>
+                    <div class="sidebar-item submenu-item">&emsp;&emsp;&emsp;Quản lý đề thi</div>
+                </div>
                 <li class="sidebar-item">
                     <img class="icon" src="../assets/scheduling.png" alt="logo">
                     <a href="#" class="sidebar-item-content">Ca thi - chọn để thi</a>
