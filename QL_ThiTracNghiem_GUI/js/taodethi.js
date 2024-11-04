@@ -67,3 +67,38 @@ function closeQuantityDialog() {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('quantityDialog').style.display = 'none';
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const tableBody = document.querySelector("#table-taodethi tbody");
+    const noRecordsMessage = document.getElementById("noRecordsMessage");
+
+    function checkTableRows() {
+        if (tableBody.children.length === 0) {
+            // Show the "No matching records found" message if no rows are in the table
+            noRecordsMessage.style.display = "block";
+        } else {
+            // Hide the message if rows are present
+            noRecordsMessage.style.display = "none";
+        }
+    }
+
+    // Initially check the table on page load
+    checkTableRows();
+
+    const selectElement = document.getElementById("options-monhoc");
+
+    // Add an event listener for the `change` event
+    selectElement.addEventListener("change", function () {
+        const selectedValue = selectElement.value;
+
+        if (selectedValue == "option2") {
+            const tableBody = document.querySelector("#table-taodethi tbody");
+            tableBody.innerHTML = "";
+            checkTableRows();
+        } else {
+            const tableBody = document.querySelector("#table-taodethi tbody");
+            tableBody.innerHTML += "<tr onclick=\"showDetails(1)\" id=\"1\"><td><p class=\"an\">Khi kiểm định... Khi kiểm định... Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...</p></td><td style=\"display: none;\">1 lần</td><td style=\"display: none;\">2 lần</td><td style=\"display: none;\">3 lần</td><td style=\"display: none;\">4 lần</td><td>B</td><td><input type=\"checkbox\" onclick=\"countQuestionChecked()\"/></td></tr><tr onclick=\"showDetails(2)\" id=\"2\"><td><p class=\"an\">Công tác kiểm định...</p></td><td style=\"display: none;\">1 lần</td><td style=\"display: none;\">2 lần</td><td style=\"display: none;\">3 lần</td><td style=\"display: none;\">4 lần</td><td>A</td><td><input type=\"checkbox\" onclick=\"countQuestionChecked()\"/></td></tr>";
+            checkTableRows();
+        }
+    });
+})

@@ -1,11 +1,16 @@
+.thongtindethi {
+    display: flex;
+    align-items: center;
+}
+
 .select-monhoc {
-    /* padding: 20px; */
+    justify-content: space-between;
     display: flex;
     align-items: center;
 }
 
 select {
-    padding: 8px 20px;
+    padding: 8px 30px 8px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
@@ -70,6 +75,16 @@ select>option:hover {
     /* top: -25px; */
 }
 
+.btn-taodethi {
+    padding: 10px;
+    background: none;
+    border: none;
+}
+
+.btn-taodethi:hover {
+    background-color: rgb(240, 239, 239);
+}
+
 .container-list-question-taodethi .left-panel,
 .container-list-question-taodethi .right-panel {
     padding: 20px;
@@ -120,6 +135,38 @@ select>option:hover {
     z-index: 1000;
     /* width: 300px; */
     text-align: center;
+}
+
+.danhsachcauhoi-taodethi {
+    display: block;
+    background: white;
+    border-collapse: collapse;
+}
+
+.danhsachcauhoi-taodethi thead th {
+    position: sticky;
+    top: -1px;
+    background-color: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.danhsachcauhoi-taodethi th,
+.danhsachcauhoi-taodethi td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.danhsachcauhoi-taodethi tr {
+    cursor: pointer;
+}
+
+.danhsachcauhoi-taodethi tr:hover {
+    background-color: #f5f5f5;
+}
+
+.highlight {
+    background-color: rgb(242 242 242);
 }
 
 /* Overlay to cover the page */

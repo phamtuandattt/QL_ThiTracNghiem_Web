@@ -69,19 +69,30 @@
             </div>
             <div class="content-body">
                 <div class="select-monhoc">
-                    <label for="options-monhoc">Môn học:</label>
-                    <select id="options-monhoc" class="monhoc-dropdown">
-                        <option value="option1">Ứng dụng CNTT</option>
-                        <option value="option2">CÔNG NGHỆ .NET</option>
-                    </select>
-                    <div class="thoigianlambai">
-                        <label for="input-thoigianlambai">Thời gian làm bài: </label>
-                        <input type="text" id="input-thoigianlambai" class="input-thoigianlambai"> phút
+                    <div class="thongtindethi">
+                        <label for="options-monhoc">Môn học:</label>
+                        <select id="options-monhoc" class="monhoc-dropdown">
+                            <option value="option1">Ứng dụng CNTT</option>
+                            <option value="option2">CÔNG NGHỆ .NET</option>
+                        </select>
+                        <div class="thoigianlambai">
+                            <label for="input-thoigianlambai">Thời gian làm bài: </label>
+                            <input type="text" id="input-thoigianlambai" class="input-thoigianlambai"> phút
+                        </div>
+                        <div class="soluongcauhoi-dachon">
+                            <label for="input-soluongcauhoidachon">Số lượng câu hỏi đã dọn: </label>
+                            <input type="text" id="input-soluongcauhoidachon" class="input-soluongcauhoidachon" disabled>
+                        </div>
                     </div>
-                    <div class="soluongcauhoi-dachon">
-                        <label for="input-soluongcauhoidachon">Số lượng câu hỏi đã dọn: </label>
-                        <input type="text" id="input-soluongcauhoidachon" class="input-soluongcauhoidachon">
+                    <div class="xacnhantaodethi">
+                        <button onclick="" class="btn-taodethi">
+                            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
                     </div>
+                    
                 </div>
                 <div class="container-list-question-taodethi">
                     <!-- Left Panel: List with Checkboxes -->
@@ -95,7 +106,7 @@
                             </div>
                         </div>
                         <div class="table-scroll-taodethi">
-                            <table id="table-taodethi" class="question-table">
+                            <table id="table-taodethi" class="danhsachcauhoi-taodethi">
                                 <thead>
                                     <tr>
                                         <th>Nội dung</th>
@@ -166,6 +177,10 @@
                                     <!-- Add more rows as needed -->
                                 </tbody>
                             </table>
+                            <div id="noRecordsMessage" class="no-records">
+                                <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png" alt="">
+                                <p>No matching records found</p>
+                            </div>
                         </div>
         
                     </div>
