@@ -1,0 +1,148 @@
+.select-monhoc {
+    /* padding: 20px; */
+    display: flex;
+    align-items: center;
+}
+
+select {
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(251, 253, 255, 0.5);
+}
+
+select>option:hover {
+    background-color: rgb(240, 239, 239);
+}
+
+.thoigianlambai {
+    padding: 20px;
+}
+
+.input-thoigianlambai {
+    border: none;
+    border-bottom: 1px solid;
+    width: 50px;
+    padding: 0 15px 5px 15px;
+    background: none;
+    font-size: large;
+    text-align: center;
+}
+
+.input-thoigianlambai:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.soluongcauhoi-dachon {
+    padding: 20px;
+}
+
+.input-soluongcauhoidachon {
+    border: none;
+    border-bottom: 1px solid;
+    width: 50px;
+    padding: 0 15px 5px 15px;
+    background: none;
+    font-size: large;
+    text-align: center;
+}
+
+.input-soluongcauhoidachon:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.container-list-question-taodethi {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    /* margin: 20px auto; */
+    border: 1px solid #ccc;
+    position: relative;
+    /* top: -25px; */
+}
+
+.container-list-question-taodethi .left-panel,
+.container-list-question-taodethi .right-panel {
+    padding: 20px;
+}
+
+.container-list-question-taodethi .left-panel {
+    width: 60%;
+    border-right: 1px solid #ddd;
+    /* overflow-y: auto; */
+}
+
+.container-list-question-taodethi .right-panel {
+    width: 40%;
+}
+
+.container-list-question-taodethi h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.container-list-question-taodethi .top-title {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 45px;
+    position: relative;
+    top: -50px;
+}
+
+.container-list-question-taodethi .table-scroll-taodethi {
+    max-height: 70vh;
+    overflow-y: auto;
+    position: relative;
+    top: -50px;
+}
+
+#quantityDialog {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    /* width: 300px; */
+    text-align: center;
+}
+
+/* Overlay to cover the page */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+}
+
+
+/* Style for input */
+#quantityInput {
+    /* width: 100%; */
+    padding: 10px;
+    /* margin-top: 10px; */
+    font-size: 16px;
+}
+
+.submit-quantity {
+    padding: 10px 20px;
+}
