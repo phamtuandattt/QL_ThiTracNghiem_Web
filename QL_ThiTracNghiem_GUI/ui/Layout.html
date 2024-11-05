@@ -77,22 +77,24 @@
                         </select>
                         <div class="thoigianlambai">
                             <label for="input-thoigianlambai">Thời gian làm bài: </label>
-                            <input type="text" id="input-thoigianlambai" class="input-thoigianlambai"> phút
+                            <input type="text" id="input-thoigianlambai" class="input-thoigianlambai" required> phút
                         </div>
                         <div class="soluongcauhoi-dachon">
                             <label for="input-soluongcauhoidachon">Số lượng câu hỏi đã dọn: </label>
-                            <input type="text" id="input-soluongcauhoidachon" class="input-soluongcauhoidachon" disabled>
+                            <input type="text" id="input-soluongcauhoidachon" class="input-soluongcauhoidachon"
+                                disabled>
                         </div>
                     </div>
                     <div class="xacnhantaodethi">
-                        <button onclick="" class="btn-taodethi">
-                            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button onclick="taoDeThi()" class="btn-taodethi">
+                            <svg width="25" height="25" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
                                     stroke-linejoin="round" />
                             </svg>
                         </button>
                     </div>
-                    
+
                 </div>
                 <div class="container-list-question-taodethi">
                     <!-- Left Panel: List with Checkboxes -->
@@ -101,8 +103,10 @@
                         <div class="top-title">
                             <!-- <p id="quantity-selected" class="quantity-selected">Đã chọn (0) câu hỏi</p> -->
                             <div class="button-selected-container">
-                                <button id="unselected-all" class="btn-selected" onclick="randomUnselectedAll()">Bỏ chọn tất cả</button>
-                                <button id="selected-all" class="btn-selected" onclick="showQuantityDialog()">Ngẫu nhiên câu hỏi</button>
+                                <button id="unselected-all" class="btn-selected" onclick="randomUnselectedAll()">Bỏ chọn
+                                    tất cả</button>
+                                <button id="selected-all" class="btn-selected" onclick="showQuantityDialog()">Ngẫu nhiên
+                                    câu hỏi</button>
                             </div>
                         </div>
                         <div class="table-scroll-taodethi">
@@ -121,70 +125,85 @@
                                 <tbody id="questionList">
                                     <!-- Sample Rows -->
                                     <tr onclick="showDetails(1)" id="1">
-                                        <td><p class="an">Khi kiểm định... Khi kiểm định... Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...</p></td>
+                                        <td>
+                                            <p class="an">Khi kiểm định... Khi kiểm định... Khi kiểm định...Khi kiểm
+                                                định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm
+                                                định...Khi kiểm định...</p>
+                                        </td>
                                         <td style="display: none;">1 lần</td>
                                         <td style="display: none;">2 lần</td>
                                         <td style="display: none;">3 lần</td>
                                         <td style="display: none;">4 lần</td>
                                         <td>B</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()"/></td>
+                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
                                     </tr>
                                     <tr onclick="showDetails(2)" id="2">
-                                        <td><p class="an">Công tác kiểm định...</p></td>
+                                        <td>
+                                            <p class="an">Công tác kiểm định...</p>
+                                        </td>
                                         <td style="display: none;">1 lần</td>
                                         <td style="display: none;">2 lần</td>
                                         <td style="display: none;">3 lần</td>
                                         <td style="display: none;">4 lần</td>
                                         <td>A</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()"/></td>
+                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
                                     </tr>
                                     <tr onclick="showDetails(3)" id="3">
-                                        <td><p class="an">Công tác kiểm định...</p></td>
+                                        <td>
+                                            <p class="an">Công tác kiểm định...</p>
+                                        </td>
                                         <td style="display: none;">1 lần</td>
                                         <td style="display: none;">2 lần</td>
                                         <td style="display: none;">3 lần</td>
                                         <td style="display: none;">4 lần</td>
                                         <td>C</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()"/></td>
+                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
                                     </tr>
                                     <tr onclick="showDetails(4)" id="4">
-                                        <td><p class="an">Công tác kiểm định...</p></td>
+                                        <td>
+                                            <p class="an">Công tác kiểm định...</p>
+                                        </td>
                                         <td style="display: none;">1 lần</td>
                                         <td style="display: none;">2 lần</td>
                                         <td style="display: none;">3 lần</td>
                                         <td style="display: none;">4 lần</td>
                                         <td>D</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()"/></td>
+                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
                                     </tr>
                                     <tr onclick="showDetails(5)" id="5">
-                                        <td><p class="an">Công tác kiểm định...</p></td>
+                                        <td>
+                                            <p class="an">Công tác kiểm định...</p>
+                                        </td>
                                         <td style="display: none;">1 lần</td>
                                         <td style="display: none;">2 lần</td>
                                         <td style="display: none;">3 lần</td>
                                         <td style="display: none;">4 lần</td>
                                         <td>C</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()"/></td>
+                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
                                     </tr>
                                     <tr onclick="showDetails(6)" id="6">
-                                        <td><p class="an">Công tác kiểm định...</p></td>
+                                        <td>
+                                            <p class="an">Công tác kiểm định...</p>
+                                        </td>
                                         <td style="display: none;">1 lần</td>
                                         <td style="display: none;">2 lần</td>
                                         <td style="display: none;">3 lần</td>
                                         <td style="display: none;">4 lần</td>
                                         <td>A</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()"/></td>
+                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
                                     </tr>
                                     <!-- Add more rows as needed -->
                                 </tbody>
                             </table>
                             <div id="noRecordsMessage" class="no-records">
-                                <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png" alt="">
+                                <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png"
+                                    alt="">
                                 <p>No matching records found</p>
                             </div>
                         </div>
-        
+
                     </div>
-                
+
                     <!-- Right Panel: Details of Selected Item -->
                     <div class="right-panel">
                         <h3>Danh sách câu hỏi</h3>
@@ -208,22 +227,74 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
-    
-    <div id="overlay"></div>
+
+    <div id="overlay-enter-quantity"></div>
     <div id="quantityDialog">
-        <h3>Enter Quantity</h3>
-        <input type="number" id="quantityInput" placeholder="Enter a number">
-        <button onclick="randomSelected()" class="submit-quantity">Submit</button>
-        <button onclick="closeQuantityDialog()" class="submit-quantity">Cancel</button>
+        <h3>Số lượng câu hỏi</h3>
+        <input type="number" id="quantityInput" placeholder="Nhập số lượng câu hỏi" oninput="checkPositiveNumber(this)">
+        <button onclick="randomSelected()" class="submit-quantity">Xác nhận</button>
+        <button onclick="closeQuantityDialog()" class="submit-quantity">Hủy</button>
     </div>
 
     <!-- Overlay with loader -->
     <div class="overlay" id="loadingOverlay">
         <div class="loader"></div>
+    </div>
+    <!-- Success box -->
+    <div class="success-box" id="successBox">
+        <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Circle with white border -->
+            <circle cx="12" cy="12" r="10" fill="green" stroke="white" stroke-width="2"></circle>
+
+            <!-- Check mark with animation attributes controlled by JavaScript -->
+            <path id="checkMark" d="M8 12.5l2.5 2.5L16 9" fill="none" stroke="white" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="20" stroke-dashoffset="20"></path>
+        </svg>
+        <p style="color: white;padding: 0 0 0 40px;">Thành công! Hoạt động đã hoàn thành.</p>
+    </div>
+    <!-- Errorr box -->
+    <div class="errorr-box" id="errorrBox">
+        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Gradient Definition -->
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgba(255, 255, 255, 0.5); stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(0, 0, 0, 0.5); stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        
+            <!-- Circle with Gradient and Shadow -->
+            <circle cx="50" cy="50" r="0" stroke="white" stroke-width="4" fill="url(#grad1)">
+                <animate attributeName="r" from="0" to="40" dur="0.7s" fill="freeze" />
+            </circle>
+        
+            <!-- X Mark with Shadow -->
+            <line x1="30" y1="30" x2="70" y2="70" stroke="white" stroke-width="4" opacity="0" filter="url(#shadow)">
+                <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.7s" fill="freeze" />
+            </line>
+            <line x1="70" y1="30" x2="30" y2="70" stroke="white" stroke-width="4" opacity="0" filter="url(#shadow)">
+                <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.7s" fill="freeze" />
+            </line>
+        
+            <!-- Shadow Definition -->
+            <defs>
+                <filter id="shadow">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+                    <feOffset dx="1" dy="1" result="offsetblur" />
+                    <feFlood flood-color="black" flood-opacity="0.5" />
+                    <feComposite in2="offsetblur" operator="in" />
+                    <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+        </svg>
+        <p style="color: white;" id="message-errorr"></p>
     </div>
 
     <script>

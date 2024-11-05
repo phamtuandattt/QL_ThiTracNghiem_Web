@@ -170,7 +170,7 @@ select>option:hover {
 }
 
 /* Overlay to cover the page */
-#overlay {
+#overlay-enter-quantity {
     display: none;
     position: fixed;
     top: 0;

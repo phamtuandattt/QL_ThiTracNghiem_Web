@@ -532,4 +532,38 @@ p {
   }
 }
 
+/* Success box */
+.success-box {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+  z-index: 9999;
+  align-items: center;
+}
+
+/* errorr box */
+.errorr-box {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+  z-index: 9999;
+  align-items: center;
+}
+
 /*---------------------------------- END LOADING ---------------------------- */

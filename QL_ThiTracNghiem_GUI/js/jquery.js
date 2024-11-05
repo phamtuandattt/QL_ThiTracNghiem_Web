@@ -111,12 +111,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function showLoading() {
     const overlay = document.getElementById("loadingOverlay");
+    const successBox = document.getElementById('successBox');
+    const checkMark = document.getElementById('checkMark');
+
     // Show the overlay
     overlay.style.display = "flex";
+    checkMark.style.transition = 'none'; // Reset any existing transition
+    checkMark.style.strokeDashoffset = 20; // Set initial position for the check mark
+
     // Hide the overlay after 2 seconds
     setTimeout(() => {
         overlay.style.display = "none";
-    }, 5000); // 2000 milliseconds = 2 seconds
+        successBox.style.display = 'flex';
+
+        // Trigger animation after reapplying transition
+        setTimeout(() => {
+            checkMark.style.transition = 'stroke-dashoffset 0.5s ease';
+            checkMark.style.strokeDashoffset = 0;
+        }, 50); // Small delay to ensure the transition applies correctly
+
+        // Hide success message after 2 seconds
+        setTimeout(() => {
+            successBox.style.display = 'none';
+        }, 2000);
+    }, 2000); // 2000 milliseconds = 2 seconds
 }
 
 function toggleMenu(menuId, element) {

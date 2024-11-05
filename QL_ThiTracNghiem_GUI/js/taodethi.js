@@ -58,13 +58,14 @@ function randomUnselectedAll() {
 
 function showQuantityDialog() {
     // Show the overlay and dialog
-    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('overlay-enter-quantity').style.display = 'block';
     document.getElementById('quantityDialog').style.display = 'block';
+    document.getElementById("quantityInput").focus();
 }
 
 function closeQuantityDialog() {
     // Hide the overlay and dialog
-    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('overlay-enter-quantity').style.display = 'none';
     document.getElementById('quantityDialog').style.display = 'none';
 }
 
@@ -102,3 +103,71 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 })
+
+function taoDeThi() {
+    const thoigianlambai = document.querySelector("#input-thoigianlambai");
+    const soluongcauhoi = document.querySelector("#input-soluongcauhoidachon");
+    const mamonhoc = document.querySelector("#options-monhoc");
+
+    if (!thoigianlambai.value || !soluongcauhoi.value || !mamonhoc) {
+        showErrorBox();
+        thoigianlambai.focus();
+        return;
+    }
+
+    showLoading();
+    const table = document.getElementById("table-taodethi");
+    const rows = table.querySelectorAll("tbody tr");
+    const checkedRows = [];
+
+    // Loop through each row
+    rows.forEach(row => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        // Check if the checkbox is checked
+        if (checkbox && checkbox.checked) {
+            checkedRows.push(row); // Add the row to checkedRows array
+        }
+    });
+
+    // Display checked rows (for demonstration)
+    checkedRows.forEach((row, index) => {
+        const cells = Array.from(row.cells).map(cell => cell.innerText);
+        console.log(`Row ${index + 1}:`, cells[0]);
+    });
+}
+
+function checkPositiveNumber(input) {
+    if (input.value < 0) {
+        input.value = ""; // Clear the input if it's negative
+    }
+}
+
+function showErrorBox () {
+    const overlay = document.getElementById("loadingOverlay");
+    const errorrBox = document.getElementById('errorrBox');
+    const messageErrorr = document.querySelector("#message-errorr");
+    // const checkMark = document.getElementById('checkMark');
+
+    // Show the overlay
+    overlay.style.display = "flex";
+    // checkMark.style.transition = 'none'; // Reset any existing transition
+    // checkMark.style.strokeDashoffset = 20; // Set initial position for the check mark
+
+    // Hide the overlay after 2 seconds
+    setTimeout(() => {
+        overlay.style.display = "none";
+        messageErrorr.innerText = "Hãy nhập thời gian làm bài !";
+        errorrBox.style.display = 'block';
+
+        // Trigger animation after reapplying transition
+        setTimeout(() => {
+            // checkMark.style.transition = 'stroke-dashoffset 0.5s ease';
+            // checkMark.style.strokeDashoffset = 0;
+        }, 50); // Small delay to ensure the transition applies correctly
+
+        // Hide success message after 2 seconds
+        setTimeout(() => {
+            errorrBox.style.display = 'none';
+        }, 2000);
+    }, 2000); // 2000 milliseconds = 2 seconds
+}
