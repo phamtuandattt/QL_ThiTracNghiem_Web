@@ -109,13 +109,22 @@ function taoDeThi() {
     const soluongcauhoi = document.querySelector("#input-soluongcauhoidachon");
     const mamonhoc = document.querySelector("#options-monhoc");
 
-    if (!thoigianlambai.value || !soluongcauhoi.value || !mamonhoc) {
-        showErrorBox();
+    if (!thoigianlambai.value) {
+        showLoading();
+        showErrorBox("errorrBox", "message-errorr", "Hãy nhập thời gian làm bài !");
+        thoigianlambai.focus();
+        return;
+    }
+    if (!soluongcauhoi.value) {
+        showLoading();
+        showErrorBox("errorrBox", "message-errorr", "Hãy chọn câu hỏi để tạo đề thi");
         thoigianlambai.focus();
         return;
     }
 
+
     showLoading();
+    showSuccessBox("successBox", "message-success", "Thành công, quá trình tạo đề thi hoàn tất.");
     const table = document.getElementById("table-taodethi");
     const rows = table.querySelectorAll("tbody tr");
     const checkedRows = [];
@@ -140,34 +149,4 @@ function checkPositiveNumber(input) {
     if (input.value < 0) {
         input.value = ""; // Clear the input if it's negative
     }
-}
-
-function showErrorBox () {
-    const overlay = document.getElementById("loadingOverlay");
-    const errorrBox = document.getElementById('errorrBox');
-    const messageErrorr = document.querySelector("#message-errorr");
-    // const checkMark = document.getElementById('checkMark');
-
-    // Show the overlay
-    overlay.style.display = "flex";
-    // checkMark.style.transition = 'none'; // Reset any existing transition
-    // checkMark.style.strokeDashoffset = 20; // Set initial position for the check mark
-
-    // Hide the overlay after 2 seconds
-    setTimeout(() => {
-        overlay.style.display = "none";
-        messageErrorr.innerText = "Hãy nhập thời gian làm bài !";
-        errorrBox.style.display = 'block';
-
-        // Trigger animation after reapplying transition
-        setTimeout(() => {
-            // checkMark.style.transition = 'stroke-dashoffset 0.5s ease';
-            // checkMark.style.strokeDashoffset = 0;
-        }, 50); // Small delay to ensure the transition applies correctly
-
-        // Hide success message after 2 seconds
-        setTimeout(() => {
-            errorrBox.style.display = 'none';
-        }, 2000);
-    }, 2000); // 2000 milliseconds = 2 seconds
 }
