@@ -1,0 +1,167 @@
+<div class="select-monhoc">
+    <div class="thongtindethi">
+        <label for="options-monhoc">Môn học:</label>
+        <select id="options-monhoc" class="monhoc-dropdown">
+            <option value="option1">Ứng dụng CNTT</option>
+            <option value="option2">CÔNG NGHỆ .NET</option>
+        </select>
+        <div class="thoigianlambai">
+            <label for="input-thoigianlambai">Thời gian làm bài: </label>
+            <input type="text" id="input-thoigianlambai" class="input-thoigianlambai" required> phút
+        </div>
+        <div class="soluongcauhoi-dachon">
+            <label for="input-soluongcauhoidachon">Số lượng câu hỏi đã dọn: </label>
+            <input type="text" id="input-soluongcauhoidachon" class="input-soluongcauhoidachon"
+                disabled>
+        </div>
+    </div>
+    <div class="xacnhantaodethi">
+        <button onclick="taoDeThi()" class="btn-taodethi">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+
+</div>
+<div class="container-list-question-taodethi">
+    <!-- Left Panel: List with Checkboxes -->
+    <div class="left-panel">
+        <h3>Danh sách câu hỏi</h3>
+        <div class="top-title">
+            <!-- <p id="quantity-selected" class="quantity-selected">Đã chọn (0) câu hỏi</p> -->
+            <div class="button-selected-container">
+                <button id="unselected-all" class="btn-selected" onclick="randomUnselectedAll()">Bỏ chọn
+                    tất cả</button>
+                <button id="selected-all" class="btn-selected" onclick="showQuantityDialog()">Ngẫu nhiên
+                    câu hỏi</button>
+            </div>
+        </div>
+        <div class="table-scroll-taodethi">
+            <table id="table-taodethi" class="danhsachcauhoi-taodethi">
+                <thead>
+                    <tr>
+                        <th>Nội dung</th>
+                        <th style="display: none;">Đáp án</th>
+                        <th style="display: none;">Đáp án</th>
+                        <th style="display: none;">Đáp án</th>
+                        <th style="display: none;">Đáp án</th>
+                        <th>Đáp án đúng</th>
+                        <th>Chọn</th>
+                    </tr>
+                </thead>
+                <tbody id="questionList">
+                    <!-- Sample Rows -->
+                    <tr onclick="showDetails(1)" id="1">
+                        <td>
+                            <p class="an">Khi kiểm định... Khi kiểm định... Khi kiểm định...Khi kiểm
+                                định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm
+                                định...Khi kiểm định...</p>
+                        </td>
+                        <td style="display: none;">1 lần</td>
+                        <td style="display: none;">2 lần</td>
+                        <td style="display: none;">3 lần</td>
+                        <td style="display: none;">4 lần</td>
+                        <td>B</td>
+                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
+                    </tr>
+                    <tr onclick="showDetails(2)" id="2">
+                        <td>
+                            <p class="an">Công tác kiểm định...</p>
+                        </td>
+                        <td style="display: none;">1 lần</td>
+                        <td style="display: none;">2 lần</td>
+                        <td style="display: none;">3 lần</td>
+                        <td style="display: none;">4 lần</td>
+                        <td>A</td>
+                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
+                    </tr>
+                    <tr onclick="showDetails(3)" id="3">
+                        <td>
+                            <p class="an">Công tác kiểm định...</p>
+                        </td>
+                        <td style="display: none;">1 lần</td>
+                        <td style="display: none;">2 lần</td>
+                        <td style="display: none;">3 lần</td>
+                        <td style="display: none;">4 lần</td>
+                        <td>C</td>
+                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
+                    </tr>
+                    <tr onclick="showDetails(4)" id="4">
+                        <td>
+                            <p class="an">Công tác kiểm định...</p>
+                        </td>
+                        <td style="display: none;">1 lần</td>
+                        <td style="display: none;">2 lần</td>
+                        <td style="display: none;">3 lần</td>
+                        <td style="display: none;">4 lần</td>
+                        <td>D</td>
+                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
+                    </tr>
+                    <tr onclick="showDetails(5)" id="5">
+                        <td>
+                            <p class="an">Công tác kiểm định...</p>
+                        </td>
+                        <td style="display: none;">1 lần</td>
+                        <td style="display: none;">2 lần</td>
+                        <td style="display: none;">3 lần</td>
+                        <td style="display: none;">4 lần</td>
+                        <td>C</td>
+                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
+                    </tr>
+                    <tr onclick="showDetails(6)" id="6">
+                        <td>
+                            <p class="an">Công tác kiểm định...</p>
+                        </td>
+                        <td style="display: none;">1 lần</td>
+                        <td style="display: none;">2 lần</td>
+                        <td style="display: none;">3 lần</td>
+                        <td style="display: none;">4 lần</td>
+                        <td>A</td>
+                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+            <div id="noRecordsMessage" class="no-records">
+                <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png"
+                    alt="">
+                <p>No matching records found</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Right Panel: Details of Selected Item -->
+    <div class="right-panel">
+        <h3>Danh sách câu hỏi</h3>
+        <div class="popup-content-duyetNHCH popup-scroll">
+            <div class="popup-question">
+                <div id="questionDetail" class="text-section">
+                    <p>Click on a row to see details here.</p>
+                </div>
+                <div id="image-section" class="image-section-duyetnganhangcauhoi">
+                    <img id="img-question"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagWEUxD8M4bHzNPudjU5MdJhlm5aj1A7t4g&s"
+                        alt=""> <!--string.IsEmpty(url) ?? "/"-->
+                </div>
+            </div>
+            <div id="answerOptions">
+                <label><input type="radio" name="answer" value="1" disabled> 2 lần</label><br>
+                <label><input type="radio" name="answer" value="2" disabled> 3 lần</label><br>
+                <label><input type="radio" name="answer" value="3" disabled> 4 lần</label><br>
+                <label><input type="radio" name="answer" value="4" disabled> 5 lần</label><br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="overlay-enter-quantity"></div>
+<div id="quantityDialog">
+    <h3>Số lượng câu hỏi</h3>
+    <input type="number" id="quantityInput" placeholder="Nhập số lượng câu hỏi" oninput="checkPositiveNumber(this)">
+    <button onclick="randomSelected()" class="submit-quantity">Xác nhận</button>
+    <button onclick="closeQuantityDialog()" class="submit-quantity">Hủy</button>
+</div>
