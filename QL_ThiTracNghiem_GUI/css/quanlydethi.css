@@ -1,0 +1,138 @@
+.hocphan {
+    margin: 10px 0;
+}
+
+.popup-chitietdethi {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    /* Hide it initially without using display: none */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    /* Smooth fade-in and fade-out */
+}
+
+.popup-chitietdethi.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-chitietdethi-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 20px;
+    max-width: 1280px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slide-down 0.3s ease;
+    max-height: 90vh;
+    /* overflow-y: auto; */
+}
+
+.popup-chitietdethi-top-container {
+    position: relative;
+    gap: 20px;
+    top: -15px;
+    display: flex;
+    align-items: center;
+}
+
+.popup-chitietdethi-danhsachcauhoi {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    /* margin: 20px auto; */
+    border: 1px solid #ccc;
+    position: relative;
+    top: -10px;
+}
+
+.popup-chitietdethi-danhsachcauhoi.left-panel,
+.popup-chitietdethi-danhsachcauhoi.right-panel {
+    padding: 20px;
+}
+
+.popup-chitietdethi-danhsachcauhoi.left-panel {
+    width: 60%;
+    border-right: 1px solid #ddd;
+    /* overflow-y: auto; */
+}
+
+.popup-chitietdethi-danhsachcauhoi.right-panel {
+    width: 40%;
+}
+
+.popup-chitietdethi-table {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.question-table {
+    display: block;
+    /* width: 100%;
+      height: 75vh; */
+    border-collapse: collapse;
+}
+
+.question-table thead th {
+    position: sticky;
+    top: -1px;
+    background-color: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.question-table th,
+.question-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.question-table tr {
+    cursor: pointer;
+}
+
+.question-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.btn-export-word {
+    padding: 5px 10px;
+    background: none;
+    border: none;
+}
+
+.btn-export-word:hover {
+    background-color: rgb(240, 239, 239);
+}
+
+.popup-chitietdethi-detail-question {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 0 20px 20px 20px;
+    max-width: 750px;
+    border-radius: 8px;
+    position: relative;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+    animation: slide-down 0.3s ease;
+    /* max-height: 80vh;
+      overflow-y: auto; */
+    height: 67vh;
+    top: -10px;
+}
+
+.right-panel #questionDetail {
+    margin: -10px 0 20px 0;
+}
+
+.image-section-chitietcauhoi {
+    position: relative;
+    top: -15px;
+    text-align: center;
+}

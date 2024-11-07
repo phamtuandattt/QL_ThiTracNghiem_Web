@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/duyetnganhangcauhoi.css">
     <link rel="stylesheet" href="../css/taodethi.css">
+    <link rel="stylesheet" href="../css/quanlydethi.css">
 </head>
 
 <body>
@@ -68,180 +69,237 @@
                 </div>
             </div>
             <div class="content-body">
-                <div class="select-monhoc">
-                    <div class="thongtindethi">
-                        <label for="options-monhoc">Môn học:</label>
-                        <select id="options-monhoc" class="monhoc-dropdown">
-                            <option value="option1">Ứng dụng CNTT</option>
-                            <option value="option2">CÔNG NGHỆ .NET</option>
-                        </select>
-                        <div class="thoigianlambai">
-                            <label for="input-thoigianlambai">Thời gian làm bài: </label>
-                            <input type="text" id="input-thoigianlambai" class="input-thoigianlambai" required> phút
-                        </div>
-                        <div class="sodecantao">
-                            <label for="input-sodecantao">Số đề cần tạo: </label>
-                            <input type="text" id="input-sodecantao" class="input-sodecantao" required> đề
-                        </div>
-                        <div class="soluongcauhoi-dachon">
-                            <label for="input-soluongcauhoidachon">Số lượng câu hỏi đã dọn: </label>
-                            <input type="text" id="input-soluongcauhoidachon" class="input-soluongcauhoidachon"
-                                disabled>
-                        </div>
-                    </div>
-                    <div class="xacnhantaodethi">
-                        <button onclick="taoDeThi()" class="btn-taodethi">
-                            <svg width="25" height="25" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </button>
-                    </div>
-
+                <div class="hocphan">
+                    <label for="option-ds-hocphan">Học phần:</label>
+                    <select id="option-ds-hocphan" class="hocphan-dropdown">
+                        <option value="option1">Cấu trúc dữ liệu & giải thuật</option>
+                        <option value="option2">Cơ sở dữ liệu</option>
+                        <option value="option3">Đại số tuyến tính</option>
+                        <option value="option4">Công nghệ .NET</option>
+                        <option value="option5">NoSQL</option>
+                    </select>
                 </div>
-                <div class="container-list-question-taodethi">
-                    <!-- Left Panel: List with Checkboxes -->
-                    <div class="left-panel">
-                        <h3>Danh sách câu hỏi</h3>
-                        <div class="top-title">
-                            <!-- <p id="quantity-selected" class="quantity-selected">Đã chọn (0) câu hỏi</p> -->
-                            <div class="button-selected-container">
-                                <button id="unselected-all" class="btn-selected" onclick="randomUnselectedAll()">Bỏ chọn
-                                    tất cả</button>
-                                <button id="selected-all" class="btn-selected" onclick="showQuantityDialog()">Ngẫu nhiên
-                                    câu hỏi</button>
-                            </div>
-                        </div>
-                        <div class="table-scroll-taodethi">
-                            <table id="table-taodethi" class="danhsachcauhoi-taodethi">
-                                <thead>
-                                    <tr>
-                                        <th>Nội dung</th>
-                                        <th style="display: none;">Đáp án</th>
-                                        <th style="display: none;">Đáp án</th>
-                                        <th style="display: none;">Đáp án</th>
-                                        <th style="display: none;">Đáp án</th>
-                                        <th>Đáp án đúng</th>
-                                        <th>Chọn</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="questionList">
-                                    <!-- Sample Rows -->
-                                    <tr onclick="showDetails(1)" id="1">
-                                        <td>
-                                            <p class="an">Khi kiểm định... Khi kiểm định... Khi kiểm định...Khi kiểm
-                                                định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm
-                                                định...Khi kiểm định...</p>
-                                        </td>
-                                        <td style="display: none;">1 lần</td>
-                                        <td style="display: none;">2 lần</td>
-                                        <td style="display: none;">3 lần</td>
-                                        <td style="display: none;">4 lần</td>
-                                        <td>B</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
-                                    </tr>
-                                    <tr onclick="showDetails(2)" id="2">
-                                        <td>
-                                            <p class="an">Công tác kiểm định...</p>
-                                        </td>
-                                        <td style="display: none;">1 lần</td>
-                                        <td style="display: none;">2 lần</td>
-                                        <td style="display: none;">3 lần</td>
-                                        <td style="display: none;">4 lần</td>
-                                        <td>A</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
-                                    </tr>
-                                    <tr onclick="showDetails(3)" id="3">
-                                        <td>
-                                            <p class="an">Công tác kiểm định...</p>
-                                        </td>
-                                        <td style="display: none;">1 lần</td>
-                                        <td style="display: none;">2 lần</td>
-                                        <td style="display: none;">3 lần</td>
-                                        <td style="display: none;">4 lần</td>
-                                        <td>C</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
-                                    </tr>
-                                    <tr onclick="showDetails(4)" id="4">
-                                        <td>
-                                            <p class="an">Công tác kiểm định...</p>
-                                        </td>
-                                        <td style="display: none;">1 lần</td>
-                                        <td style="display: none;">2 lần</td>
-                                        <td style="display: none;">3 lần</td>
-                                        <td style="display: none;">4 lần</td>
-                                        <td>D</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
-                                    </tr>
-                                    <tr onclick="showDetails(5)" id="5">
-                                        <td>
-                                            <p class="an">Công tác kiểm định...</p>
-                                        </td>
-                                        <td style="display: none;">1 lần</td>
-                                        <td style="display: none;">2 lần</td>
-                                        <td style="display: none;">3 lần</td>
-                                        <td style="display: none;">4 lần</td>
-                                        <td>C</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
-                                    </tr>
-                                    <tr onclick="showDetails(6)" id="6">
-                                        <td>
-                                            <p class="an">Công tác kiểm định...</p>
-                                        </td>
-                                        <td style="display: none;">1 lần</td>
-                                        <td style="display: none;">2 lần</td>
-                                        <td style="display: none;">3 lần</td>
-                                        <td style="display: none;">4 lần</td>
-                                        <td>A</td>
-                                        <td><input type="checkbox" onclick="countQuestionChecked()" /></td>
-                                    </tr>
-                                    <!-- Add more rows as needed -->
-                                </tbody>
-                            </table>
-                            <div id="noRecordsMessage" class="no-records">
-                                <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png"
-                                    alt="">
-                                <p>No matching records found</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Right Panel: Details of Selected Item -->
-                    <div class="right-panel">
-                        <h3>Danh sách câu hỏi</h3>
-                        <div class="popup-content-duyetNHCH popup-scroll">
-                            <div class="popup-question">
-                                <div id="questionDetail" class="text-section">
-                                    <p>Click on a row to see details here.</p>
-                                </div>
-                                <div id="image-section" class="image-section-duyetnganhangcauhoi">
-                                    <img id="img-question"
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagWEUxD8M4bHzNPudjU5MdJhlm5aj1A7t4g&s"
-                                        alt=""> <!--string.IsEmpty(url) ?? "/"-->
-                                </div>
-                            </div>
-                            <div id="answerOptions">
-                                <label><input type="radio" name="answer" value="1" disabled> 2 lần</label><br>
-                                <label><input type="radio" name="answer" value="2" disabled> 3 lần</label><br>
-                                <label><input type="radio" name="answer" value="3" disabled> 4 lần</label><br>
-                                <label><input type="radio" name="answer" value="4" disabled> 5 lần</label><br>
-                            </div>
-                        </div>
-                    </div>
+                <table id="tbl-danhsachdethidatao">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Mã học phần</th>
+                            <th>Tên học phần</th>
+                            <th>Ngày tạo</th>
+                            <th>Thời gian làm bài</th>
+                            <th>Số lượng câu hỏi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="showPopup('popup-chitietdethi')">
+                            <td>1</td>
+                            <td>0101000001</td>
+                            <td>
+                                <p class="an">CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</p>
+                            </td>
+                            <td>30/12/2022</td>
+                            <td>45 phút</td>
+                            <td>45 câu</td>
+                        </tr>
+                        <tr onclick="showPopup('popup-chitietdethi')">
+                            <td>2</td>
+                            <td>0101000002</td>
+                            <td>
+                                <p class="an">CƠ SỞ DỮ LIỆU</p>
+                            </td>
+                            <td>30/12/2022</td>
+                            <td>45 phút</td>
+                            <td>45 câu</td>
+                        </tr>
+                        <tr onclick="showPopup('popup-chitietdethi')">
+                            <td>3</td>
+                            <td>0101000003</td>
+                            <td>
+                                <p class="an">NO.SQL</p>
+                            </td>
+                            <td>30/12/2022</td>
+                            <td>45 phút</td>
+                            <td>45 câu</td>
+                        </tr>
+                        <tr onclick="showPopup('popup-chitietdethi')">
+                            <td>5</td>
+                            <td>0101000005</td>
+                            <td>
+                                <p class="an">ĐẠI SỐ TUYẾN TÍNH</p>
+                            </td>
+                            <td>30/12/2022</td>
+                            <td>45 phút</td>
+                            <td>45 câu</td>
+                        </tr>
+                        <tr onclick="showPopup('popup-chitietdethi')">
+                            <td>6</td>
+                            <td>0101000006</td>
+                            <td>
+                                <p class="an">CÔNG NGHỆ .NET</p>
+                            </td>
+                            <td>30/12/2022</td>
+                            <td>45 phút</td>
+                            <td>45 câu</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="noRecordsMessage" class="no-records">
+                    <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png" alt="">
+                    <p>No matching records found</p>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <div id="overlay-enter-quantity"></div>
-    <div id="quantityDialog">
-        <h3>Số lượng câu hỏi</h3>
-        <input type="number" id="quantityInput" placeholder="Nhập số lượng câu hỏi" oninput="checkPositiveNumber(this)">
-        <button onclick="randomSelected()" class="submit-quantity">Xác nhận</button>
-        <button onclick="closeQuantityDialog()" class="submit-quantity">Hủy</button>
+    <div id="popup-chitietdethi" class="popup-chitietdethi">
+        <div class="popup-chitietdethi-content">
+            <span class="close-btn" onclick="closePopup('popup-chitietdethi')">&times;</span>
+            <h3 id="popup-title"></h3>
+            <div class="popup-chitietdethi-top-container">
+                <div class="lbl-hocphan">
+                    <label id="lbl-hocphan" for="">Môn học: Cấu trúc dữ liệu giải thuật </label>
+                </div>
+                <div class="lbl-thoigianlambai">
+                    <label id="lbl-thoigianlambai" for="">Thời gian làm bài: 45 phút </label>
+                </div>
+                <div class="lbl-trangthai">
+                    <label id="lbl-trangthai" for="">Trạng thái: Chưa sử dụng </label>
+                </div>
+                <div class="lbl-soluongcauhoi">
+                    <label id="lbl-soluongcauhoi" for="">Số lượng câu hỏi: 45 câu </label>
+                </div>
+                <div class="lbl-made">
+                    <label id="option-madethi" for="">Mã đề:  </label>
+                    <select name="" id="option-madethi" class="madethi-dropdown">
+                        <option value="option1">01</option>
+                        <option value="option2">02</option>
+                        <option value="option3">03</option>
+                        <option value="option4">04</option>
+                    </select>
+                </div>
+                <div class="lbl-ngaytaodethi">
+                    <label id="lbl-ngaytaodethi" for="">Ngày tạo: 22/12/2024 </label>
+                </div>
+                <button onclick="exportToDocx()" class="btn-export-word">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100">
+                        <!-- Background Rectangle with Gradient Stripes -->
+                        <rect x="20" y="10" width="70" height="80" fill="#1976d2" />
+                        <rect x="20" y="10" width="70" height="20" fill="#42a5f5" />
+                        <rect x="20" y="30" width="70" height="20" fill="#1e88e5" />
+                        <rect x="20" y="50" width="70" height="20" fill="#1565c0" />
+                        <rect x="20" y="70" width="70" height="20" fill="#0d47a1" />
+                    
+                        <!-- Smaller Rectangle for the "W" -->
+                        <rect x="5" y="20" width="30" height="30" rx="5" ry="5" fill="#1976d2" />
+                        
+                        <!-- "W" Text -->
+                        <text x="10" y="42" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="bold">W</text>
+                    </svg>
+                    
+                </button>
+            </div>
+            <div class="popup-chitietdethi-danhsachcauhoi">
+                <div class="left-panel">
+                    <h3>Danh sách câu hỏi</h3>
+                    <div class="popup-chitietdethi-table">
+                        <table id="table-danhsachcauhoidethi" class="question-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nội dung</th>
+                                    <th style="display: none;">Đáp án</th>
+                                    <th style="display: none;">Đáp án</th>
+                                    <th style="display: none;">Đáp án</th>
+                                    <th style="display: none;">Đáp án</th>
+                                    <th>Đáp án đúng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="questionList">
+                                <!-- Sample Rows -->
+                                <tr onclick="showDetails(1)" id="1">
+                                    <td>1</td>
+                                    <td><p class="an">Khi kiểm định... Khi kiểm định... Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>B</td>
+                                </tr>
+                                <tr onclick="showDetails(2)" id="2">
+                                    <td>2</td>
+                                    <td><p class="an">Công tác kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>A</td>
+                                </tr>
+                                <tr onclick="showDetails(3)" id="3">
+                                    <td>3</td>
+                                    <td><p class="an">Công tác kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>C</td>
+                                </tr>
+                                <tr onclick="showDetails(4)" id="4">
+                                    <td>4</td>
+                                    <td><p class="an">Công tác kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>D</td>
+                                </tr>
+                                <tr onclick="showDetails(5)" id="5">
+                                    <td>5</td>
+                                    <td><p class="an">Công tác kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>C</td>
+                                </tr>
+                                <tr onclick="showDetails(6)" id="6">
+                                    <td>6</td>
+                                    <td><p class="an">Công tác kiểm định...</p></td>
+                                    <td style="display: none;">1 lần</td>
+                                    <td style="display: none;">2 lần</td>
+                                    <td style="display: none;">3 lần</td>
+                                    <td style="display: none;">4 lần</td>
+                                    <td>A</td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <!-- Right Panel: Details of Selected Item -->
+                <div class="right-panel">
+                    <h3>Danh sách câu hỏi</h3>
+                    <div class="popup-chitietdethi-detail-question popup-scroll">
+                        <div class="popup-question">
+                            <div id="questionDetail" class="text-section">
+                                <p>Click on a row to see details here.</p>
+                            </div>
+                            <div id="image-section" class="image-section-chitietcauhoi">
+                                <img id="img-question"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagWEUxD8M4bHzNPudjU5MdJhlm5aj1A7t4g&s"
+                                    alt=""> <!--string.IsEmpty(url) ?? "/"-->
+                            </div>
+                        </div>
+                        <div id="answerOptions">
+                            <label><input type="radio" name="answer" value="1" disabled> 2 lần</label><br>
+                            <label><input type="radio" name="answer" value="2" disabled> 3 lần</label><br>
+                            <label><input type="radio" name="answer" value="3" disabled> 4 lần</label><br>
+                            <label><input type="radio" name="answer" value="4" disabled> 5 lần</label><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Overlay with loader -->
@@ -309,6 +367,8 @@
     <script src="../js/jquery.js"></script>
     <script src="../js/duyetnganhangcauhoi.js"></script>
     <script src="../js/taodethi.js"></script>
+    <script src="../js/quanlydethi.js"></script>
+
 </body>
 
 </html>
