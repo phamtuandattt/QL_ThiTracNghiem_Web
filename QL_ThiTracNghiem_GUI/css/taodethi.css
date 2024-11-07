@@ -45,6 +45,24 @@ select>option:hover {
     outline: none;
     border-color: #007bff;
 }
+.sodecantao {
+    padding: 20px;
+}
+
+.input-sodecantao {
+    border: none;
+    border-bottom: 1px solid;
+    width: 50px;
+    padding: 0 15px 5px 15px;
+    background: none;
+    font-size: large;
+    text-align: center;
+}
+
+.input-sodecantao:focus {
+    outline: none;
+    border-color: #007bff;
+}
 
 .soluongcauhoi-dachon {
     padding: 20px;
