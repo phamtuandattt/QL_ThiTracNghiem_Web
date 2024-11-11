@@ -136,3 +136,39 @@
     top: -15px;
     text-align: center;
 }
+
+
+/*----------------------------------------- Export file pdf style ----------------------------------------- */
+.container-export-pdf {
+    /* width: 70%;
+    border: 1px solid black;
+    margin: auto; */
+    display: none;
+}
+
+.pdf-header {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.pdf-title {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pdf-content {
+    padding: 20px 0;
+}
+
+.question-box {
+    padding: 10px 0;
+    background: white;
+    page-break-inside: avoid;
+}
+
+.question-box__answers {
+    line-height: 25px;
+}

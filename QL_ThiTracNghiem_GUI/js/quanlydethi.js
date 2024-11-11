@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.querySelector("#tbl-danhsachdethidatao tbody");
     const noRecordsMessage = document.getElementById("noRecordsMessage");
 
@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const selectElement = document.getElementById("option-ds-hocphan");
 
     // Add an event listener for the `change` event
-    selectElement.addEventListener("change", function() {
+    selectElement.addEventListener("change", function () {
         const selectedValue = selectElement.value;
-        
+
         if (selectedValue == "option2") {
             const tableBody = document.querySelector("#tbl-danhsachdethidatao tbody");
             tableBody.innerHTML = "";
@@ -59,20 +59,51 @@ function showDetails(questionId) {
 }
 
 
-function exportToDocx() {
+function exportToPDFs() {
     // Get content from HTML
-    const content = document.getElementById("table-danhsachcauhoidethi").innerHTML;
-    
-    const wordContent =  content;
+    const element = document.getElementById('container-export-pdf');
+    element.style.display = 'block';
 
-    // Create a Blob with MIME type for .docx
-    const blob = new Blob([wordContent], {
-        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    document.querySelector("#container-export-pdf > div.pdf-header > div.pdf-header-left").innerHTML = 'BỘ CÔNG THƯƠNG <br>TRƯỜNG ĐẠI HỌC CÔNG THƯƠNG';
+    document.querySelector("#container-export-pdf > div.pdf-header > div.pdf-header-right").innerHTML = 'CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM <br>Độc lập - Tự do - Hạnh phúc <br> <br>HCM, Ngày ... tháng ... năm ...';
+    document.querySelector("#ten-mon-hoc").innerHTML = '<b>Môn:</b> ' + document.querySelector('#lbl-hocphan').textContent.toUpperCase();
+    document.querySelector("#thoi-gian-lam-bai").innerHTML = 'Thời gian làm bài: ' + document.querySelector("#lbl-thoigianlambai").textContent + 'phút';
+    document.querySelector("#made").innerHTML = '<b>Mã đề: ' + document.getElementById("option-madethi").value + '</b>';
+
+    const rows = document.querySelectorAll("#table-danhsachcauhoidethi tbody tr");
+    rows.forEach((r) => {
+        const row = r.closest("tr");
+        const r_content = [];
+        for (let cell of row.cells) {
+            r_content.push(cell.textContent.trim());
+        }
+
+        $("#pdf-content").append(
+            '<div class=\"question-box\">' +
+                '<div id=\"question-box__question\" class=\"question-box__question\"><b>Câu ' + r_content[0].trim() + ':</b> ' + r_content[1].trim() + ' </div>' +
+                '<div class=\"question-box__answers\"><div class=\"question-box__answer\"><b>A. </b>' + r_content[2].trim() + '</div>' +
+                '<div class=\"question-box__answers\"><div class=\"question-box__answer\"><b>B. </b>' + r_content[3].trim() + '</div>' +
+                '<div class=\"question-box__answers\"><div class=\"question-box__answer\"><b>C. </b>' + r_content[4].trim() + '</div>' +
+                '<div class=\"question-box__answers\"><div class=\"question-box__answer\"><b>D. </b>' + r_content[5].trim() + '</div>' +
+            '</div>'
+        );
     });
+    
+    const filename = document.querySelector("#lbl-hocphan").textContent + '_' + 
+                        document.getElementById("option-madethi").value + '_' + 
+                        document.querySelector("#lbl-ngaytaodethi").textContent;
 
-    // Create a download link
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "example.doc";
-    link.click();
+    const options = {
+        margin: 1,
+        filename: filename + '.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    // Promise-based usage:
+    html2pdf().set(options).from(element).save();
+
+    setTimeout(() => {
+        element.style.display = 'none';
+    }, 5000); 
 }
