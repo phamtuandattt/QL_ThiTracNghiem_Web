@@ -1,0 +1,101 @@
+<div class="top-content-taocathi">
+    <div class="thongtincathi">
+        <div class="khoa">
+            <label for="options-khoa" class="lbl-topcontent">Khoa:</label>
+            <select id="options-khoa" class="">
+                <option value="option1">Khoa Công nghệ thông tin</option>
+                <option value="option2">Khoa Quản trị kinh doanh</option>
+            </select>
+        </div>
+        <div class="monhoc">
+            <label for="options-monhoc" class="lbl-topcontent">Môn học:</label>
+            <select id="options-monhoc" class="">
+                <option value="option1">Ứng dụng CNTT</option>
+                <option value="option2">CÔNG NGHỆ .NET</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="ds-cathi-container">
+    <table id="tblDSCaThi" class="tblDSSinhVienTaoCaThi">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">#</th>
+                <th onclick="sortTable(1)">Mã học phần</th>
+                <th onclick="sortTable(2)">Tên học phần</th>
+                <th onclick="sortTable(3)">Tổ hợp đề</th>
+                <th onclick="sortTable(4)">Đề thi</th>
+                <th onclick="sortTable(5)">Ngày thi</th>
+                <th onclick="sortTable(6)">Giờ làm bài</th>
+                <th onclick="sortTable(7)">Phòng thi</th>
+                <th onclick="sortTable(8)">Mã ca thi</th>
+                <th id="">Cho phép thi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="" id="1">
+                <td>1</td>
+                <td>0101000001</td>
+                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                <td>1</td>
+                <td>01</td>
+                <td>30/12/2022</td>
+                <td>Tiết 1</td>
+                <td>A505</td>
+                <td>1</td>
+                <td><input type="button" onclick="showToHopDeDialog()" value="Thi" class="btn-chon-de-ca-thi" /></td>
+            </tr>
+            <tr onclick="" id="2">
+                <td>2</td>
+                <td>0101000002</td>
+                <td>NOSQL</td>
+                <td>1</td>
+                <td>01</td>
+                <td>30/12/2022</td>
+                <td>Tiết 1</td>
+                <td>A505</td>
+                <td>2</td>
+                <td><input type="button" onclick="showToHopDeDialog()" value="Thi" class="btn-chon-de-ca-thi" /></td>
+            </tr>
+            <tr onclick="" id="3">
+                <td>3</td>
+                <td>0101000001</td>
+                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                <td>1</td>
+                <td>01</td>
+                <td>30/12/2022</td>
+                <td>Tiết 1</td>
+                <td>A505</td>
+                <td>3</td>
+                <td><input type="button" onclick="showToHopDeDialog()" value="Thi" class="btn-chon-de-ca-thi" /></td>
+            </tr>
+            <tr onclick="" id="4">
+                <td>4</td>
+                <td>0101000001</td>
+                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                <td>1</td>
+                <td>01</td>
+                <td>30/12/2022</td>
+                <td>Tiết 1</td>
+                <td>A505</td>
+                <td>4</td>
+                <td><input type="button" onclick="showToHopDeDialog()" value="Thi" class="btn-chon-de-ca-thi" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="noRecordsMessage" class="no-records">
+        <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png" alt="">
+        <p>No matching records found</p>
+    </div>
+</div>
+
+<div id="overlay-enter-tohopde"></div>
+<div id="tohopdeDialog">
+    <h3>Chọn mã đề</h3>
+    <select id="options-made" class="">
+        <option value="option1">01</option>
+        <option value="option2">02</option>
+    </select>
+    <button onclick="xacNhanDeThi()" class="submit-quantity">Xác nhận</button>
+    <button onclick="closeDialog()" class="submit-quantity">Hủy</button>
+</div>

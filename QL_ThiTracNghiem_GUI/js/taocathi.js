@@ -101,3 +101,23 @@ function taoCaThi() {
         showErrorBox("errorrBox", "message-errorr", "Hãy chọn sinh viên !");
     }
 }
+
+function xacNhanDeThi(macathi) {
+    showLoading();
+    
+    setTimeout(() => {
+        closeDialog();
+    }, 2000); 
+}
+
+function showToHopDeDialog() {
+    // Show the overlay and dialog
+    document.getElementById('overlay-enter-tohopde').style.display = 'block';
+    document.getElementById('tohopdeDialog').style.display = 'block';
+}
+
+function closeDialog() {
+    // Hide the overlay and dialog
+    document.getElementById('overlay-enter-tohopde').style.display = 'none';
+    document.getElementById('tohopdeDialog').style.display = 'none';
+}
