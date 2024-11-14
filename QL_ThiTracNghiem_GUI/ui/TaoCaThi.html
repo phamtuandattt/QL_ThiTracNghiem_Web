@@ -1,0 +1,361 @@
+<div class="top-content-taocathi">
+    <div class="thongtincathi">
+        <div class="monhoc">
+            <label for="options-monhoc" class="lbl-topcontent">Môn học:</label>
+            <select id="options-monhoc" class="">
+                <option value="option1">Ứng dụng CNTT</option>
+                <option value="option2">CÔNG NGHỆ .NET</option>
+            </select>
+        </div>
+        <div class="giothi">
+            <label for="options-giothi" class="lbl-topcontent">Giờ thi: </label>
+            <select id="options-giothi" class="">
+                <option value="tiet1">Tiết 1 - 2</option>
+                <option value="tiet2">Tiết 3 - 4</option>
+            </select>
+        </div>
+        <div class="phongthi">
+            <label for="options-phongthi" class="lbl-topcontent">Phòng thi: </label>
+            <select id="options-phongthi" class="">
+                <option value="A304">A304</option>
+                <option value="A505">A505</option>
+            </select>
+        </div>
+        <div class="tohopde">
+            <label for="options-tohopde" class="lbl-topcontent">Tổ hợp đề: </label>
+            <select id="options-tohopde" class="">
+                <option value="1">01</option>
+                <option value="2">02</option>
+            </select>
+        </div>
+        <div class="ngaythi">
+            <label for="datetime" class="lbl-topcontent">Ngày thi: </label>
+            <input type="text" id="datetimePicker" class="datetime-picker">
+        </div>
+    </div>
+    <div class="xacnhantaocathi">
+        <button onclick="taoCaThi()" class="btn-taodethi">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+</div>
+<div class="ds-sinhvien-container">
+    <table id="tblDSSinhVienTaoCaThi" class="tblDSSinhVienTaoCaThi">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">#</th>
+                <th onclick="sortTable(1)">Mã sinh viên</th>
+                <th onclick="sortTable(2)">Tên sinh viên</th>
+                <th onclick="sortTable(3)">Giới tính</th>
+                <th onclick="sortTable(4)">Ngày sinh</th>
+                <th onclick="sortTable(5)">Email</th>
+                <th onclick="sortTable(6)">Số điện thoại</th>
+                <th onclick="sortTable(7)">Địa chỉ</th>
+                <th onclick="sortTable(8)">Quê quán</th>
+                <th onclick="sortTable(9)">Mã lớp</th>
+                <th onclick="selectAllRows()" id="header-checked">Check</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="" id="1">
+                <td>1</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>2</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>3</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>4</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>5</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>6</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>7</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>8</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>9</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>10</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>11</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>12</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>13</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>14</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>15</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>16</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>17</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>18</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>19</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>20</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>21</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+            <tr onclick="" id="1">
+                <td>22</td>
+                <td>2001111111</td>
+                <td>Nguyễn Văn A</td>
+                <td>Nam</td>
+                <td>12/12/2001</td>
+                <td>a.nguyenvan@gmail.com</td>
+                <td>0987654321</td>
+                <td>TP.HCM</td>
+                <td>TP.HCM</td>
+                <td>10DHTH5</td>
+                <td><input type="checkbox" onclick="countChecked()"/></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div id="noRecordsMessage" class="no-records">
+        <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png" alt="">
+        <p>No matching records found</p>
+    </div>
+</div>
+
+<script>
+    let allChecked = false;
+</script>
