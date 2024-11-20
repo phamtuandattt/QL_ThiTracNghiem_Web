@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/taodethi.css">
     <link rel="stylesheet" href="../css/quanlydethi.css">
     <link rel="stylesheet" href="../css/taocathi.css">
+    <link rel="stylesheet" href="../css/quanlycathi.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <script src="../js/html2pdf.bundle.min.js"></script>
@@ -19,6 +20,9 @@
     <link rel="stylesheet" href="../css/flatpickr.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css"> -->
     <script src="../js/flatpickr.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script> -->
+    <script src="../js/exceljs.min.js"></script>
 
 </head>
 
@@ -83,88 +87,121 @@
                 </div>
             </div>
             <div class="content-body">
-                <div class="top-content-taocathi">
+                <div class="top-content-thongtincathi">
                     <div class="thongtincathi">
-                        <div class="khoa">
-                            <label for="options-khoa" class="lbl-topcontent">Khoa:</label>
-                            <select id="options-khoa" class="">
-                                <option value="option1">Khoa Công nghệ thông tin</option>
-                                <option value="option2">Khoa Quản trị kinh doanh</option>
+                        <div class="ca-thi">
+                            <label for="options-cathi" class="lbl-topcontent">Ca thi:</label>
+                            <select id="options-cathi" class="">
+                                <option value="option1">Ứng dụng CNTT - PHÒNG A505 - GIỜ LÀM BÀI: Tiết 1</option>
+                                <option value="option2">Đại số tuyến tính - PHÒNG A505 - GIỜ LÀM BÀI: Tiết 5</option>
                             </select>
+                            <div class="button-container-cathi">
+                                <button onclick="" class="edit-button">
+                                    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <button class="edit-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M23 4v6h-6"></path>
+                                        <path d="M1 20v-6h6"></path>
+                                        <path d="M3.51 9a9 9 0 0115.02-4.36L23 10"></path>
+                                        <path d="M20.49 15a9 9 0 01-15.02 4.36L1 14"></path>
+                                    </svg>
+                                </button>
+                                <button onclick="exportExcelWithExcelJS()" class="edit-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 120 120">
+                                        <!-- Gradient Background -->
+                                        <defs>
+                                            <linearGradient id="excelGradient" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="0%" stop-color="#21A366" />
+                                                <stop offset="100%" stop-color="#185C37" />
+                                            </linearGradient>
+                                        </defs>
+                                        
+                                        <!-- Base Green Rectangle -->
+                                        <rect x="20" y="20" width="80" height="80" rx="10" ry="10" fill="url(#excelGradient)"></rect>
+                                        
+                                        <!-- Grid Pattern -->
+                                        <rect x="40" y="40" width="40" height="40" fill="#107C41" rx="4" ry="4"></rect>
+                                        <line x1="40" y1="50" x2="80" y2="50" stroke="#1F6F4A" stroke-width="2"></line>
+                                        <line x1="40" y1="60" x2="80" y2="60" stroke="#1F6F4A" stroke-width="2"></line>
+                                        <line x1="40" y1="70" x2="80" y2="70" stroke="#1F6F4A" stroke-width="2"></line>
+                                        <line x1="50" y1="40" x2="50" y2="80" stroke="#1F6F4A" stroke-width="2"></line>
+                                        <line x1="60" y1="40" x2="60" y2="80" stroke="#1F6F4A" stroke-width="2"></line>
+                                        <line x1="70" y1="40" x2="70" y2="80" stroke="#1F6F4A" stroke-width="2"></line>
+                                        
+                                        <!-- Small Green Rectangle with "X" -->
+                                        <rect x="10" y="10" width="40" height="40" rx="6" ry="6" fill="#185C37"></rect>
+                                        <text x="30" y="38" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="30px" font-weight="bold" text-anchor="middle">X</text>
+                                    </svg>                                                                                                    
+                                </button>
+                            </div>
                         </div>
-                        <div class="monhoc">
-                            <label for="options-monhoc" class="lbl-topcontent">Môn học:</label>
-                            <select id="options-monhoc" class="">
-                                <option value="option1">Ứng dụng CNTT</option>
-                                <option value="option2">CÔNG NGHỆ .NET</option>
-                            </select>
+                        <div class="ngay-thi">
+                            <p id="ngay-thi"><b>Ngày thi:</b>  22/12/2024</p>
+                        </div>
+                        <div class="so-luong-sinhvien-nopbai">
+                            <p id="sl-sv-nopbai"><b>Số lượng sinh viên đã nộp:</b>  10</p>
+                        </div>
+                        <div class="so-luong-sinhvien-dangthi">
+                            <p id="sl-sv-đangthi"><b>Số lượng sinh viên đang thi:</b>  5</p>
                         </div>
                     </div>
                 </div>
                 <div class="ds-cathi-container">
-                    <table id="tblDSCaThi" class="tblDSSinhVienTaoCaThi">
+                    <table id="tblDSCaThi" class="tblDSSinhVienThamGiaThi">
                         <thead>
                             <tr>
                                 <th onclick="sortTable(0)">#</th>
-                                <th onclick="sortTable(1)">Mã học phần</th>
-                                <th onclick="sortTable(2)">Tên học phần</th>
-                                <th onclick="sortTable(3)">Tổ hợp đề</th>
-                                <th onclick="sortTable(4)">Đề thi</th>
-                                <th onclick="sortTable(5)">Ngày thi</th>
-                                <th onclick="sortTable(6)">Giờ làm bài</th>
-                                <th onclick="sortTable(7)">Phòng thi</th>
-                                <th onclick="sortTable(8)">Mã ca thi</th>
-                                <th id="">Cho phép thi</th>
+                                <th onclick="sortTable(1)">Mã sinh viên</th>
+                                <th onclick="sortTable(2)">Tên sinh viên</th>
+                                <th onclick="sortTable(3)">Ngày sinh</th>
+                                <th onclick="sortTable(4)">Giới tính</th>
+                                <th onclick="sortTable(5)">Lớp</th>
+                                <th onclick="sortTable(6)">Giờ nộp bài</th>
+                                <th onclick="sortTable(7)">Điểm</th>
+                                <th onclick="sortTable(8)">Mã bài thi</th>
+                                <th onclick="sortTable(9)">Tình trạng</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr onclick="" id="1">
                                 <td>1</td>
-                                <td>0101000001</td>
-                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                                <td>2001111111</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>12/12/2001</td>
+                                <td>Nam</td>
+                                <td>10DHTH5</td>
+                                <td>10:12</td>
+                                <td>5</td>
                                 <td>1</td>
-                                <td>01</td>
-                                <td>30/12/2022</td>
-                                <td>Tiết 1</td>
-                                <td>A505</td>
-                                <td>1</td>
-                                <td><input type="button" onclick="showToHopDeDialog()" value="Thi" class="btn-chon-de-ca-thi"/></td>
+                                <td>Đã nộp</td>
                             </tr>
-                            <tr onclick="" id="2">
-                                <td>2</td>
-                                <td>0101000002</td>
-                                <td>NOSQL</td>
+                            <tr onclick="" id="1">
                                 <td>1</td>
-                                <td>01</td>
-                                <td>30/12/2022</td>
-                                <td>Tiết 1</td>
-                                <td>A505</td>
-                                <td>2</td>
-                                <td><input type="button" onclick="showToHopDeDialog()" value="Thi" class="btn-chon-de-ca-thi"/></td>
+                                <td>2001111111</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>12/12/2001</td>
+                                <td>Nam</td>
+                                <td>10DHTH5</td>
+                                <td>10:12</td>
+                                <td>5</td>
+                                <td>1</td>
+                                <td>Đã nộp</td>
                             </tr>
-                            <tr onclick="" id="3">
-                                <td>3</td>
-                                <td>0101000001</td>
-                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                            <tr onclick="" id="1">
                                 <td>1</td>
-                                <td>01</td>
-                                <td>30/12/2022</td>
-                                <td>Tiết 1</td>
-                                <td>A505</td>
-                                <td>3</td>
-                                <td><input type="button" onclick="showToHopDeDialog()" value="Thi" class="btn-chon-de-ca-thi"/></td>
-                            </tr>
-                            <tr onclick="" id="4">
-                                <td>4</td>
-                                <td>0101000001</td>
-                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                                <td>2001111111</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>12/12/2001</td>
+                                <td>Nam</td>
+                                <td>10DHTH5</td>
+                                <td>10:12</td>
+                                <td>5</td>
                                 <td>1</td>
-                                <td>01</td>
-                                <td>30/12/2022</td>
-                                <td>Tiết 1</td>
-                                <td>A505</td>
-                                <td>4</td>
-                                <td><input type="button" onclick="showToHopDeDialog()" value="Thi" class="btn-chon-de-ca-thi"/></td>
+                                <td>Đã nộp</td>
                             </tr>
                         </tbody>
                     </table>
@@ -176,18 +213,6 @@
             </div>
         </div>
     </div>
-
-    <div id="overlay-enter-tohopde"></div>
-    <div id="tohopdeDialog">
-        <h3>Chọn mã đề</h3>
-        <select id="options-made" class="">
-            <option value="option1">01</option>
-            <option value="option2">02</option>
-        </select>
-        <button onclick="xacNhanDeThi()" class="submit-quantity">Xác nhận</button>
-        <button onclick="closeDialog()" class="submit-quantity">Hủy</button>
-    </div>
-
 
     <!-- Overlay with loader -->
     <div class="overlay" id="loadingOverlay">
@@ -257,6 +282,7 @@
     <script src="../js/taodethi.js"></script>
     <script src="../js/quanlydethi.js"></script>
     <script src="../js/taocathi.js"></script>
+    <script src="../js/quanlydanhsachthamgiathi.js"></script>
 
 </body>
 
