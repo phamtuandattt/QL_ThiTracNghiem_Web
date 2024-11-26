@@ -11,6 +11,7 @@ function toggleSidebar() {
 
     const submenuDeThi = document.getElementById('dethi-menu');
     const submenuCaThi = document.getElementById('taocathi-menu');
+    const submenuQuanTri = document.getElementById('quantri-menu');
     
     if (sidebar.classList.contains('expanded')) {
         // toggleBtn.innerHTML = '&#10094;'; // Collapse icon
@@ -18,12 +19,14 @@ function toggleSidebar() {
         element.style.transition = 'margin 0.3s ease'
         submenuDeThi.classList.add('expanded');
         submenuCaThi.classList.add('expanded');
+        submenuQuanTri.classList.add('expanded');
     } else {
         // toggleBtn.innerHTML = '&#10095;'; // Expand icon
         element.style.margin = '0 0 0 80px';
         element.style.transition = 'margin 0.3s ease'
         submenuDeThi.classList.remove('expanded');
         submenuCaThi.classList.remove('expanded');
+        submenuQuanTri.classList.remove('expanded');
     }
 }
 
