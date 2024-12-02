@@ -1,0 +1,67 @@
+<div class="top-content-ds-khoa">
+    <div class="ds-khoa">
+        <div class="ca-thi">
+            <label for="options-ds-khoa" class="lbl-topcontent">Khoa:</label>
+            <select id="options-ds-khoa" class="">
+                <option value="option1">KHOA CÔNG NGHỆ THÔNG TIN</option>
+                <option value="option2">KHOA QUẢN TRỊ KINH DOANH</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="ds-cathi-container">
+    <table id="tblDSCaThi" class="tblDSSinhVienThamGiaThi">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">#</th>
+                <th onclick="sortTable(1)">Mã giảng viên</th>
+                <th onclick="sortTable(2)">Tên giảng viên</th>
+                <th onclick="sortTable(3)">Ngày sinh</th>
+                <th onclick="sortTable(4)">Giới tính</th>
+                <th onclick="sortTable(5)">Quê quán</th>
+                <th onclick="sortTable(6)">Học vị</th>
+                <th onclick="sortTable(7)">Số điện thoại</th>
+                <th onclick="sortTable(8)">Email</th>
+                <th onclick="sortTable(9)">Địa chỉ</th>
+                <th onclick="sortTable(10)">Khoa</th>
+                <th onclick="sortTable(11)">Chức vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="showPopup('popup_thongtingiangvien')" id="1">
+                <td>1</td>
+                <td>01001001</td>
+                <td>LÂM THỊ HỌA MI</td>
+                <td>12/12/2001</td>
+                <td>Nam</td>
+                <td>""</td>
+                <td>""</td>
+                <td>09876543211</td>
+                <td>""</td>
+                <td>""</td>
+                <td>CNTT</td>
+                <td>TRƯỞNG KHOA</td>
+            </tr>
+            <tr onclick="showPopup('popup_thongtingiangvien')" id="2">
+                <td>1</td>
+                <td>01001001</td>
+                <td>LÂM THỊ HỌA MI</td>
+                <td>12/12/2001</td>
+                <td>Nam</td>
+                <td>""</td>
+                <td>""</td>
+                <td>09876543211</td>
+                <td>""</td>
+                <td>""</td>
+                <td>CNTT</td>
+                <td>TRƯỞNG KHOA</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <div id="noRecordsMessage" class="no-records">
+        <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png" alt="">
+        <p>No matching records found</p>
+    </div>
+</div>
