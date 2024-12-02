@@ -1,0 +1,68 @@
+.top-content-ds-lophoc {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin: 10px 0 0 0;
+}
+
+select {
+    padding: 8px 30px 8px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-left: 0;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(251, 253, 255, 0.5);
+}
+
+select>option:hover {
+    background-color: rgb(240, 239, 239);
+}
+.ds-lophoc {
+    display: flex;
+    gap: 5vh;
+}
+
+.top-content-ds-lophoc {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin: 10px 0 0 0;
+}
+
+.ds-sinhvien-container {
+    max-height: 80vh; /* Set a fixed height for the scrollable table content */
+    overflow-y: auto; /* Enable vertical scroll */
+    margin-top: 10px;
+}
+
+.tblDSSinhVienLopHoc {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tblDSSinhVienLopHoc thead th {
+    position: sticky;
+    top: -1px;
+    background-color: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.tblDSSinhVienLopHoc th,
+.tblDSSinhVienLopHoc td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.tblDSSinhVienLopHoc tr {
+    cursor: pointer;
+}
+
+.tblDSSinhVienLopHoc tr:hover {
+    background-color: #f5f5f5;
+}
