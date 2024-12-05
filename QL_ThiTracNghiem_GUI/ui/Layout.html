@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/khoa.css">
     <link rel="stylesheet" href="../css/giangvien.css">
     <link rel="stylesheet" href="../css/quanlylophoc.css">
+    <link rel="stylesheet" href="../css/quanlyhocphan.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <script src="../js/html2pdf.bundle.min.js"></script>
@@ -29,6 +30,7 @@
 
     <!-- <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script> -->
     <script src="../js/xlsx.full.min.js"></script>
+
 
 </head>
 
@@ -97,7 +99,7 @@
                         <img src="../assets/Screenshot_3.png" alt="User Avatar" class="avatar">
                     </div>
                     <div class="dropdown-content">
-                        <a onclick="showPopup('popup_thongtingiangvien')" href="#" >Thông tin người dùng</a>
+                        <a onclick="showPopup('popup_thongtingiangvien')" href="#">Thông tin người dùng</a>
                         <a href="#">Đăng xuất</a>
                     </div>
                 </div>
@@ -106,13 +108,11 @@
                 <div class="top-content-ds-lophoc">
                     <div class="ds-lophoc">
                         <div class="ca-thi">
-                            <label for="options-ds-lophoc" class="lbl-topcontent">Lớp học:</label>
+                            <label for="options-ds-lophoc" class="lbl-topcontent">Khoa:</label>
                             <select id="options-ds-lophoc" class="">
-                                <option value="option1">10DHTH1</option>
-                                <option value="option2">10DHTH2</option>
-                                <option value="option3">10DHTH3</option>
-                                <option value="option4">10DHTH4</option>
-                                <option value="option5">10DHTH5</option>
+                                <option value="option1">Công nghệ thông tin</option>
+                                <option value="option2">Quản trị kinh doanh</option>
+                                <option value="option3">Quản trị nhà hàng khách sạn</option>
                             </select>
                         </div>
                     </div>
@@ -126,10 +126,11 @@
                                         <stop offset="100%" stop-color="#185C37" />
                                     </linearGradient>
                                 </defs>
-                                
+
                                 <!-- Base Green Rectangle -->
-                                <rect x="20" y="20" width="80" height="80" rx="10" ry="10" fill="url(#excelGradient)"></rect>
-                                
+                                <rect x="20" y="20" width="80" height="80" rx="10" ry="10" fill="url(#excelGradient)">
+                                </rect>
+
                                 <!-- Grid Pattern -->
                                 <rect x="40" y="40" width="40" height="40" fill="#107C41" rx="4" ry="4"></rect>
                                 <line x1="40" y1="50" x2="80" y2="50" stroke="#1F6F4A" stroke-width="2"></line>
@@ -138,75 +139,853 @@
                                 <line x1="50" y1="40" x2="50" y2="80" stroke="#1F6F4A" stroke-width="2"></line>
                                 <line x1="60" y1="40" x2="60" y2="80" stroke="#1F6F4A" stroke-width="2"></line>
                                 <line x1="70" y1="40" x2="70" y2="80" stroke="#1F6F4A" stroke-width="2"></line>
-                                
+
                                 <!-- Small Green Rectangle with "X" -->
                                 <rect x="10" y="10" width="40" height="40" rx="6" ry="6" fill="#185C37"></rect>
-                                <text x="30" y="38" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="30px" font-weight="bold" text-anchor="middle">X</text>
-                            </svg>                                                                                                    
+                                <text x="30" y="38" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="30px"
+                                    font-weight="bold" text-anchor="middle">X</text>
+                            </svg>
                         </button>
                         <button onclick="" class="edit-button">
-                            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="25" height="25" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
                                     stroke-linejoin="round" />
                             </svg>
                         </button>
                     </div>
-                    <input type="file" id="excel_file" style="display: none;"/>
+                    <input type="file" id="excel_file" style="display: none;" />
                 </div>
-                <div id="excel_data" class="ds-sinhvien-container">
-                    <table id="tblDSSinhVienLopHoc" class="tblDSSinhVienLopHoc">
+                <div id="" class="ds-quanlyhocphan-container">
+                    <table id="tblDSLopHocPhan" class="tblDSLopHocPhan">
                         <thead>
-                            <tr>
+                            <tr onclick="unShowDetail()">
                                 <th onclick="sortTable(0)">#</th>
-                                <th onclick="sortTable(1)">Mã sinh viên</th>
-                                <th onclick="sortTable(2)">Tên sinh viên</th>
-                                <th onclick="sortTable(3)">Giới tính</th>
-                                <th onclick="sortTable(4)">Ngày sinh</th>
-                                <th onclick="sortTable(5)">Mã lớp</th>
-                                <th onclick="sortTable(6)">Địa chỉ</th>
-                                <th onclick="sortTable(7)">Quê quán</th>
-                                <th onclick="sortTable(8)">Email</th>
-                                <th onclick="sortTable(9)">Số điện thoại</th>
+                                <th onclick="sortTable(1)">Mã học phần</th>
+                                <th onclick="sortTable(2)">Tên học phần</th>
+                                <th onclick="sortTable(3)">Số tín chỉ</th>
+                                <th onclick="sortTable(4)">Số tiết lý thuyết</th>
+                                <th onclick="sortTable(5)">Số tiết thực hành</th>
+                                <th onclick="sortTable(6)">Mã khoa</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr onclick="showPopup('popup_thongtingiangvien')" id="1">
+                            <tr class="collapsible-header" onclick="toggleCollapse(this)">
                                 <td>1</td>
-                                <td>2001111111</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Nam</td>
-                                <td>12/12/2001</td>
-                                <td>10DHTH5</td>
-                                <td>TP.HCM</td>
-                                <td>TP.HCM</td>
-                                <td>a.nguyenvan@gmail.com</td>
-                                <td>0987654321</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2001111112</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Nam</td>
-                                <td>12/12/2001</td>
-                                <td>10DHTH5</td>
-                                <td>TP.HCM</td>
-                                <td>TP.HCM</td>
-                                <td>a.nguyenvan@gmail.com</td>
-                                <td>0987654321</td>
-                            </tr>
-                            <tr>
+                                <td>0101000001</td>
+                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
                                 <td>3</td>
-                                <td>2001111113</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Nam</td>
-                                <td>12/12/2001</td>
-                                <td>10DHTH5</td>
-                                <td>TP.HCM</td>
-                                <td>TP.HCM</td>
-                                <td>a.nguyenvan@gmail.com</td>
-                                <td>0987654321</td>
+                                <td>45</td>
+                                <td>45</td>
+                                <td>01</td>
                             </tr>
-                        </tbody>
+                            <tr class="collapsible-content">
+                                <td colspan="7" class="ct-ds-lop-hoc-phan">
+                                    <div class="content-ds-chitiethocphan">
+                                       <table class="ctDSLopHocPhan">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã lớp học phần</th>
+                                                <th>Mã học phần</th>
+                                                <th>Mã giảng viên</th>
+                                                <th>Thứ</th>
+                                                <th>Tiết</th>
+                                                <th>Phòng</th>
+                                                <th>Ngày bắt đầu</th>
+                                                <th>Ngày kết thúc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                        </tbody>
+                                       </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="collapsible-header" onclick="toggleCollapse(this)">
+                                <td>1</td>
+                                <td>0101000001</td>
+                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                                <td>3</td>
+                                <td>45</td>
+                                <td>45</td>
+                                <td>01</td>
+                            </tr>
+                            <tr class="collapsible-content">
+                                <td colspan="7" class="ct-ds-lop-hoc-phan">
+                                    <div class="content-ds-chitiethocphan">
+                                       <table class="ctDSLopHocPhan">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã lớp học phần</th>
+                                                <th>Mã học phần</th>
+                                                <th>Mã giảng viên</th>
+                                                <th>Thứ</th>
+                                                <th>Tiết</th>
+                                                <th>Phòng</th>
+                                                <th>Ngày bắt đầu</th>
+                                                <th>Ngày kết thúc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                        </tbody>
+                                       </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="collapsible-header" onclick="toggleCollapse(this)">
+                                <td>1</td>
+                                <td>0101000001</td>
+                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                                <td>3</td>
+                                <td>45</td>
+                                <td>45</td>
+                                <td>01</td>
+                            </tr>
+                            <tr class="collapsible-content">
+                                <td colspan="7" class="ct-ds-lop-hoc-phan">
+                                    <div class="content-ds-chitiethocphan">
+                                       <table class="ctDSLopHocPhan">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã lớp học phần</th>
+                                                <th>Mã học phần</th>
+                                                <th>Mã giảng viên</th>
+                                                <th>Thứ</th>
+                                                <th>Tiết</th>
+                                                <th>Phòng</th>
+                                                <th>Ngày bắt đầu</th>
+                                                <th>Ngày kết thúc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                        </tbody>
+                                       </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="collapsible-header" onclick="toggleCollapse(this)">
+                                <td>1</td>
+                                <td>0101000001</td>
+                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                                <td>3</td>
+                                <td>45</td>
+                                <td>45</td>
+                                <td>01</td>
+                            </tr>
+                            <tr class="collapsible-content">
+                                <td colspan="7" class="ct-ds-lop-hoc-phan">
+                                    <div class="content-ds-chitiethocphan">
+                                       <table class="ctDSLopHocPhan">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã lớp học phần</th>
+                                                <th>Mã học phần</th>
+                                                <th>Mã giảng viên</th>
+                                                <th>Thứ</th>
+                                                <th>Tiết</th>
+                                                <th>Phòng</th>
+                                                <th>Ngày bắt đầu</th>
+                                                <th>Ngày kết thúc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                        </tbody>
+                                       </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="collapsible-header" onclick="toggleCollapse(this)">
+                                <td>1</td>
+                                <td>0101000001</td>
+                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                                <td>3</td>
+                                <td>45</td>
+                                <td>45</td>
+                                <td>01</td>
+                            </tr>
+                            <tr class="collapsible-content">
+                                <td colspan="7" class="ct-ds-lop-hoc-phan">
+                                    <div class="content-ds-chitiethocphan">
+                                       <table class="ctDSLopHocPhan">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã lớp học phần</th>
+                                                <th>Mã học phần</th>
+                                                <th>Mã giảng viên</th>
+                                                <th>Thứ</th>
+                                                <th>Tiết</th>
+                                                <th>Phòng</th>
+                                                <th>Ngày bắt đầu</th>
+                                                <th>Ngày kết thúc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                        </tbody>
+                                       </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="collapsible-header" onclick="toggleCollapse(this)">
+                                <td>1</td>
+                                <td>0101000001</td>
+                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                                <td>3</td>
+                                <td>45</td>
+                                <td>45</td>
+                                <td>01</td>
+                            </tr>
+                            <tr class="collapsible-content">
+                                <td colspan="7" class="ct-ds-lop-hoc-phan">
+                                    <div class="content-ds-chitiethocphan">
+                                       <table class="ctDSLopHocPhan">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã lớp học phần</th>
+                                                <th>Mã học phần</th>
+                                                <th>Mã giảng viên</th>
+                                                <th>Thứ</th>
+                                                <th>Tiết</th>
+                                                <th>Phòng</th>
+                                                <th>Ngày bắt đầu</th>
+                                                <th>Ngày kết thúc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                        </tbody>
+                                       </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="collapsible-header" onclick="toggleCollapse(this)">
+                                <td>1</td>
+                                <td>0101000001</td>
+                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                                <td>3</td>
+                                <td>45</td>
+                                <td>45</td>
+                                <td>01</td>
+                            </tr>
+                            <tr class="collapsible-content">
+                                <td colspan="7" class="ct-ds-lop-hoc-phan">
+                                    <div class="content-ds-chitiethocphan">
+                                       <table class="ctDSLopHocPhan">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã lớp học phần</th>
+                                                <th>Mã học phần</th>
+                                                <th>Mã giảng viên</th>
+                                                <th>Thứ</th>
+                                                <th>Tiết</th>
+                                                <th>Phòng</th>
+                                                <th>Ngày bắt đầu</th>
+                                                <th>Ngày kết thúc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                        </tbody>
+                                       </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="collapsible-header" onclick="toggleCollapse(this)">
+                                <td>1</td>
+                                <td>0101000001</td>
+                                <td>CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</td>
+                                <td>3</td>
+                                <td>45</td>
+                                <td>45</td>
+                                <td>01</td>
+                            </tr>
+                            <tr class="collapsible-content">
+                                <td colspan="7" class="ct-ds-lop-hoc-phan">
+                                    <div class="content-ds-chitiethocphan">
+                                       <table class="ctDSLopHocPhan">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã lớp học phần</th>
+                                                <th>Mã học phần</th>
+                                                <th>Mã giảng viên</th>
+                                                <th>Thứ</th>
+                                                <th>Tiết</th>
+                                                <th>Phòng</th>
+                                                <th>Ngày bắt đầu</th>
+                                                <th>Ngày kết thúc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>010100000105</td>
+                                                <td>0101000001</td>
+                                                <td>01001001</td>
+                                                <td>2</td>
+                                                <td>1-5</td>
+                                                <td>A101</td>
+                                                <td>2024-11-11</td>
+                                                <td>2024-11-11</td>
+                                            </tr>
+                                        </tbody>
+                                       </table>
+                                    </div>
+                                </td>
+                            </tr>
+                     </tbody>
                     </table>
                     <div id="noRecordsMessage" class="no-records">
                         <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png" alt="">
@@ -218,19 +997,19 @@
     </div>
 
     <!-- Popup -->
-    <div id="popup_thongtingiangvien" class="popup">
+    <div id="chi-tiet-hoc-phan" class="popup">
         <div class="popup-content">
-            <span class="close-btn" onclick="closePopup('popup_thongtingiangvien')">&times;</span>
+            <span class="close-btn" onclick="closePopup('chi-tiet-hoc-phan')">&times;</span>
             <h3 id="popup-title"></h3>
             <div class="button-container">
-                <button onclick="enableEditingInfo('popup_thongtingiangvien')" class="edit-button">
+                <button onclick="" class="edit-button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25"
                         fill="currentColor">
                         <path
                             d="M3 17.25V21h3.75l11-11.03-3.74-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
                     </svg>
                 </button>
-                <button onclick="disableEditingInfo('popup_thongtingiangvien')" class="edit-button">
+                <button onclick="" class="edit-button">
                     <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
                             stroke-linejoin="round" />
@@ -239,7 +1018,8 @@
             </div>
             <div class="popup-container-info-gv">
                 <div class="sidebar-infomation">
-                    <img id="profilePicture" src="https://via.placeholder.com/150" alt="Profile Picture" onclick="changeAvata()">
+                    <img id="profilePicture" src="https://via.placeholder.com/150" alt="Profile Picture"
+                        onclick="changeAvata()">
                     <h3>John Doe</h3>
                     <ul>
                         <li onclick="showInformationPanel()">Thông tin cá nhân</li>
@@ -277,7 +1057,7 @@
 
                         <label for="dob">Ngày sinh</label>
                         <input type="date" id="dob">
-                        
+
                         <label for="email">Email</label>
                         <input type="email" id="email" placeholder="Nhập email của bạn">
 
@@ -299,7 +1079,7 @@
                             <option value="divorced">Bà Rịa Vũng Tàu</option>
                             <option value="widowed">Nam Định</option>
                         </select>
-                        
+
                         <label for="chucvu-info-gv">Chức vụ</label>
                         <select class="select-info-gv" id="chucvu-info-gv">
                             <!-- <option value="" disabled selected>Select your marital status</option> -->
@@ -322,7 +1102,7 @@
 
                         <label for="dob">Mật khẩu mới</label>
                         <input type="text" id="dob" placeholder="Nhập mật khẩu mới">
-                        
+
                         <label for="email">Xác nhận mật khẩu mới</label>
                         <input type="email" id="email" placeholder="Xác nhận mật khẩu mới">
 
@@ -396,6 +1176,7 @@
         let allChecked = false;
     </script>
 
+    <script src="../js/quanlyhocphan.js"></script>
     <script src="../js/sidebar.js"></script>
     <script src="../js/jquery.js"></script>
     <script src="../js/duyetnganhangcauhoi.js"></script>
