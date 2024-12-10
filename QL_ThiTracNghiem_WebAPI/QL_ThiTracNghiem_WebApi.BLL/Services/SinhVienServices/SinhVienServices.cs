@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using log4net.Util;
+using Microsoft.EntityFrameworkCore.Storage;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.SinhVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.ISinhVienServices;
@@ -33,6 +34,17 @@ namespace QL_ThiTracNghiem_WebApi.BLL.Services.SinhVienServices
             addDto.Masv = msv;
             var item = mapper.Map<Sinhvien>(addDto);
             await _sinhVienRepository.AddAsync(item);
+        }
+
+        public async Task AddRangeAsync(List<SinhVienAddDto> addDtos)
+        {
+            foreach (var dto in addDtos)
+            {
+                var msv = await _repo.GetMaSV("20", dto.MaKhoa, dto.NamNhapHoc);
+                dto.Masv = msv;
+            }
+            var items = mapper.Map<List<Sinhvien>>(addDtos);
+            await _sinhVienRepository.AddRangeAsync(items);
         }
 
         public async Task DeleteAsync(string masv)

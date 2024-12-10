@@ -12,5 +12,6 @@ namespace QL_ThiTracNghiem_WebAPI.Infrastructure.Common
         public const string INVALID_OBJECT = "Invalid object data !";
         public const string NOT_FOUND = "Not found !";
         public const string SUCCESS = "Success !";
+        public const string BAD_REQUEST = "The list of objects cannot be null or empty !";
     }
 }

@@ -133,5 +133,29 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.Repository
                 throw new RepositoryException($"An error occurred while trying to update the entity - {typeof(T).Name}", dbEx);
             }
         }
+
+        public async Task AddRangeAsync(List<T> list)
+        {
+            if  (list == null || !list.Any())
+            {
+                Logger.Error($"The list of entities cannot be null or empty");
+                throw new RepositoryException($"An error occurred while adding the entity to the database, {typeof(T).Name}");
+            }
+            try
+            {
+                await _dbSet.AddRangeAsync(list);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                Logger.Error($"Database update failed while adding {typeof(T).Name} entity - {dbEx?.InnerException?.Message.ToString()}");
+                throw new RepositoryException($"An error occurred while adding the entity to the database, {typeof(T).Name}", dbEx);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"An unexpected error occurred while adding entity - {typeof(T).Name}");
+                throw new RepositoryException($"An unexpected error occurred while adding the entity - {typeof(T).Name}", ex);
+            }
+        }
     }
 }

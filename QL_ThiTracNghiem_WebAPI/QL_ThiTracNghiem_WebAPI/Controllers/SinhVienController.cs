@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.GiangVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.Dtos.SinhVienDto;
 using QL_ThiTracNghiem_WebApi.BLL.IServices.ISinhVienServices;
+using QL_ThiTracNghiem_WebAPI.DAL.Models;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.GiangVienRequestDto;
 using QL_ThiTracNghiem_WebAPI.Models.RequestDto.SinhVienRequestDto;
+using System.Dynamic;
 
 namespace QL_ThiTracNghiem_WebAPI.Controllers
 {
@@ -83,6 +85,38 @@ namespace QL_ThiTracNghiem_WebAPI.Controllers
                 message = ApiResponseMessage.SUCCESS,
                 data = ""
             });
+        }
+
+        [HttpPost("add-list")]
+        public async Task<IActionResult> AddList([FromBody] List<SinhVienRequestDto> objects)
+        {
+            if (objects == null || !objects.Any())
+            {
+                return BadRequest(new ApiResponse
+                {
+                    status = HttpStatusCode.BadRequest + "",
+                    message = ApiResponseMessage.BAD_REQUEST,
+                    data = ""
+                });
+            }
+
+            try
+            {
+                var entities = _mapper.Map<List<SinhVienAddDto>>(objects);
+
+                await _services.AddRangeAsync(entities);
+
+                return Ok(new ApiResponse
+                {
+                    status = HttpStatusCode.OK + "",
+                    message = ApiResponseMessage.SUCCESS,
+                    data = ""
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while adding objects.", error = ex.Message });
+            }
         }
 
         [HttpPut("{masinhvien}")]

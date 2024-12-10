@@ -1,0 +1,36 @@
+import random
+import json
+from faker import Faker
+
+# Initialize Faker
+fake = Faker()
+
+# Generate random data for the request
+def generate_random_request(template, count=10):
+    requests = []
+    for _ in range(count):
+        request = {
+            "masv": fake.uuid4()[:8],
+            "makhau": fake.password(length=8),
+            "tensv": fake.name(),
+            "gioitinh": random.choice(["Male", "Female"]),
+            "ngaysinh": fake.date_between(start_date='-30y', end_date='-18y').isoformat(),
+            "email": fake.email(),
+            "sdt": fake.phone_number(),
+            "diachi": fake.address(),
+            "quequan": fake.city(),
+            "malop": fake.bothify(text="L###"),
+            "hocphi": str(random.randint(500000, 2000000)),
+            "nganhDaoTao": fake.job(),
+            "maKhoa": fake.bothify(text="K###"),
+            "namNhapHoc": str(fake.year())
+        }
+        requests.append(request)
+    return requests
+
+# Generate 10 random objects
+random_requests = generate_random_request(template=None, count=10)
+
+# Convert to JSON
+output = json.dumps(random_requests, indent=2, ensure_ascii=False)
+output

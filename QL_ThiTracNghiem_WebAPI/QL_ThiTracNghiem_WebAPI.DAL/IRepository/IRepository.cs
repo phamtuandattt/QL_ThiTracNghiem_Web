@@ -11,6 +11,7 @@ namespace QL_ThiTracNghiem_WebAPI.DAL.IRepository
         Task<List<T>> GetAllAsync();
         Task<T> GetByIdAsync(object id);
         Task AddAsync(T item);
+        Task AddRangeAsync (List<T> list);
         Task UpdateAsync(T item);
         Task DeleteAsync(object id);
         Task<bool> ExistsAsync(object id);
