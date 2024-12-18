@@ -1,36 +1,29 @@
+# Update JSON generation logic based on the new requirements
 import random
-import json
 from faker import Faker
 
 # Initialize Faker
 fake = Faker()
 
-# Generate random data for the request
-def generate_random_request(template, count=10):
-    requests = []
-    for _ in range(count):
-        request = {
-            "masv": fake.uuid4()[:8],
-            "makhau": fake.password(length=8),
-            "tensv": fake.name(),
-            "gioitinh": random.choice(["Male", "Female"]),
-            "ngaysinh": fake.date_between(start_date='-30y', end_date='-18y').isoformat(),
-            "email": fake.email(),
-            "sdt": fake.phone_number(),
-            "diachi": fake.address(),
-            "quequan": fake.city(),
-            "malop": fake.bothify(text="L###"),
-            "hocphi": str(random.randint(500000, 2000000)),
-            "nganhDaoTao": fake.job(),
-            "maKhoa": fake.bothify(text="K###"),
-            "namNhapHoc": str(fake.year())
-        }
-        requests.append(request)
-    return requests
+# Function to generate a single data entry
+def generate_data():
+    return {
+        "masv": "",
+        "makhau": fake.password(length=8),
+        "tensv": fake.name(),
+        "gioitinh": random.choice(["Nam", "Nu"]),
+        "ngaysinh": fake.date_between(start_date='-30y', end_date='-18y').isoformat(),
+        "email": fake.email(),
+        "sdt": fake.phone_number(),
+        "diachi": fake.address(),
+        "quequan": fake.city(),
+        "malop": random.choice(["10DHTH1", "10DHTH2", "10DHTH3", "10DHTH4", "10DHTH5"]),
+        "hocphi": str(random.randint(500000, 2000000)),
+        "nganhDaoTao": "20",
+        "maKhoa": random.choice(["01", "02"]),
+        "namNhapHoc": str(fake.year() % 100)  # Year in 'yy' format
+    }
 
-# Generate 10 random objects
-random_requests = generate_random_request(template=None, count=10)
-
-# Convert to JSON
-output = json.dumps(random_requests, indent=2, ensure_ascii=False)
-output
+# Generate 10 entries
+updated_data = [generate_data() for _ in range(10)]
+updated_data

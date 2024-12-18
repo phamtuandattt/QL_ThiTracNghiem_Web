@@ -1,0 +1,285 @@
+﻿@{
+    ViewData["Title"] = "Quản lý đề thi";
+}
+
+<div class="hocphan">
+    <label for="option-ds-hocphan">Học phần:</label>
+    <select id="option-ds-hocphan" class="hocphan-dropdown">
+        <option value="option1">Cấu trúc dữ liệu & giải thuật</option>
+        <option value="option2">Cơ sở dữ liệu</option>
+        <option value="option3">Đại số tuyến tính</option>
+        <option value="option4">Công nghệ .NET</option>
+        <option value="option5">NoSQL</option>
+    </select>
+</div>
+<table id="tbl-danhsachdethidatao">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Mã học phần</th>
+            <th>Tên học phần</th>
+            <th>Ngày tạo</th>
+            <th>Thời gian làm bài</th>
+            <th>Số lượng câu hỏi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr onclick="showPopup('popup-chitietdethi')">
+            <td>1</td>
+            <td>0101000001</td>
+            <td>
+                <p class="an">CẤU TRÚC DỮ LIỆU & GIẢI THUẬT</p>
+            </td>
+            <td>30/12/2022</td>
+            <td>45 phút</td>
+            <td>45 câu</td>
+        </tr>
+        <tr onclick="showPopup('popup-chitietdethi')">
+            <td>2</td>
+            <td>0101000002</td>
+            <td>
+                <p class="an">CƠ SỞ DỮ LIỆU</p>
+            </td>
+            <td>30/12/2022</td>
+            <td>45 phút</td>
+            <td>45 câu</td>
+        </tr>
+        <tr onclick="showPopup('popup-chitietdethi')">
+            <td>3</td>
+            <td>0101000003</td>
+            <td>
+                <p class="an">NO.SQL</p>
+            </td>
+            <td>30/12/2022</td>
+            <td>45 phút</td>
+            <td>45 câu</td>
+        </tr>
+        <tr onclick="showPopup('popup-chitietdethi')">
+            <td>5</td>
+            <td>0101000005</td>
+            <td>
+                <p class="an">ĐẠI SỐ TUYẾN TÍNH</p>
+            </td>
+            <td>30/12/2022</td>
+            <td>45 phút</td>
+            <td>45 câu</td>
+        </tr>
+        <tr onclick="showPopup('popup-chitietdethi')">
+            <td>6</td>
+            <td>0101000006</td>
+            <td>
+                <p class="an">CÔNG NGHỆ .NET</p>
+            </td>
+            <td>30/12/2022</td>
+            <td>45 phút</td>
+            <td>45 câu</td>
+        </tr>
+    </tbody>
+</table>
+<div id="noRecordsMessage" class="no-records">
+    <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png" alt="">
+    <p>No matching records found</p>
+</div>
+
+
+
+<!-- Export file template -->
+<div id="container-export-pdf" class="container-export-pdf">
+    <div class="pdf-header">
+        <div class="pdf-header-left"></div>
+        <div class="pdf-header-right"></div>
+    </div>
+    <div class="pdf-title">
+        <p id="ten-mon-hoc"></p>
+        <p id="thoi-gian-lam-bai"></p>
+        <p id="made"></p>
+    </div>
+    <div id="pdf-content" class="pdf-content">
+    </div>
+</div>
+
+<!-- Popup chi tiết đề thi -->
+<div id="popup-chitietdethi" class="popup-chitietdethi">
+    <div class="popup-chitietdethi-content">
+        <span class="close-btn" onclick="closePopup('popup-chitietdethi')">&times;</span>
+        <h3 id="popup-title"></h3>
+        <div class="popup-chitietdethi-top-container">
+            <div class="lbl-hocphan">
+                Môn học: <label id="lbl-hocphan" for="">Cấu trúc dữ liệu giải thuật </label>
+            </div>
+            <div class="lbl-thoigianlambai">
+                Thời gian làm bài: <label id="lbl-thoigianlambai" for="">45 phút </label>
+            </div>
+            <div class="lbl-trangthai">
+                Trạng thái: <label id="lbl-trangthai" for="">Chưa sử dụng </label>
+            </div>
+            <div class="lbl-soluongcauhoi">
+                Số lượng câu hỏi: <label id="lbl-soluongcauhoi" for="">45 câu </label>
+            </div>
+            <div class="lbl-made">
+                <label for="option-madethi">Mã đề: </label>
+                <select name="" id="option-madethi" class="madethi-dropdown">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                </select>
+            </div>
+            <div class="lbl-ngaytaodethi">
+                Ngày tạo: <label id="lbl-ngaytaodethi" for="">22/12/2024 </label>
+            </div>
+            <!-- <button onclick="exportToDocx()" class="btn-export-word">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100">
+                        <rect x="20" y="10" width="70" height="80" fill="#1976d2" />
+                        <rect x="20" y="10" width="70" height="20" fill="#42a5f5" />
+                        <rect x="20" y="30" width="70" height="20" fill="#1e88e5" />
+                        <rect x="20" y="50" width="70" height="20" fill="#1565c0" />
+                        <rect x="20" y="70" width="70" height="20" fill="#0d47a1" />
+                        <rect x="5" y="20" width="30" height="30" rx="5" ry="5" fill="#1976d2" />
+                        <text x="10" y="42" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="bold">W</text>
+                    </svg>
+                </button> -->
+            <button onclick="exportToPDFs()" class="btn-export-word">
+                <svg width="30" height="30" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Document Shape -->
+                    <rect x="10" y="10" width="80" height="100" rx="8" ry="8" fill="#FFFFFF" stroke="#CCCCCC"
+                          stroke-width="2" />
+
+                    <!-- Folded Corner -->
+                    <polygon points="70,10 90,30 70,30" fill="#E0E0E0" />
+
+                    <!-- Horizontal Lines to Represent Text -->
+                    <line x1="20" y1="40" x2="80" y2="40" stroke="#CCCCCC" stroke-width="2" />
+                    <line x1="20" y1="50" x2="80" y2="50" stroke="#CCCCCC" stroke-width="2" />
+                    <line x1="20" y1="60" x2="80" y2="60" stroke="#CCCCCC" stroke-width="2" />
+                    <line x1="20" y1="70" x2="80" y2="70" stroke="#CCCCCC" stroke-width="2" />
+                    <line x1="20" y1="80" x2="80" y2="80" stroke="#CCCCCC" stroke-width="2" />
+
+                    <!-- PDF Label Background -->
+                    <rect x="20" y="85" width="60" height="20" fill="#D32F2F" rx="4" ry="4" />
+
+                    <!-- PDF Text -->
+                    <text x="50" y="100" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF"
+                          font-weight="bold" text-anchor="middle">PDF</text>
+                </svg>
+            </button>
+        </div>
+        <div class="popup-chitietdethi-danhsachcauhoi">
+            <div class="left-panel">
+                <h3>Danh sách câu hỏi</h3>
+                <div class="popup-chitietdethi-table">
+                    <table id="table-danhsachcauhoidethi" class="question-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nội dung</th>
+                                <th style="display: none;">Đáp án</th>
+                                <th style="display: none;">Đáp án</th>
+                                <th style="display: none;">Đáp án</th>
+                                <th style="display: none;">Đáp án</th>
+                                <th>Đáp án đúng</th>
+                            </tr>
+                        </thead>
+                        <tbody id="questionList">
+                            <!-- Sample Rows -->
+                            <tr onclick="showDetails(1)" id="1">
+                                <td>1</td>
+                                <td>
+                                    <p class="an">
+                                        Khi kiểm định... Khi kiểm định... Khi kiểm định...Khi kiểm
+                                        định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi kiểm định...Khi
+                                        kiểm định...
+                                    </p>
+                                </td>
+                                <td style="display: none;">1 lần</td>
+                                <td style="display: none;">2 lần</td>
+                                <td style="display: none;">3 lần</td>
+                                <td style="display: none;">4 lần</td>
+                                <td>B</td>
+                            </tr>
+                            <tr onclick="showDetails(2)" id="2">
+                                <td>2</td>
+                                <td>
+                                    <p class="an">Công tác kiểm định...</p>
+                                </td>
+                                <td style="display: none;">1 lần</td>
+                                <td style="display: none;">2 lần</td>
+                                <td style="display: none;">3 lần</td>
+                                <td style="display: none;">4 lần</td>
+                                <td>A</td>
+                            </tr>
+                            <tr onclick="showDetails(3)" id="3">
+                                <td>3</td>
+                                <td>
+                                    <p class="an">Công tác kiểm định...</p>
+                                </td>
+                                <td style="display: none;">1 lần</td>
+                                <td style="display: none;">2 lần</td>
+                                <td style="display: none;">3 lần</td>
+                                <td style="display: none;">4 lần</td>
+                                <td>C</td>
+                            </tr>
+                            <tr onclick="showDetails(4)" id="4">
+                                <td>4</td>
+                                <td>
+                                    <p class="an">Công tác kiểm định...</p>
+                                </td>
+                                <td style="display: none;">1 lần</td>
+                                <td style="display: none;">2 lần</td>
+                                <td style="display: none;">3 lần</td>
+                                <td style="display: none;">4 lần</td>
+                                <td>D</td>
+                            </tr>
+                            <tr onclick="showDetails(5)" id="5">
+                                <td>5</td>
+                                <td>
+                                    <p class="an">Công tác kiểm định...</p>
+                                </td>
+                                <td style="display: none;">1 lần</td>
+                                <td style="display: none;">2 lần</td>
+                                <td style="display: none;">3 lần</td>
+                                <td style="display: none;">4 lần</td>
+                                <td>C</td>
+                            </tr>
+                            <tr onclick="showDetails(6)" id="6">
+                                <td>6</td>
+                                <td>
+                                    <p class="an">Công tác kiểm định...</p>
+                                </td>
+                                <td style="display: none;">1 lần</td>
+                                <td style="display: none;">2 lần</td>
+                                <td style="display: none;">3 lần</td>
+                                <td style="display: none;">4 lần</td>
+                                <td>A</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Panel: Details of Selected Item -->
+            <div class="right-panel">
+                <h3>Danh sách câu hỏi</h3>
+                <div class="popup-chitietdethi-detail-question popup-scroll">
+                    <div class="popup-question">
+                        <div id="questionDetail" class="text-section">
+                            <p>Click on a row to see details here.</p>
+                        </div>
+                        <div id="image-section" class="image-section-chitietcauhoi">
+                            <img id="img-question"
+                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagWEUxD8M4bHzNPudjU5MdJhlm5aj1A7t4g&s"
+                                 alt=""> <!--string.IsEmpty(url) ?? "/"-->
+                        </div>
+                    </div>
+                    <div id="answerOptions">
+                        <label><input type="radio" name="answer" value="1" disabled> 2 lần</label><br>
+                        <label><input type="radio" name="answer" value="2" disabled> 3 lần</label><br>
+                        <label><input type="radio" name="answer" value="3" disabled> 4 lần</label><br>
+                        <label><input type="radio" name="answer" value="4" disabled> 5 lần</label><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

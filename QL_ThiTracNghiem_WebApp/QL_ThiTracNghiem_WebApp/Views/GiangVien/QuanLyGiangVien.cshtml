@@ -1,0 +1,189 @@
+﻿@{
+    ViewData["Title"] = "Quản lý giảng viên";
+}
+
+<div class="top-content-ds-khoa">
+    <div class="ds-khoa">
+        <div class="ca-thi">
+            <label for="options-ds-khoa" class="lbl-topcontent">Khoa:</label>
+            <select id="options-ds-khoa" class="">
+                <option value="option1">KHOA CÔNG NGHỆ THÔNG TIN</option>
+                <option value="option2">KHOA QUẢN TRỊ KINH DOANH</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="ds-cathi-container">
+    <table id="tblDSCaThi" class="tblDSSinhVienThamGiaThi">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">#</th>
+                <th onclick="sortTable(1)">Mã giảng viên</th>
+                <th onclick="sortTable(2)">Tên giảng viên</th>
+                <th onclick="sortTable(3)">Ngày sinh</th>
+                <th onclick="sortTable(4)">Giới tính</th>
+                <th onclick="sortTable(5)">Quê quán</th>
+                <th onclick="sortTable(6)">Học vị</th>
+                <th onclick="sortTable(7)">Số điện thoại</th>
+                <th onclick="sortTable(8)">Email</th>
+                <th onclick="sortTable(9)">Địa chỉ</th>
+                <th onclick="sortTable(10)">Khoa</th>
+                <th onclick="sortTable(11)">Chức vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="showPopup('popup_thongtingiangvien')" id="1">
+                <td>1</td>
+                <td>01001001</td>
+                <td>LÂM THỊ HỌA MI</td>
+                <td>12/12/2001</td>
+                <td>Nam</td>
+                <td>""</td>
+                <td>""</td>
+                <td>09876543211</td>
+                <td>""</td>
+                <td>""</td>
+                <td>CNTT</td>
+                <td>TRƯỞNG KHOA</td>
+            </tr>
+            <tr onclick="showPopup('popup_thongtingiangvien')" id="2">
+                <td>1</td>
+                <td>01001001</td>
+                <td>LÂM THỊ HỌA MI</td>
+                <td>12/12/2001</td>
+                <td>Nam</td>
+                <td>""</td>
+                <td>""</td>
+                <td>09876543211</td>
+                <td>""</td>
+                <td>""</td>
+                <td>CNTT</td>
+                <td>TRƯỞNG KHOA</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <div id="noRecordsMessage" class="no-records">
+        <img style="width: 15%;" src="https://cdn-icons-png.flaticon.com/512/7466/7466073.png" alt="">
+        <p>No matching records found</p>
+    </div>
+</div>
+
+
+<div id="popup_thongtingiangvien" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup('popup_thongtingiangvien')">&times;</span>
+        <h3 id="popup-title"></h3>
+        <div class="button-container">
+            <button onclick="" class="edit-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25"
+                     fill="currentColor">
+                    <path d="M3 17.25V21h3.75l11-11.03-3.74-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                </svg>
+            </button>
+            <button onclick="" class="edit-button">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12L9 17L20 6" stroke="green" stroke-width="2.5" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+        <div class="popup-container-info-gv">
+            <div class="sidebar-infomation">
+                <img id="profilePicture" src="https://via.placeholder.com/150" alt="Profile Picture"
+                     onclick="changeAvata()">
+                <h3>John Doe</h3>
+                <ul>
+                    <li onclick="showInformationPanel()">Thông tin cá nhân</li>
+                    <li onclick="showAccountPanel()">Thông tin tài khoản</li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div id="content-information-gv" class="content-information-gv">
+                <h2>Thông tin cá nhân</h2>
+                <form>
+                    <label for="khoa-info-gv">Khoa</label>
+                    <select class="select-info-gv" id="khoa-info-gv">
+                        <!-- <option value="" disabled selected>Select your marital status</option> -->
+                        <option value="single">Công nghệ thông tin</option>
+                        <option value="married">Quản trị kinh doan</option>
+                        <option value="divorced">Công nghệ cơ khí</option>
+                        <option value="widowed">Cơ điện tử</option>
+                    </select>
+
+                    <label for="fullName">Họ và tên</label>
+                    <input type="text" id="fullName" placeholder="Nhập họ tên của bạn">
+
+                    <label for="hocvi-info-gv">Học vị</label>
+                    <select class="select-info-gv" id="hocvi-info-gv">
+                        <!-- <option value="" disabled selected>Select your marital status</option> -->
+                        <option value="single">Giáo sư</option>
+                        <option value="married">Tiến sĩ</option>
+                        <option value="divorced">Thạc sĩ</option>
+                        <option value="widowed">Cử nhân</option>
+                    </select>
+
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" placeholder="Nhập số điện thoại của bạn">
+
+                    <label for="dob">Ngày sinh</label>
+                    <input type="date" id="dob">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Nhập email của bạn">
+
+                    <label>Giới tính</label>
+                    <div class="gender-group">
+                        <label for="male">
+                            <input type="radio" id="male" name="gender"> Nam
+                        </label>
+                        <label for="female">
+                            <input type="radio" id="female" name="gender"> Nữ
+                        </label>
+                    </div>
+
+                    <label for="quequan-info-gv">Quê quán</label>
+                    <select class="select-info-gv" id="quequan-info-gv">
+                        <!-- <option value="" disabled selected>Select your marital status</option> -->
+                        <option value="single">TP.HCM</option>
+                        <option value="married">Đà Nẵng</option>
+                        <option value="divorced">Bà Rịa Vũng Tàu</option>
+                        <option value="widowed">Nam Định</option>
+                    </select>
+
+                    <label for="chucvu-info-gv">Chức vụ</label>
+                    <select class="select-info-gv" id="chucvu-info-gv">
+                        <!-- <option value="" disabled selected>Select your marital status</option> -->
+                        <option value="single">Trưởng khoa</option>
+                        <option value="married">Phó trưởng khoa</option>
+                        <option value="divorced">Giảng viên</option>
+                    </select>
+
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" id="address" placeholder="Nhập địa chỉ của bạn">
+
+                    <button type="button" class="save-button">Save</button>
+                </form>
+            </div>
+            <div id="content-account-gv" class="content-account-gv">
+                <h2>Thông tin tài khoản</h2>
+                <form>
+                    <label for="phone">Mật khẩu cũ</label>
+                    <input type="tel" id="phone" placeholder="Nhập mật khẩu cũ">
+
+                    <label for="dob">Mật khẩu mới</label>
+                    <input type="text" id="dob" placeholder="Nhập mật khẩu mới">
+
+                    <label for="email">Xác nhận mật khẩu mới</label>
+                    <input type="email" id="email" placeholder="Xác nhận mật khẩu mới">
+
+                    <button type="button" class="save-button">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Hidden File Input -->
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+</div>
