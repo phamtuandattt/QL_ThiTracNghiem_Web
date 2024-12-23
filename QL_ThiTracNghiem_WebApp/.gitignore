@@ -11,7 +11,7 @@
 *.suo
 *.user
 *.v2
-*.json
+# *.json
 bin/
 obj/
 .vs/

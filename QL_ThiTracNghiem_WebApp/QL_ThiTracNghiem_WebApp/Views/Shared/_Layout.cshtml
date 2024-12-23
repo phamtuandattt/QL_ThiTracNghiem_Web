@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - QL_ThiTracNghiem_WebApp</title>
+    <title>@ViewData["Title"]</title>
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
     @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
     @* <link rel="stylesheet" href="~/QL_ThiTracNghiem_WebApp.styles.css" asp-append-version="true" /> *@
@@ -35,7 +35,8 @@
     <!-- <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script> -->
     <script src="../js/xlsx.full.min.js"></script>
 
-
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -53,11 +54,11 @@
             <ul class="sidebar-menu">
                 <li class="sidebar-item" onclick="toggleMenu('quantri-menu', this)">
                     <img class="icon" src="~/img/team.png" alt="logo">
-                    <a href="" class="sidebar-item-content">Quản trị</a>
+                    <a href="javascript:void(0)" class="sidebar-item-content">Quản trị</a>
                 </li>
                 <div class="submenu" id="quantri-menu">
-                    <a href="@Url.Action("","")" class="sidebar-item submenu-item">&emsp;&emsp;&emsp;Khoa</a>
-                    <a href="@Url.Action("QuanLyGiangVien","GiangVien")" class="sidebar-item submenu-item">&emsp;&emsp;&emsp;Giảng viên</a>
+                    <a style="display:none" href="@Url.Action("","")" class="sidebar-item submenu-item">&emsp;&emsp;&emsp;Khoa</a>
+                    <a style="display:none" href="@Url.Action("QuanLyGiangVien","GiangVien")" class="sidebar-item submenu-item">&emsp;&emsp;&emsp;Giảng viên</a>
                     <a href="@Url.Action("QuanLyHocPhan","HocPhan")" class="sidebar-item submenu-item">&emsp;&emsp;&emsp;Học phần</a>
                     <a href="@Url.Action("QuanLyLopHoc","LopHoc")" class="sidebar-item submenu-item">&emsp;&emsp;&emsp;Lớp học</a>
                 </div>
@@ -71,7 +72,7 @@
                 </li>
                 <li class="sidebar-item" onclick="toggleMenu('dethi-menu', this)">
                     <img class="icon" src="~/img/exam-time.png" alt="logo">
-                    <a href="#" class="sidebar-item-content">Đề thi</a>
+                    <a href="javascript:void(0)" class="sidebar-item-content">Đề thi</a>
                     <!-- <span class="arrow">&#9650;</span> -->
                 </li>
                 <div class="submenu" id="dethi-menu">
@@ -80,7 +81,7 @@
                 </div>
                 <li class="sidebar-item" onclick="toggleMenu('taocathi-menu', this)">
                     <img class="icon" src="~/img/scheduling.png" alt="logo">
-                    <a href="#" class="sidebar-item-content">Ca thi - chọn để thi</a>
+                    <a href="javascript:void(0)" class="sidebar-item-content">Ca thi - chọn để thi</a>
                 </li>
                 <div class="submenu" id="taocathi-menu">
                     <a href="@Url.Action("TaoCaThi", "CaThi")" class="sidebar-item submenu-item">&emsp;&emsp;&emsp;Tạo ca thi</a>
@@ -287,6 +288,8 @@
         <p style="color: white;" id="message-errorr"></p>
     </div>
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         var listQuestionCreate_dethi = [];
         let allChecked = false;
