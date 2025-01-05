@@ -51,6 +51,13 @@ public static class RegisterDependentServices
 
         builder.Services.AddControllers();
 
+        builder.Services.AddApiVersioning(options =>
+        {
+            options.ReportApiVersions = true; // Includes API version in the response headers
+            options.AssumeDefaultVersionWhenUnspecified = true; // Assumes default version if not specified
+            options.DefaultApiVersion = new ApiVersion(1, 0); // Default API version is 1.0
+        });
+
         builder.Services.AddAutoMapper(typeof(MappingsProfile));
 
         builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

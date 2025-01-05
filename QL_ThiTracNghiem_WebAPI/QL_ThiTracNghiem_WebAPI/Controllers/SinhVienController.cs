@@ -11,8 +11,9 @@ using System.Dynamic;
 
 namespace QL_ThiTracNghiem_WebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/v{version:apiVersion}/sinhviens")]
+    [ApiVersion("1.0")]
     public class SinhVienController : Controller
     {
         private readonly ISinhVienServices _services;
